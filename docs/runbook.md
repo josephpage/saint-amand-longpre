@@ -120,6 +120,8 @@ l'administration le nombre d'actualités (≈ 135), de séances (≈ 195) et d'�
 - [ ] Bouton « Prévisualiser » sur un brouillon : l'aperçu s'ouvre sur le site.
 - [ ] Recherche : « passeport » renvoie la page Passeport.
 - [ ] Planifier l'audit RGAA, puis mettre à jour la déclaration d'accessibilité.
+- [ ] Planifier le reportage photo (voir [photos-a-prendre.md](photos-a-prendre.md)) : les photos
+      P1 remplacent les emplacements vides de l'accueil et des salles.
 - [ ] Prévenir le prestataire actuel (Réseau des Communes) de la fin du contrat après la bascule.
 
 ## 7. Référencement (SEO) et assistants IA (GEO)

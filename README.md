@@ -72,3 +72,4 @@ La source du contenu et les variables du Worker dépendent de `CLOUDFLARE_ENV` (
 - [Mise en ligne (runbook)](docs/runbook.md)
 - [Reprise du contenu de l'ancien site](docs/reprise-contenu.md)
 - [Guide de rédaction pour le secrétariat](docs/guide-redaction.md)
+- [Photos à prendre pour illustrer le site](docs/photos-a-prendre.md)
