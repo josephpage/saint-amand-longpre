@@ -37,7 +37,7 @@ const { settings } = await getContent();
       <h2 class="text-xl">Mairie de Saint-Amand-Longpré</h2>
       <OpeningStatus hours={settings.hours} class="justify-self-start" />
       <p class="flex gap-3">
-        <Icon name="pin" class="icon text-terracotta-text" />
+        <Icon name="pin" class="icon text-rouge" />
         <span>
           {settings.street}
           <br />
@@ -45,22 +45,22 @@ const { settings } = await getContent();
         </span>
       </p>
       <p class="flex gap-3">
-        <Icon name="phone" class="icon text-terracotta-text" />
+        <Icon name="phone" class="icon text-rouge" />
         <a
-          class="font-serif text-xl font-semibold text-encre no-underline"
+          class="font-display text-xl font-semibold text-nuit no-underline"
           href={`tel:${settings.phone.replace(/\s/g, '')}`}
         >
           {settings.phone}
         </a>
       </p>
       <p class="flex gap-3">
-        <Icon name="mail" class="icon text-terracotta-text" />
+        <Icon name="mail" class="icon text-rouge" />
         <a class="break-all" href={`mailto:${LEGAL.email}`}>
           {LEGAL.email}
         </a>
       </p>
       <div class="flex gap-3">
-        <Icon name="clock" class="icon text-terracotta-text" />
+        <Icon name="clock" class="icon text-rouge" />
         <dl class="text-sm">
           {summarizeHours(settings.hours).map((line) => (
             <div>

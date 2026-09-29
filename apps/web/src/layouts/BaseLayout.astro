@@ -8,6 +8,7 @@ import { activeAlerts, getContent } from '~/lib/content/index.ts';
 import { todayInParis } from '~/lib/dates.ts';
 import { buildNavigation } from '~/lib/navigation.ts';
 import { siteGraph } from '~/lib/seo.ts';
+import { LOGO } from '~/site.config.ts';
 
 interface Props {
   title: string;
@@ -57,14 +58,14 @@ const metaDescription =
     <title>{pageTitle}</title>
     <meta name="description" content={metaDescription} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/images/blason-saint-amand-longpre.svg" type="image/svg+xml" />
+    <link rel="icon" href={LOGO.monogram} type="image/svg+xml" />
     <link
       rel="alternate"
       type="text/calendar"
       title="Agenda de Saint-Amand-Longpré"
       href="/agenda.ics"
     />
-    <meta name="theme-color" content="#1d3441" />
+    <meta name="theme-color" content="#1f2937" />
     <meta
       name="robots"
       content={

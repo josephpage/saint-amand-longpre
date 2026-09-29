@@ -92,7 +92,7 @@ export default function ReportForm({ siteKey }: { siteKey: string }) {
         </p>
       )}
       <fieldset className="grid gap-5">
-        <legend className="mb-1 font-serif text-xl font-semibold">Le problème</legend>
+        <legend className="mb-1 font-display text-xl font-semibold">Le problème</legend>
         <Field name="category" label={LABELS.category!} error={errors.category} required>
           {(p) => (
             <select {...p} defaultValue="" className={inputClass}>
@@ -127,7 +127,7 @@ export default function ReportForm({ siteKey }: { siteKey: string }) {
         </Field>
       </fieldset>
       <fieldset className="grid gap-5 sm:grid-cols-2">
-        <legend className="mb-1 font-serif text-xl font-semibold sm:col-span-2">
+        <legend className="mb-1 font-display text-xl font-semibold sm:col-span-2">
           Vos coordonnées
         </legend>
         <Field name="name" label={LABELS.name!} error={errors.name} required>
@@ -156,7 +156,7 @@ export default function ReportForm({ siteKey }: { siteKey: string }) {
             type="checkbox"
             id="champ-consent"
             name="consent"
-            className="mt-1 size-5 accent-terracotta"
+            className="mt-1 size-5 accent-rouge"
             aria-invalid={errors.consent ? true : undefined}
             aria-describedby={errors.consent ? 'champ-consent-erreur' : undefined}
           />

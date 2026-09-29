@@ -45,7 +45,7 @@ const path = '/mairie/conseil-municipal/elus/';
                 />
               ) : (
                 <span
-                  class="grid size-20 shrink-0 place-items-center rounded-full bg-sauge font-serif text-2xl font-semibold text-bocage"
+                  class="grid size-20 shrink-0 place-items-center rounded-full bg-sauge-soft font-display text-2xl font-semibold text-sauge-text"
                   aria-hidden="true"
                 >
                   {person.name
@@ -57,7 +57,7 @@ const path = '/mairie/conseil-municipal/elus/';
               )}
               <div>
                 <h3 class="text-lg leading-snug">{person.name}</h3>
-                <p class="text-sm font-bold text-terracotta-text">{person.title}</p>
+                <p class="font-display text-sm font-semibold text-rouge">{person.title}</p>
                 {person.delegations && <p class="mt-1 text-sm text-muted">{person.delegations}</p>}
               </div>
             </li>

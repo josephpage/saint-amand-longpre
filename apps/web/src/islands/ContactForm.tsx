@@ -117,7 +117,7 @@ export default function ContactForm({ siteKey, phone }: { siteKey: string; phone
             type="checkbox"
             id="champ-consent"
             name="consent"
-            className="mt-1 size-5 accent-terracotta"
+            className="mt-1 size-5 accent-rouge"
             aria-invalid={errors.consent ? true : undefined}
             aria-describedby={errors.consent ? 'champ-consent-erreur' : undefined}
           />

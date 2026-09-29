@@ -23,7 +23,7 @@ const slugOf = (category: string) => `categorie-${slugify(category)}`;
         <li>
           <a
             href={`#${slugOf(category)}`}
-            class="inline-block rounded-full border border-trait bg-white px-3 py-1 text-sm text-encre no-underline hover:border-terracotta"
+            class="inline-block rounded-full border border-trait bg-white px-3 py-1 text-sm text-nuit no-underline hover:border-rouge"
           >
             {category} <span class="text-muted">({list.length})</span>
           </a>
@@ -43,7 +43,7 @@ const slugOf = (category: string) => `categorie-${slugify(category)}`;
           <li class="card grid content-start gap-2 p-5">
             <h3 class="text-lg leading-snug">
               {detailBase ? (
-                <a href={`${detailBase}${entry.slug}/`} class="text-encre">
+                <a href={`${detailBase}${entry.slug}/`} class="text-nuit">
                   {entry.title}
                 </a>
               ) : (
@@ -52,27 +52,27 @@ const slugOf = (category: string) => `categorie-${slugify(category)}`;
             </h3>
             {entry.address && (
               <p class="flex gap-2 text-sm">
-                <Icon name="pin" class="icon size-5 text-terracotta-text" />
+                <Icon name="pin" class="icon size-5 text-rouge" />
                 {entry.address}
               </p>
             )}
             {entry.phone && (
               <p class="flex gap-2 text-sm">
-                <Icon name="phone" class="icon size-5 text-terracotta-text" />
-                <a href={`tel:${entry.phone.replace(/[^\d+]/g, '')}`} class="text-encre">
+                <Icon name="phone" class="icon size-5 text-rouge" />
+                <a href={`tel:${entry.phone.replace(/[^\d+]/g, '')}`} class="text-nuit">
                   {entry.phone}
                 </a>
               </p>
             )}
             {entry.email && (
               <p class="flex gap-2 text-sm">
-                <Icon name="mail" class="icon size-5 text-terracotta-text" />
+                <Icon name="mail" class="icon size-5 text-rouge" />
                 <a href={`mailto:${entry.email}`}>{entry.email}</a>
               </p>
             )}
             {entry.website && (
               <p class="flex gap-2 text-sm">
-                <Icon name="globe" class="icon size-5 text-terracotta-text" />
+                <Icon name="globe" class="icon size-5 text-rouge" />
                 <a href={entry.website} rel="noopener noreferrer">
                   {entry.website.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
                 </a>

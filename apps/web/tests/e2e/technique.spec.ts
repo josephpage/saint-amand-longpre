@@ -88,13 +88,24 @@ test.describe('Référencement', () => {
   });
 });
 
-test.describe('Blason', () => {
-  test('figure dans l’en-tête et le pied de page', async ({ page }) => {
+test.describe('Logo et blason', () => {
+  test('le logo figure dans l’en-tête et le pied de page', async ({ page }) => {
     await page.goto('/');
-    const src = '/images/blason-saint-amand-longpre.svg';
-    await expect(page.locator(`header img[src="${src}"]`)).toBeVisible();
-    await expect(page.locator(`footer img[src="${src}"]`)).toBeVisible();
-    await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', src);
+    await expect(
+      page.getByRole('banner').getByRole('link', { name: /retour à l’accueil/ }),
+    ).toContainText('Saint-Amand-Longpré');
+    await expect(page.locator('header svg[viewBox="274 34 642 488"]')).toBeVisible();
+    await expect(page.locator('footer svg[viewBox="274 34 642 488"]')).toBeVisible();
+    await expect(page.locator('link[rel="icon"]')).toHaveAttribute(
+      'href',
+      '/images/logo-monogramme.svg',
+    );
+  });
+
+  test('le blason, source du logo, est présenté avec son crédit', async ({ page }) => {
+    await page.goto('/decouvrir/la-commune/');
+    await expect(page.getByRole('img', { name: 'Blason de Saint-Amand-Longpré' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Spedona' }).first()).toBeVisible();
   });
 
   test('est crédité conformément à sa licence', async ({ page }) => {

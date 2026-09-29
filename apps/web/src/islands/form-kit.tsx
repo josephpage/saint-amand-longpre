@@ -99,10 +99,10 @@ export function Field({ name, label, error, hint, required = false, children }: 
     [hint ? hintId : null, error ? errorId : null].filter(Boolean).join(' ') || undefined;
   return (
     <div className="grid gap-1.5">
-      <label htmlFor={id} className="font-bold">
+      <label htmlFor={id} className="font-display font-semibold">
         {label}
         {required ? (
-          <span className="text-terracotta-text"> (obligatoire)</span>
+          <span className="text-rouge"> (obligatoire)</span>
         ) : (
           <span className="font-normal text-muted"> (facultatif)</span>
         )}
@@ -129,7 +129,7 @@ export function Field({ name, label, error, hint, required = false, children }: 
 }
 
 export const inputClass =
-  'w-full rounded-lg border-2 border-trait bg-white px-3 py-2.5 text-base text-encre focus:border-terracotta focus:outline-none aria-[invalid=true]:border-urgence';
+  'w-full rounded-lg border-2 border-champ bg-white px-3 py-2.5 text-base text-nuit focus:border-riviere-text focus:outline-none aria-[invalid=true]:border-urgence';
 
 /** Récapitulatif des erreurs, placé en tête du formulaire et focalisé à l'envoi. */
 export function ErrorSummary({
@@ -161,7 +161,7 @@ export function ErrorSummary({
         {entries.map(([field, message]) => (
           <li key={field}>
             {labels[field] ? (
-              <a href={`#champ-${field}`} className="text-encre">
+              <a href={`#champ-${field}`} className="text-nuit">
                 {message}
               </a>
             ) : (

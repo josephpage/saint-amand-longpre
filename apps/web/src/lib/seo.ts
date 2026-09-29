@@ -1,4 +1,4 @@
-import { BLASON, COMMUNE, LEGAL } from '../site.config.ts';
+import { COMMUNE, LEGAL, LOGO } from '../site.config.ts';
 import type { Crumb } from './content/select.ts';
 import type { Elected, Event, News, Room, Settings } from './content/types.ts';
 
@@ -72,8 +72,8 @@ export function siteGraph(settings: Settings, site: URL, mayor?: Elected) {
         url: site.toString(),
         logo: {
           '@type': 'ImageObject',
-          url: new URL(BLASON.src, site).toString(),
-          caption: `Blason de ${COMMUNE.name}`,
+          url: new URL(LOGO.src, site).toString(),
+          caption: `Logo de la ville de ${COMMUNE.name}`,
         },
         email: LEGAL.email,
         telephone: settings.phone,
@@ -139,7 +139,7 @@ export function siteGraph(settings: Settings, site: URL, mayor?: Elected) {
         ...geo,
         openingHoursSpecification: openingHours(settings),
         parentOrganization: { '@id': id.commune },
-        image: new URL(BLASON.src, site).toString(),
+        image: new URL(LOGO.src, site).toString(),
       },
     ],
   };

@@ -17,7 +17,7 @@ const { items, headingLevel: Heading = 'h2' } = Astro.props;
         <Heading class="text-lg leading-snug">
           <a
             href={item.href}
-            class="text-encre no-underline after:absolute after:inset-0 group-hover:underline"
+            class="text-nuit no-underline after:absolute after:inset-0 group-hover:underline"
           >
             {item.label}
           </a>
@@ -26,7 +26,7 @@ const { items, headingLevel: Heading = 'h2' } = Astro.props;
           <p class="mt-1.5 line-clamp-2 text-sm text-muted">{item.description}</p>
         )}
       </div>
-      <Icon name="chevron-right" class="icon mt-1 size-5 text-terracotta-text" />
+      <Icon name="chevron-right" class="icon mt-1 size-5 text-rouge" />
     </li>
   ))}
 </ul>

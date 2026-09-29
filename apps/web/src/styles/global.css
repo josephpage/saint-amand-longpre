@@ -1,65 +1,72 @@
 @import 'tailwindcss';
-@import '@fontsource-variable/source-serif-4/wght.css';
-@import '@fontsource/atkinson-hyperlegible-next/400.css';
-@import '@fontsource/atkinson-hyperlegible-next/600.css';
-@import '@fontsource/atkinson-hyperlegible-next/700.css';
-@import '@fontsource/allura/400.css';
+@import '@fontsource-variable/montserrat/wght.css';
+@import '@fontsource-variable/lora/wght.css';
+@import '@fontsource-variable/lora/wght-italic.css';
 
+/*
+ * Charte graphique de la commune (2026). Les couleurs de la charte servent aux aplats et aux
+ * éléments graphiques ; les variantes « -text » sont assombries pour le texte (contraste
+ * RGAA ≥ 4,5:1 sur blanc et sur sable). Le jaune ne porte jamais de texte : il accompagne.
+ */
 @theme {
-  --color-terracotta: #b5532a;
-  --color-terracotta-text: #a84a22;
-  --color-terracotta-dark: #96431d;
-  --color-terracotta-soft: #f6e6dc;
-  --color-nuit: #1d3441;
-  --color-nuit-muted: #a9b8c1;
-  --color-nuit-text: #e8edf0;
-  --color-bocage: #2f5d3a;
-  --color-sauge: #e4eadf;
-  --color-lin: #faf7f2;
-  --color-pierre: #f2ede4;
-  --color-encre: #1f2a33;
-  --color-muted: #5b6570;
-  --color-trait: #e6dfd3;
+  --color-nuit: #1f2937;
+  --color-nuit-soft: #2c3a4d;
+  --color-nuit-muted: #b9c1cc;
+  --color-rouge: #c12a2a;
+  --color-rouge-dark: #a82323;
+  --color-rouge-soft: #f7e4e1;
+  --color-jaune: #f4c430;
+  --color-jaune-soft: #fcf0cc;
+  --color-sauge: #6c8f64;
+  --color-sauge-text: #4e6b48;
+  --color-sauge-soft: #e6ede2;
+  --color-riviere: #4c8faf;
+  --color-riviere-text: #2f6e8c;
+  --color-riviere-soft: #e2eef4;
+  --color-sable: #f6f1e8;
+  --color-sable-dark: #ede5d6;
+  --color-muted: #5c6470;
+  --color-trait: #e4dacb;
+  /* Bordure des champs de formulaire : contraste ≥ 3:1 sur blanc et sur sable. */
+  --color-champ: #80868f;
   --color-ouvert: #2f6b45;
   --color-ouvert-soft: #e3f0e7;
-  --color-vigilance: #935600;
-  --color-vigilance-soft: #fbebd2;
+  --color-vigilance: #7a5b00;
+  --color-vigilance-soft: #fcf0cc;
   --color-urgence: #a3162b;
   --color-urgence-soft: #fae4e7;
 
-  --font-serif: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, 'Times New Roman', serif;
-  --font-sans:
-    'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI',
-    sans-serif;
-  --font-script: 'Allura', 'Snell Roundhand', cursive;
+  /* Montserrat : titres, accroches, éléments d'interface. Lora : textes courants, chapôs. */
+  --font-display: 'Montserrat Variable', 'Montserrat', system-ui, 'Segoe UI', sans-serif;
+  --font-serif: 'Lora Variable', 'Lora', Georgia, 'Times New Roman', serif;
 
-  --radius-card: 0.75rem;
-  --shadow-card: 0 1px 2px rgb(31 42 51 / 0.05), 0 10px 30px -12px rgb(31 42 51 / 0.22);
+  --radius-card: 1rem;
+  --shadow-card: 0 1px 2px rgb(31 41 55 / 0.05), 0 12px 32px -14px rgb(31 41 55 / 0.25);
 }
 
 @layer base {
   html {
     color-scheme: light;
     -webkit-text-size-adjust: 100%;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 6rem;
   }
   body {
-    @apply bg-lin font-sans text-[1.0625rem] leading-relaxed text-encre antialiased;
+    @apply bg-sable font-serif text-[1.0625rem] leading-relaxed text-nuit antialiased;
   }
   h1,
   h2,
   h3,
   h4 {
-    @apply font-serif font-semibold tracking-[-0.01em] text-balance;
+    @apply font-display font-bold tracking-[-0.015em] text-balance;
   }
   a {
-    @apply text-terracotta-text underline underline-offset-2;
+    @apply text-rouge underline decoration-1 underline-offset-[0.2em];
   }
   :focus-visible {
-    @apply rounded-sm outline-3 outline-offset-2 outline-terracotta;
+    @apply rounded-sm outline-3 outline-offset-2 outline-riviere-text;
   }
   ::selection {
-    @apply bg-terracotta-soft;
+    @apply bg-jaune-soft;
   }
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -74,25 +81,45 @@
 
 @layer components {
   .container-site {
-    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
   }
+  /* Boutons : forme « pilule », texte en Montserrat. */
   .btn {
-    @apply inline-flex items-center gap-2 rounded-lg bg-terracotta px-4.5 py-2.5 font-bold whitespace-nowrap text-white no-underline transition-colors hover:bg-terracotta-dark;
+    @apply inline-flex items-center gap-2 rounded-full bg-rouge px-5 py-2.5 font-display text-[0.95rem] font-semibold whitespace-nowrap text-white no-underline transition-colors hover:bg-rouge-dark;
+  }
+  .btn-dark {
+    @apply inline-flex items-center gap-2 rounded-full bg-nuit px-5 py-2.5 font-display text-[0.95rem] font-semibold whitespace-nowrap text-white no-underline transition-colors hover:bg-nuit-soft;
   }
   .btn-ghost {
-    @apply inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 font-bold text-encre no-underline shadow-card hover:text-terracotta-text;
+    @apply inline-flex items-center gap-2 rounded-full bg-white px-4.5 py-2.5 font-display text-[0.95rem] font-semibold text-nuit no-underline shadow-card hover:text-rouge;
   }
   .card {
     @apply rounded-card bg-white shadow-card;
   }
   .link-more {
-    @apply inline-flex items-center gap-1.5 text-sm font-bold whitespace-nowrap text-terracotta-text no-underline hover:underline;
+    @apply inline-flex items-center gap-2 font-display text-sm font-semibold whitespace-nowrap text-rouge no-underline hover:underline;
   }
+  /* Petites capitales espacées de la charte (« ENTRE PATRIMOINE, NATURE ET AVENIR »). */
   .eyebrow {
-    @apply text-xs font-bold tracking-[0.12em] uppercase;
+    @apply font-display text-xs font-semibold tracking-[0.18em] uppercase;
+  }
+  /* Filet jaune sous les titres, signature de la charte. */
+  .title-bar {
+    @apply after:mt-3 after:block after:h-1 after:w-12 after:rounded-full after:bg-jaune;
+  }
+  .title-bar-center {
+    @apply after:mx-auto after:mt-3 after:block after:h-1 after:w-12 after:rounded-full after:bg-jaune;
+  }
+  /* Étiquette de catégorie (« INFO TRAVAUX », « ÉVÈNEMENT »). */
+  .chip {
+    @apply inline-flex items-center rounded-full px-3 py-1 font-display text-[0.7rem] leading-none font-semibold tracking-[0.12em] uppercase;
   }
   .icon {
-    @apply size-6 shrink-0 fill-none stroke-current stroke-[1.9] [stroke-linecap:round] [stroke-linejoin:round];
+    @apply size-6 shrink-0 fill-none stroke-current stroke-[1.6] [stroke-linecap:round] [stroke-linejoin:round];
+  }
+  /* Motif « écailles » du blason, ton sur ton (fonds de secours des tuiles sans photo). */
+  .motif-ecailles {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='32' viewBox='0 0 48 32'%3E%3Cpath d='M0 0q12 22 24 0q12 22 24 0M-24 16q12 22 24 0q12 22 24 0q12 22 24 0' fill='none' stroke='white' stroke-opacity='.12' stroke-width='3'/%3E%3C/svg%3E");
   }
 
   /* Contenu éditorial venant de WordPress (ou du jeu de données). */
@@ -129,7 +156,7 @@
       @apply h-auto max-w-full rounded-lg;
     }
     & blockquote {
-      @apply border-l-4 border-terracotta pl-4 text-muted italic;
+      @apply border-l-4 border-jaune pl-4 text-muted italic;
     }
     & table {
       @apply block w-full border-collapse overflow-x-auto text-[0.95rem];
@@ -139,7 +166,7 @@
       @apply border border-trait px-3 py-2 text-left align-top;
     }
     & th {
-      @apply bg-pierre font-bold;
+      @apply bg-sable font-display font-semibold;
     }
     & hr {
       @apply my-8 border-trait;
@@ -149,15 +176,15 @@
       @apply flex items-center gap-3 rounded-lg border border-trait bg-white px-4 py-3;
       &::before {
         content: '';
-        @apply size-6 shrink-0 bg-terracotta-text;
+        @apply size-6 shrink-0 bg-rouge;
         mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 2v6h6M12 18v-6M9 15l3 3 3-3'/%3E%3C/svg%3E")
           center / contain no-repeat;
       }
       & a {
-        @apply font-semibold text-encre;
+        @apply font-display font-semibold text-nuit;
       }
       & .wp-block-file__button {
-        @apply ml-auto shrink-0 text-sm font-bold text-terracotta-text no-underline;
+        @apply ml-auto shrink-0 font-display text-sm font-semibold text-rouge no-underline;
       }
     }
     & .wp-block-file + .wp-block-file {

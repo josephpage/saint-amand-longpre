@@ -2,16 +2,20 @@
 import type { Crumb } from '~/lib/content/select.ts';
 import { formatDate } from '~/lib/dates.ts';
 import { webPage } from '~/lib/seo.ts';
+import { CHIP, type Tone } from '~/lib/theme.ts';
+import Ribbons from './Ribbons.astro';
 
 interface Props {
   title: string;
   crumbs: Crumb[];
   intro?: string;
   eyebrow?: string;
+  /** Couleur thématique : l'accroche devient une étiquette (catégorie d'actualité). */
+  tone?: Tone;
   /** Date de dernière modification (AAAA-MM-JJ), affichée et déclarée aux moteurs. */
   modified?: string;
 }
-const { title, crumbs, intro, eyebrow, modified } = Astro.props;
+const { title, crumbs, intro, eyebrow, tone, modified } = Astro.props;
 const ancestors = crumbs.slice(0, -1);
 const path = Astro.url.pathname;
 const structured = webPage(
@@ -24,28 +28,38 @@ const structured = webPage(
 );
 ---
 
-<div class="border-b border-trait bg-pierre">
-  <div class="container-site py-8 sm:py-10">
+<div class="relative overflow-hidden bg-white">
+  <div class="container-site relative pt-8 pb-6 sm:pt-10">
     {ancestors.length > 0 && (
       <nav aria-label="Fil d’Ariane" class="mb-4 text-sm">
         <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-muted">
           {ancestors.map((crumb) => (
             <li class="flex items-center gap-2">
-              <a href={crumb.href} class="text-muted hover:text-terracotta-text">
+              <a
+                href={crumb.href}
+                class="font-display text-[0.85rem] font-medium text-muted hover:text-rouge"
+              >
                 {crumb.label}
               </a>
               <span aria-hidden="true">›</span>
             </li>
           ))}
-          <li aria-current="page" class="text-encre">
+          <li aria-current="page" class="font-display text-[0.85rem] font-medium text-nuit">
             {title}
           </li>
         </ol>
       </nav>
     )}
-    {eyebrow && <p class="eyebrow mb-2 text-terracotta-text">{eyebrow}</p>}
-    <h1 class="max-w-4xl text-3xl sm:text-4xl lg:text-[2.6rem]">{title}</h1>
-    {intro && <p class="mt-3 max-w-3xl text-lg text-muted">{intro}</p>}
+    {eyebrow &&
+      (tone ? (
+        <p class="mb-3">
+          <span class:list={['chip', CHIP[tone]]}>{eyebrow}</span>
+        </p>
+      ) : (
+        <p class="eyebrow mb-2 text-rouge">{eyebrow}</p>
+      ))}
+    <h1 class="title-bar max-w-4xl text-3xl leading-tight sm:text-4xl lg:text-[2.5rem]">{title}</h1>
+    {intro && <p class="mt-4 max-w-3xl text-lg text-muted">{intro}</p>}
     {modified && (
       <p class="mt-3 text-sm text-muted">
         Mis à jour le <time datetime={modified}>{formatDate(modified)}</time>
@@ -53,5 +67,6 @@ const structured = webPage(
     )}
     <slot />
   </div>
+  <Ribbons class="h-10 sm:h-14" />
   <script type="application/ld+json" set:html={JSON.stringify(structured)} />
 </div>

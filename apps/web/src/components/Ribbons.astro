@@ -1,0 +1,41 @@
+---
+/**
+ * Rubans ondulés de la charte graphique (« des courbes inspirées du blason et du paysage ») :
+ * rouge, or, vert sauge et bleu rivière. Posés en bas d'une section, ils font la transition
+ * vers la suivante : `fill` est la couleur de la section qui suit (classe text-*).
+ */
+interface Props {
+  /** Couleur de la section suivante, en classe Tailwind de texte (text-sable, text-nuit…). */
+  fill?: string;
+  /** Hauteur et position. */
+  class?: string;
+  /** Inverse le sens des vagues (variété d'une page à l'autre). */
+  flip?: boolean;
+}
+const { fill = 'text-sable', class: className = 'h-16 sm:h-24', flip = false } = Astro.props;
+---
+
+<svg
+  class:list={['pointer-events-none block w-full', fill, className, flip && '-scale-x-100']}
+  viewBox="0 0 1440 120"
+  preserveAspectRatio="none"
+  aria-hidden="true"
+  focusable="false"
+>
+  <path
+    fill="#c12a2a"
+    d="M0 58C180 20 360 18 560 52c140 24 250 32 360 22C780 92 600 86 430 62 270 40 130 44 0 76Z"
+  ></path>
+  <path
+    fill="#f4c430"
+    d="M0 76C130 44 270 40 430 62c170 24 350 30 490 12 190-24 360-60 520-66v18C1290 34 1120 66 930 92 760 114 580 104 420 84 270 66 130 70 0 94Z"
+  ></path>
+  <path
+    fill="#6c8f64"
+    d="M760 96c170-6 330-44 480-62 70-8 140-10 200-6v12c-70-2-150 4-220 16-150 24-300 44-460 40Z"
+  ></path>
+  <path
+    fill="currentColor"
+    d="M0 94C130 70 270 66 420 84c160 20 340 30 510 8 190-26 360-58 510-58v86H0Z"
+  ></path>
+</svg>
