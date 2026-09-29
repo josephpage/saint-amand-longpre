@@ -44,5 +44,5 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Build depuis WordPress
         run: pnpm --filter @sal/web build
-      - name: Publication sur Cloudflare Workers
-        run: pnpm --filter @sal/web exec wrangler deploy
+      - name: Publication sur Cloudflare Pages
+        run: pnpm --filter @sal/web exec wrangler pages deploy --branch main --commit-dirty=true

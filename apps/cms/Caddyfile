@@ -1,0 +1,37 @@
+# Serveur web frontal du serveur dédié (HTTPS automatique avec Let's Encrypt).
+#
+# Le domaine reste chez Gandi : les enregistrements A/AAAA de `cms` et du domaine sans « www »
+# pointent vers ce serveur (voir docs/runbook.md). Caddy obtient et renouvelle seul les
+# certificats.
+{
+	email {$ACME_EMAIL}
+}
+
+# WordPress headless.
+{$CMS_DOMAIN:cms.saintamandlongpre.fr} {
+	encode zstd gzip
+
+	# Administration : mot de passe supplémentaire, avant même la connexion WordPress.
+	# L'API (/graphql, /wp-json) et les médias restent publics : le build du site,
+	# la prévisualisation et les visiteurs en ont besoin.
+	@admin path /wp-admin /wp-admin/* /wp-login.php
+	basic_auth @admin {
+		{$ADMIN_AUTH_USER} {$ADMIN_AUTH_HASH}
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+		-Server
+		-X-Powered-By
+	}
+
+	reverse_proxy wordpress:80
+}
+
+# Domaine sans « www » : Cloudflare Pages ne peut pas le servir sans zone Cloudflare.
+# Redirection permanente vers le site, chemin et paramètres conservés
+# (les anciennes adresses http://saintamandlongpre.fr/fr/… restent valides).
+{$APEX_DOMAIN:saintamandlongpre.fr} {
+	redir https://www.{host}{uri} permanent
+}

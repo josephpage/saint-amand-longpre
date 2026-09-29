@@ -16,6 +16,8 @@ export default defineConfig({
   // Le port 4321 par défaut est souvent occupé ; 4390 est réservé au site de la mairie.
   server: { port: 4390 },
   adapter: cloudflare({
+    // Configuration de build (format Worker) ; le projet Pages est décrit dans wrangler.jsonc.
+    configPath: './wrangler.astro.jsonc',
     // Le pré-rendu tourne dans Node : Sharp optimise les images au build.
     prerenderEnvironment: 'node',
     imageService: { build: 'compile', runtime: 'passthrough' },

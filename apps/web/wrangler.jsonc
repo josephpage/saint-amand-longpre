@@ -1,21 +1,20 @@
+// Projet Cloudflare Pages « saint-amand-longpre » (compte « Mairie de Saint-Amand-Longpré »).
+// Ce fichier fait foi : `wrangler pages deploy` applique ces réglages au projet, qui ne sont
+// plus modifiables depuis le tableau de bord. Les secrets se déclarent à part :
+//   npx wrangler pages secret put <NOM> --project-name saint-amand-longpre
+// (BREVO_API_KEY, TURNSTILE_SECRET, PREVIEW_SECRET, WP_PREVIEW_USER, WP_PREVIEW_APP_PASSWORD).
+//
+// Seules /api/* et /preview/* passent par la fonction (dist/client/_routes.json) ; tout le
+// reste est servi en statique, avec les redirections de dist/client/_redirects.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "saint-amand-longpre",
-  "main": "@astrojs/cloudflare/entrypoints/server",
+  "pages_build_output_dir": "./dist/client",
   "compatibility_date": "2026-06-01",
   "compatibility_flags": ["nodejs_compat"],
-  "assets": {
-    "directory": "./dist",
-    "binding": "ASSETS",
-    "not_found_handling": "404-page",
-    // Sans cela, une navigation vers une adresse sans fichier statique reçoit
-    // directement la page 404, sans passer par le Worker.
-    "run_worker_first": ["/preview/*", "/api/*"],
-  },
-  "observability": { "enabled": true },
 
-  // Environnement par défaut : développement local et tests.
-  // Le contenu vient du jeu de données (data/fixtures) et les e-mails sont simulés.
+  // Local (`pnpm preview`, tests de bout en bout) : jeu de données, e-mails simulés,
+  // clé Turnstile de test. Les secrets locaux viennent de .dev.vars.
   "vars": {
     "CONTENT_SOURCE": "fixtures",
     "WP_GRAPHQL_URL": "http://localhost:8080/graphql",
@@ -24,42 +23,10 @@
     "TURNSTILE_SECRET": "1x0000000000000000000000000000000AA",
     "PREVIEW_SECRET": "dev-preview-secret-change-me",
   },
-  // Limite large en développement et en test (la suite E2E envoie de nombreux formulaires).
-  "ratelimits": [
-    {
-      "name": "FORMS_RATE_LIMITER",
-      "namespace_id": "1001",
-      "simple": { "limit": 100, "period": 60 },
-    },
-  ],
 
   "env": {
-    // Build ou prévisualisation depuis le WordPress local (pnpm cms:up) :
-    // CLOUDFLARE_ENV=wordpress-local pnpm build
-    "wordpress-local": {
-      "name": "saint-amand-longpre-local",
-      "vars": {
-        "CONTENT_SOURCE": "wordpress",
-        "WP_GRAPHQL_URL": "http://localhost:8080/graphql",
-        "MAIL_FROM": "site@saintamandlongpre.fr",
-        "MAIL_DRY_RUN": "true",
-        "TURNSTILE_SECRET": "1x0000000000000000000000000000000AA",
-        "PREVIEW_SECRET": "dev-preview-secret-change-me",
-      },
-      "ratelimits": [
-        {
-          "name": "FORMS_RATE_LIMITER",
-          "namespace_id": "1001",
-          "simple": { "limit": 5, "period": 60 },
-        },
-      ],
-    },
-    // Production : sélectionnée au build avec CLOUDFLARE_ENV=production.
-    // Secrets à déclarer avec `wrangler secret put <NOM> --env production` :
-    // BREVO_API_KEY, TURNSTILE_SECRET, PREVIEW_SECRET,
-    // WP_PREVIEW_USER, WP_PREVIEW_APP_PASSWORD.
+    // Déploiements de production (branche main) : www.saintamandlongpre.fr.
     "production": {
-      "name": "saint-amand-longpre",
       "vars": {
         "CONTENT_SOURCE": "wordpress",
         "WP_GRAPHQL_URL": "https://cms.saintamandlongpre.fr/graphql",
@@ -67,17 +34,16 @@
         "MAIL_TO": "secretariat@saintamandlongpre.fr",
         "MAIL_DRY_RUN": "false",
       },
-      "ratelimits": [
-        {
-          "name": "FORMS_RATE_LIMITER",
-          "namespace_id": "1001",
-          "simple": { "limit": 5, "period": 60 },
-        },
-      ],
-      "routes": [
-        { "pattern": "www.saintamandlongpre.fr", "custom_domain": true },
-        { "pattern": "saintamandlongpre.fr", "custom_domain": true },
-      ],
+    },
+    // Déploiements d'aperçu (autres branches, *.saint-amand-longpre.pages.dev) :
+    // contenu de production, mais aucun e-mail envoyé.
+    "preview": {
+      "vars": {
+        "CONTENT_SOURCE": "wordpress",
+        "WP_GRAPHQL_URL": "https://cms.saintamandlongpre.fr/graphql",
+        "MAIL_FROM": "site@saintamandlongpre.fr",
+        "MAIL_DRY_RUN": "true",
+      },
     },
   },
 }

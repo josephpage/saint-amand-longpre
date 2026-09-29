@@ -1,7 +1,7 @@
 # Site de la mairie de Saint-Amand-Longpré
 
 Site officiel de la commune de Saint-Amand-Longpré (Loir-et-Cher) : Astro statique servi par
-Cloudflare Workers, contenus gérés dans un WordPress headless.
+Cloudflare Pages, contenus gérés dans un WordPress headless.
 
 | Dossier          | Rôle                                                                          |
 | ---------------- | ----------------------------------------------------------------------------- |
@@ -40,25 +40,25 @@ permet de tester la prévisualisation des brouillons (bouton « Prévisualiser �
 
 ## Commandes
 
-| Commande                          | Effet                                                      |
-| --------------------------------- | ---------------------------------------------------------- |
-| `pnpm dev`                        | Serveur de développement (runtime Cloudflare local)        |
-| `pnpm build`                      | Build du site (jeu de données, ou WordPress selon l'env.)  |
-| `pnpm preview`                    | Sert le build dans le runtime Workers local                |
-| `pnpm lint` / `pnpm format`       | ESLint et Prettier                                         |
-| `pnpm typecheck`                  | TypeScript sur tous les paquets                            |
-| `pnpm knip`                       | Code, exports et dépendances inutilisés                    |
-| `pnpm test`                       | Tests unitaires Vitest (tous les paquets)                  |
-| `pnpm test:e2e`                   | Tests Playwright (build + runtime Workers, ordi et mobile) |
-| `pnpm check`                      | Lint, types, Knip et tests unitaires                       |
-| `pnpm scrape`                     | Aspire l'ancien site dans `data/scrape` (cache disque)     |
-| `pnpm fixtures`                   | Reconstruit `data/fixtures` à partir du scraping           |
-| `pnpm cms:import --source scrape` | Importe tout le contenu scrapé dans WordPress              |
+| Commande                          | Effet                                                     |
+| --------------------------------- | --------------------------------------------------------- |
+| `pnpm dev`                        | Serveur de développement (runtime Cloudflare local)       |
+| `pnpm build`                      | Build du site (jeu de données, ou WordPress selon l'env.) |
+| `pnpm preview`                    | Sert le build dans le runtime Cloudflare Pages local      |
+| `pnpm lint` / `pnpm format`       | ESLint et Prettier                                        |
+| `pnpm typecheck`                  | TypeScript sur tous les paquets                           |
+| `pnpm knip`                       | Code, exports et dépendances inutilisés                   |
+| `pnpm test`                       | Tests unitaires Vitest (tous les paquets)                 |
+| `pnpm test:e2e`                   | Tests Playwright (build + runtime Pages, ordi et mobile)  |
+| `pnpm check`                      | Lint, types, Knip et tests unitaires                      |
+| `pnpm scrape`                     | Aspire l'ancien site dans `data/scrape` (cache disque)    |
+| `pnpm fixtures`                   | Reconstruit `data/fixtures` à partir du scraping          |
+| `pnpm cms:import --source scrape` | Importe tout le contenu scrapé dans WordPress             |
 
 ## Environnements
 
-La source du contenu et les variables du Worker dépendent de `CLOUDFLARE_ENV` (voir
-`apps/web/wrangler.jsonc`) :
+La source du contenu dépend de `CLOUDFLARE_ENV` (voir `apps/web/wrangler.astro.jsonc` ; le
+projet Cloudflare Pages de production est décrit dans `apps/web/wrangler.jsonc`) :
 
 | `CLOUDFLARE_ENV`  | Contenu                  | E-mails | Usage                          |
 | ----------------- | ------------------------ | ------- | ------------------------------ |

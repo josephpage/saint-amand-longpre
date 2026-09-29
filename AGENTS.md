@@ -1,7 +1,7 @@
 # Instructions pour les agents IA
 
 Site officiel de la commune de Saint-Amand-Longpré (Loir-et-Cher, environ 1 200 habitants). Le site
-est un Astro statique servi par Cloudflare Workers, et ses contenus sont gérés dans un WordPress
+est un Astro statique servi par Cloudflare Pages, et ses contenus sont gérés dans un WordPress
 headless. Ce fichier donne à un agent ce qu'il lui faut pour contribuer au code ou aux contenus sans
 tout relire. Pour le détail, lire [README.md](README.md) et [docs/](docs/).
 
@@ -39,7 +39,7 @@ pnpm dev          # http://localhost:4390 avec le jeu de données de test, sans 
 | ----------------- | ------------------------------------------------------------------------- |
 | `pnpm check`      | ESLint, Prettier, TypeScript, Knip, Vitest : à passer avant chaque commit |
 | `pnpm format`     | Formate tout avec Prettier                                                |
-| `pnpm test:e2e`   | Playwright : build puis runtime Workers local, ordinateur et mobile, axe  |
+| `pnpm test:e2e`   | Playwright : build puis runtime Pages local, ordinateur et mobile, axe    |
 | `pnpm build`      | Build (jeu de données, ou WordPress selon `CLOUDFLARE_ENV`)               |
 | `pnpm cms:up`     | WordPress local sur http://localhost:8080 (admin / admin)                 |
 | `pnpm cms:setup`  | Extensions et identifiants locaux (`apps/web/.dev.vars`)                  |
@@ -113,7 +113,7 @@ le build échoue si une page publiée est absente du plan du site. Utiliser `Bas
 
 **Formulaires** (`/api/contact`, `/api/signalement`) : schémas zod partagés navigateur/serveur
 (`src/lib/forms/schemas.ts`), logique testable dans `handler.ts` avec ses dépendances injectées
-(`deps.ts`). Turnstile, champ piège et limite d'envois ne doivent pas être retirés. En local, les
+(`deps.ts`). Turnstile et le champ piège ne doivent pas être retirés. En local, les
 e-mails sont simulés.
 
 **SEO et assistants IA** : JSON-LD dans `src/lib/seo.ts`, questions fréquentes générées dans
@@ -131,9 +131,17 @@ identifiants purement numériques : « 2025 » devient « annee-2025 ».
 
 ### Environnements
 
-`CLOUDFLARE_ENV` choisit la source de contenu (voir `apps/web/wrangler.jsonc`) : vide pour le jeu de
+`CLOUDFLARE_ENV` choisit la source de contenu (voir `apps/web/wrangler.astro.jsonc`) : vide pour le jeu de
 données, `wordpress-local` ou `production`. Les secrets locaux sont dans `apps/web/.dev.vars`
 (non versionné, écrit par `pnpm cms:setup`). Ne jamais versionner de secret.
+
+Le site est publié sur **Cloudflare Pages** (le domaine reste chez Gandi, sans zone Cloudflare).
+L'adaptateur Astro ne produit que le format Worker : le post-build le convertit en projet Pages
+(`dist/client/_worker.js/`, `_routes.json`). D'où deux fichiers : `wrangler.jsonc` décrit le
+projet Pages (runtime local de `pnpm preview` et production), `wrangler.astro.jsonc` sert à
+`astro dev` et `astro build`. Toute variable ajoutée doit l'être dans les deux (test
+`src/lib/wrangler-config.test.ts`). Pas de liaison Rate Limiting ni de fonctionnalité réservée
+aux Workers ou aux zones Cloudflare.
 
 ## Contribuer aux contenus
 

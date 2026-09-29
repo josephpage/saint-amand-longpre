@@ -5,7 +5,7 @@ const baseURL = `http://localhost:${PORT}`;
 
 /**
  * Tests de bout en bout sur le site construit avec le jeu de données de test,
- * servi par le runtime Cloudflare local (workerd) comme en production.
+ * servi par le runtime Cloudflare Pages local (workerd) comme en production.
  */
 export default defineConfig({
   testDir: './tests/e2e',
@@ -27,7 +27,7 @@ export default defineConfig({
     { name: 'mobile', use: { ...devices['Pixel 7'] } },
   ],
   webServer: {
-    command: 'pnpm astro build && pnpm astro preview --ignore-lock',
+    command: 'pnpm astro build && pnpm preview',
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 240_000,

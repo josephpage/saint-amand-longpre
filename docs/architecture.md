@@ -6,7 +6,7 @@ flowchart LR
   WP -- "publication<br/>(2 min de regroupement)" --> GH["GitHub Actions<br/>repository_dispatch"]
   GH --> BUILD["astro build<br/>CLOUDFLARE_ENV=production"]
   BUILD -- "GraphQL" --> WP
-  BUILD --> CF["Cloudflare Workers<br/>fichiers statiques"]
+  BUILD --> CF["Cloudflare Pages<br/>fichiers statiques"]
   WP -- "Prévisualiser" --> PREV["/preview/<br/>rendu à la demande"]
   PREV -- "GraphQL (mot de passe d'application)" --> WP
   VIS["Habitants"] --> CF
@@ -17,9 +17,12 @@ flowchart LR
 
 ## Site public (`apps/web`)
 
-- **Astro 7**, `output: 'static'` avec l'adaptateur `@astrojs/cloudflare` (v14, Workers). Presque
-  toutes les pages sont pré-rendues ; seules `/preview/` et `/api/*` s'exécutent dans le Worker
-  (`export const prerender = false`). `run_worker_first` garantit que ces routes atteignent le Worker
+- **Astro 7**, `output: 'static'` avec l'adaptateur `@astrojs/cloudflare` (v14), publié sur
+  **Cloudflare Pages**. Presque toutes les pages sont pré-rendues ; seules `/preview/` et `/api/*`
+  s'exécutent côté serveur (`export const prerender = false`). L'adaptateur ne produisant plus
+  que le format Worker, le post-build (`integrations/post-build.ts`) le convertit en projet Pages
+  « mode avancé » : code serveur dans `dist/client/_worker.js/` (jamais publié en statique) et
+  `_routes.json` qui limite son exécution à ces deux routes.
   même pour une navigation (sinon Cloudflare servirait la page 404 statique).
 - **Pré-rendu en Node** (`prerenderEnvironment: 'node'`) : Sharp optimise les images WordPress au
   build (AVIF/WebP, `srcset`).
@@ -34,9 +37,10 @@ flowchart LR
   exactes, leurs variantes, puis des règles de secours par rubrique. Vérification exhaustive :
   `pnpm check:redirects` (voir [reprise-contenu.md](reprise-contenu.md)).
 - **Formulaires** : validation zod partagée navigateur/serveur, Turnstile, champ piège, limite
-  d'envois (binding Rate Limiting), envoi Brevo. Aucun message n'est stocké ; la photo d'un
+  envoi Brevo (Pages ne propose pas la liaison Rate Limiting ; `handler.ts` accepte un limiteur si
+  besoin). Aucun message n'est stocké ; la photo d'un
   signalement est jointe à l'e-mail.
-- **Prévisualisation** : WordPress signe le lien (HMAC-SHA256, 1 h de validité) ; le Worker vérifie
+- **Prévisualisation** : WordPress signe le lien (HMAC-SHA256, 1 h de validité) ; la fonction Pages vérifie
   la signature puis lit le brouillon avec un mot de passe d'application.
 
 ## WordPress (`apps/cms`)
@@ -46,7 +50,9 @@ flowchart LR
   dans `wordpress/mu-plugins/sal-content-model.php` (types, taxonomies, champs, réglages).
 - `sal-headless.php` : front redirigé vers le site public, liens de prévisualisation signés,
   déclenchement du déploiement (GitHub `repository_dispatch`), allègement de l'administration.
-- En production : aucun port ouvert (Cloudflare Tunnel), administration derrière Cloudflare Access,
+- En production : seul Caddy est exposé (HTTPS Let's Encrypt automatique, `Caddyfile`) ; il sert
+  aussi la redirection du domaine sans `www`. L'administration demande un mot de passe
+  supplémentaire (authentification HTTP de Caddy) avant la connexion WordPress,
   sauvegardes quotidiennes chiffrées vers R2, cron WordPress piloté par un conteneur dédié.
 
 | Type        | Contenu                                    | Champs ACF                                 |
@@ -84,8 +90,14 @@ flowchart LR
 
 ## Choix notables
 
-- **Workers plutôt que Pages** : l'adaptateur Cloudflare d'Astro 7 ne gère plus Pages. Les pages
-  restent des fichiers statiques servis sans exécution de code.
+- **Pages plutôt que Workers** : le domaine reste chez Gandi (DNS non migré). Un projet Pages
+  accepte un sous-domaine externe par simple CNAME, avec certificat automatique ; un Worker exige
+  une zone DNS sur Cloudflare. Le domaine sans `www`, qu'un CNAME ne peut pas desservir, est
+  redirigé par le serveur dédié.
+- **Deux fichiers de configuration** dans `apps/web` : `wrangler.jsonc` décrit le projet Pages
+  (appliqué à chaque déploiement) ; `wrangler.astro.jsonc`, au format Worker, sert à `astro dev`
+  et `astro build`. Un test (`src/lib/wrangler-config.test.ts`) vérifie que leurs variables
+  concordent.
 - **Pas de lettre d'information** au lancement (décision de périmètre).
 - **Pas de cookie** : Cloudflare Web Analytics et Turnstile n'en déposent pas ; aucun bandeau de
   consentement n'est nécessaire.

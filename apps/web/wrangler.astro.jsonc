@@ -1,0 +1,57 @@
+// Configuration lue par Astro (adaptateur @astrojs/cloudflare) pour `astro dev` et `astro build`.
+// L'adaptateur ne produit que le format Worker : le post-build le convertit ensuite en projet
+// Cloudflare Pages (dist/client/_worker.js). La configuration du projet Pages en production
+// est dans wrangler.jsonc : garder les variables des deux fichiers alignées (test
+// src/lib/wrangler-config.test.ts).
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "saint-amand-longpre",
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "compatibility_date": "2026-06-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/preview/*", "/api/*"],
+  },
+
+  // Environnement par défaut : développement local et tests.
+  // Le contenu vient du jeu de données (data/fixtures) et les e-mails sont simulés.
+  "vars": {
+    "CONTENT_SOURCE": "fixtures",
+    "WP_GRAPHQL_URL": "http://localhost:8080/graphql",
+    "MAIL_FROM": "site@saintamandlongpre.fr",
+    "MAIL_DRY_RUN": "true",
+    "TURNSTILE_SECRET": "1x0000000000000000000000000000000AA",
+    "PREVIEW_SECRET": "dev-preview-secret-change-me",
+  },
+
+  "env": {
+    // Développement ou build depuis le WordPress local (pnpm cms:up) :
+    // CLOUDFLARE_ENV=wordpress-local pnpm dev
+    "wordpress-local": {
+      "name": "saint-amand-longpre-local",
+      "vars": {
+        "CONTENT_SOURCE": "wordpress",
+        "WP_GRAPHQL_URL": "http://localhost:8080/graphql",
+        "MAIL_FROM": "site@saintamandlongpre.fr",
+        "MAIL_DRY_RUN": "true",
+        "TURNSTILE_SECRET": "1x0000000000000000000000000000000AA",
+        "PREVIEW_SECRET": "dev-preview-secret-change-me",
+      },
+    },
+    // Build de production (CLOUDFLARE_ENV=production) : pages générées depuis le WordPress
+    // de production. Mêmes variables que env.production de wrangler.jsonc.
+    "production": {
+      "name": "saint-amand-longpre",
+      "vars": {
+        "CONTENT_SOURCE": "wordpress",
+        "WP_GRAPHQL_URL": "https://cms.saintamandlongpre.fr/graphql",
+        "MAIL_FROM": "site@saintamandlongpre.fr",
+        "MAIL_TO": "secretariat@saintamandlongpre.fr",
+        "MAIL_DRY_RUN": "false",
+      },
+    },
+  },
+}
