@@ -7,6 +7,7 @@ import ContactForm from '~/islands/ContactForm.tsx';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { getContent } from '~/lib/content/index.ts';
 import { summarizeHours } from '~/lib/hours.ts';
+import { LEGAL } from '~/site.config.ts';
 
 const { settings } = await getContent();
 ---
@@ -50,6 +51,12 @@ const { settings } = await getContent();
           href={`tel:${settings.phone.replace(/\s/g, '')}`}
         >
           {settings.phone}
+        </a>
+      </p>
+      <p class="flex gap-3">
+        <Icon name="mail" class="icon text-terracotta-text" />
+        <a class="break-all" href={`mailto:${LEGAL.email}`}>
+          {LEGAL.email}
         </a>
       </p>
       <div class="flex gap-3">

@@ -6,15 +6,14 @@ suivante.
 
 ## 0. Prérequis et décisions
 
-| Élément                                              | Qui fournit                 | Statut                                          |
-| ---------------------------------------------------- | --------------------------- | ----------------------------------------------- |
-| Accès au registrar du domaine `saintamandlongpre.fr` | Mairie / prestataire actuel | à obtenir                                       |
-| Compte Cloudflare (gratuit)                          | Mairie                      | à créer                                         |
-| Serveur dédié avec Docker et Docker Compose          | Mairie                      | à confirmer                                     |
-| Nom et adresse de l'hébergeur du serveur             | Mairie                      | à renseigner dans `apps/web/src/site.config.ts` |
-| Compte Brevo (gratuit, 300 e-mails/jour)             | Mairie                      | à créer                                         |
-| Adresse e-mail de réception des formulaires          | Mairie                      | à fournir                                       |
-| Dépôt GitHub `josephpage/saint-amand-longpre`        | —                           | créé                                            |
+| Élément                                              | Qui fournit                 | Statut                                                         |
+| ---------------------------------------------------- | --------------------------- | -------------------------------------------------------------- |
+| Accès au registrar du domaine `saintamandlongpre.fr` | Mairie / prestataire actuel | à obtenir                                                      |
+| Compte Cloudflare (gratuit)                          | Mairie                      | à créer                                                        |
+| Serveur dédié avec Docker et Docker Compose          | Mairie                      | à confirmer                                                    |
+| Compte Brevo (gratuit, 300 e-mails/jour)             | Mairie                      | à créer                                                        |
+| Adresse e-mail de réception des formulaires          | Mairie                      | secretariat@saintamandlongpre.fr (`MAIL_TO`, `wrangler.jsonc`) |
+| Dépôt GitHub `josephpage/saint-amand-longpre`        | —                           | créé                                                           |
 
 ## 1. Cloudflare : domaine et comptes
 
@@ -81,7 +80,6 @@ l'administration le nombre d'actualités (≈ 135), de séances (≈ 195) et d'�
 
    ```sh
    npx wrangler secret put BREVO_API_KEY --env production
-   npx wrangler secret put MAIL_TO --env production              # adresse de la mairie
    npx wrangler secret put TURNSTILE_SECRET --env production
    npx wrangler secret put PREVIEW_SECRET --env production       # même valeur que PREVIEW_SECRET du serveur
    npx wrangler secret put WP_PREVIEW_USER --env production      # secretariat
@@ -113,7 +111,6 @@ l'administration le nombre d'actualités (≈ 135), de séances (≈ 195) et d'�
 - [ ] Bouton « Prévisualiser » sur un brouillon : l'aperçu s'ouvre sur le site.
 - [ ] Recherche : « passeport » renvoie la page Passeport.
 - [ ] Search Console : ajouter le domaine, envoyer `https://www.saintamandlongpre.fr/sitemap-index.xml`.
-- [ ] Renseigner l'hébergeur dans `apps/web/src/site.config.ts` (mentions légales).
 - [ ] Planifier l'audit RGAA, puis mettre à jour la déclaration d'accessibilité.
 - [ ] Prévenir le prestataire actuel (Réseau des Communes) de la fin du contrat après la bascule.
 

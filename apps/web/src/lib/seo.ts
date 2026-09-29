@@ -1,3 +1,4 @@
+import { LEGAL } from '../site.config.ts';
 import type { Event, News, Settings } from './content/types.ts';
 
 const DAY_URIS = ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -10,6 +11,7 @@ export function governmentOffice(settings: Settings, site: URL) {
     name: 'Mairie de Saint-Amand-Longpré',
     url: site.toString(),
     telephone: settings.phone,
+    email: LEGAL.email,
     address: {
       '@type': 'PostalAddress',
       streetAddress: settings.street,

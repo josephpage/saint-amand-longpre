@@ -56,7 +56,7 @@
     },
     // Production : sélectionnée au build avec CLOUDFLARE_ENV=production.
     // Secrets à déclarer avec `wrangler secret put <NOM> --env production` :
-    // BREVO_API_KEY, MAIL_TO, TURNSTILE_SECRET, PREVIEW_SECRET,
+    // BREVO_API_KEY, TURNSTILE_SECRET, PREVIEW_SECRET,
     // WP_PREVIEW_USER, WP_PREVIEW_APP_PASSWORD.
     "production": {
       "name": "saint-amand-longpre",
@@ -64,6 +64,7 @@
         "CONTENT_SOURCE": "wordpress",
         "WP_GRAPHQL_URL": "https://cms.saintamandlongpre.fr/graphql",
         "MAIL_FROM": "site@saintamandlongpre.fr",
+        "MAIL_TO": "secretariat@saintamandlongpre.fr",
         "MAIL_DRY_RUN": "false",
       },
       "ratelimits": [

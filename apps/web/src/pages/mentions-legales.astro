@@ -24,6 +24,8 @@ const mayor = elected.find((e) => e.role === 'maire');
       Mairie, {settings.street}, {settings.postalCode} {settings.city}
       <br />
       Téléphone : {settings.phone}
+      <br />
+      E-mail : <a href={`mailto:${LEGAL.email}`}>{LEGAL.email}</a>
     </p>
     <h2>Directeur ou directrice de la publication</h2>
     <p>
@@ -31,12 +33,11 @@ const mayor = elected.find((e) => e.role === 'maire');
     </p>
     <h2>Hébergement</h2>
     <p>
-      Site public : Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis (
-      <a href="https://www.cloudflare.com/">cloudflare.com</a>).
+      {LEGAL.host.name}, {LEGAL.host.address} :<a href={LEGAL.host.url}>cloudflare.com</a>.
     </p>
     <p>
-      Outil de gestion des contenus : {LEGAL.cmsHost.name}
-      {LEGAL.cmsHost.address ? `, ${LEGAL.cmsHost.address}` : ''}.
+      Le site public est servi par Cloudflare Workers. L’outil de gestion des contenus
+      (cms.saintamandlongpre.fr) est relié à internet par Cloudflare Tunnel.
     </p>
     <h2>Propriété intellectuelle</h2>
     <p>
