@@ -20,6 +20,7 @@
     "check": "pnpm lint && pnpm typecheck && pnpm knip && pnpm test",
     "scrape": "node tools/scraper/src/scrape.ts",
     "fixtures": "node tools/scraper/src/fixtures.ts",
+    "check:redirects": "node tools/scraper/src/check-redirects.ts",
     "cms:up": "docker compose -f apps/cms/compose.yaml up -d --wait",
     "cms:down": "docker compose -f apps/cms/compose.yaml down",
     "cms:setup": "docker compose -f apps/cms/compose.yaml run --rm wpcli sh /scripts/setup.sh && node scripts/dev-vars.ts",

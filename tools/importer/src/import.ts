@@ -6,6 +6,9 @@
  * Usage :
  *   pnpm cms:import                       jeu de données de test → WordPress local
  *   pnpm cms:import --source scrape       contenu scrapé de l'ancien site
+ *   pnpm cms:import --source scrape --prune
+ *       met aussi à la corbeille les contenus d'un import précédent absents de
+ *       celui-ci (jamais ceux créés à la main dans WordPress)
  *   pnpm cms:import --url https://cms.saintamandlongpre.fr --user … --password …
  *
  * Les identifiants par défaut sont lus dans apps/cms/.data/credentials.env
@@ -53,6 +56,7 @@ const { values: args } = parseArgs({
     user: { type: 'string', default: creds.WP_USER ?? 'admin' },
     password: { type: 'string', default: creds.WP_APP_PASSWORD ?? '' },
     'max-image-width': { type: 'string', default: '2400' },
+    prune: { type: 'boolean', default: false },
   },
 });
 
@@ -67,7 +71,9 @@ interface WpMedia extends WpItem {
   source_url: string;
 }
 
-const stats = { created: 0, updated: 0, failed: 0 };
+const stats = { created: 0, updated: 0, failed: 0, trashed: 0 };
+/** Identifiants d'origine importés pendant cette exécution. */
+const touched = new Set<string>();
 
 /** Retire les valeurs vides : ACF refuse par exemple un e-mail ou une URL vide. */
 const acf = (fields: Record<string, unknown>) =>
@@ -266,8 +272,35 @@ async function main() {
     sal_redirections: snapshot.redirects,
   });
 
+  if (args.prune) {
+    const collections: [string, Map<string, number>][] = [
+      ['pages', existingPages],
+      ['posts', existingPosts],
+      ['evenement', existingEvents],
+      ['seance', existingMeetings],
+      ['elu', existingElected],
+      ['salle', existingRooms],
+      ['annuaire', existingEntries],
+      ['alerte', existingAlerts],
+    ];
+    for (const [type, items] of collections) {
+      for (const [sourceId, id] of items) {
+        if (touched.has(sourceId)) continue;
+        try {
+          await wp.trash(`/wp/v2/${type}/${id}`);
+          stats.trashed += 1;
+          console.log(`  corbeille : ${sourceId}`);
+        } catch (error) {
+          failures.push(
+            `corbeille ${sourceId} : ${error instanceof Error ? error.message : String(error)}`,
+          );
+        }
+      }
+    }
+  }
+
   console.log(
-    `\nTerminé : ${stats.created} créés, ${stats.updated} mis à jour, ${stats.failed} en échec, ${media.size} médias.`,
+    `\nTerminé : ${stats.created} créés, ${stats.updated} mis à jour, ${stats.trashed} à la corbeille, ${stats.failed} en échec, ${media.size} médias.`,
   );
   if (failures.length) console.log(`Échecs :\n${failures.map((f) => `  - ${f}`).join('\n')}`);
   if (stats.failed) process.exitCode = 1;
@@ -288,6 +321,7 @@ async function upsert(
   sourceId: string,
   body: Record<string, unknown>,
 ): Promise<number | undefined> {
+  touched.add(sourceId);
   const id = existing.get(sourceId);
   const payload = { ...body, meta: { ...(body.meta as object), _sal_source_id: sourceId } };
   try {

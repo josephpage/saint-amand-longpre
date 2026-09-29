@@ -11,22 +11,48 @@ import { signPreview, verifyPreview } from './preview-token.ts';
 import { buildRedirectsFile } from './redirects.ts';
 
 describe('redirections', () => {
-  it('ajoute les variantes avec et sans barre finale, sans doublon', () => {
-    const file = buildRedirectsFile([
-      { from: '/fr/actualites', to: '/actualites/' },
-      { from: '/fr/actualites/', to: '/actualites/' },
-      { from: '/', to: '/' },
-    ]);
-    expect(file.trim().split('\n').slice(1)).toEqual([
-      '/fr/actualites /actualites/ 301',
-      '/fr/actualites/ /actualites/ 301',
-    ]);
+  const lines = (file: string) =>
+    file
+      .trim()
+      .split('\n')
+      .filter((l) => l && !l.startsWith('#'));
+
+  it('place les redirections exactes avant les règles génériques', () => {
+    const file = buildRedirectsFile([{ from: '/fr/actualites', to: '/actualites/' }]);
+    const all = lines(file);
+    const firstGeneric = all.findIndex((l) => l.includes('*'));
+    expect(all.slice(0, firstGeneric)).toContain('/fr/actualites /actualites/ 301');
+    expect(all.slice(0, firstGeneric)).toContain('/fr/actualites/ /actualites/ 301');
+    expect(all.slice(firstGeneric).every((l) => l.includes('*'))).toBe(true);
+    expect(all).toContain('/fr/actualite/* /actualites/ 301');
+    expect(all.at(-1)).toBe('/mobile/* / 301');
   });
+
+  it('ignore l’accueil et les redirections vers elles-mêmes, sans doublon', () => {
+    const file = buildRedirectsFile([
+      { from: '/', to: '/' },
+      { from: '/fr/a', to: '/a/' },
+      { from: '/fr/a', to: '/b/' },
+    ]);
+    expect(lines(file).filter((l) => l.startsWith('/fr/a '))).toEqual(['/fr/a /a/ 301']);
+    expect(lines(file).some((l) => l.startsWith('/ '))).toBe(false);
+  });
+
   it('encode les caractères spéciaux sans double encodage', () => {
     const file = buildRedirectsFile([
       { from: '/fr/association/1/21063/adil-%28adil-41%29', to: '/a/' },
     ]);
     expect(file).toContain('/fr/association/1/21063/adil-%28adil-41%29 /a/ 301');
+  });
+
+  it('respecte les limites de Cloudflare en abandonnant d’abord les variantes', () => {
+    const many = Array.from({ length: 1500 }, (_, i) => ({ from: `/fr/p/${i}`, to: `/n/${i}/` }));
+    const all = lines(buildRedirectsFile(many));
+    expect(all.filter((l) => !l.includes('*')).length).toBeLessThanOrEqual(2000);
+    expect(all).toContain('/fr/p/1499 /n/1499/ 301');
+    expect(() =>
+      buildRedirectsFile(Array.from({ length: 2001 }, (_, i) => ({ from: `/x/${i}`, to: '/' }))),
+    ).toThrow();
   });
 });
 

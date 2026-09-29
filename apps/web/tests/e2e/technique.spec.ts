@@ -14,6 +14,29 @@ test.describe('Redirections et erreurs', () => {
     }
   });
 
+  test('rattache les anciennes adresses inconnues à la bonne rubrique', async ({ request }) => {
+    for (const [from, to] of [
+      ['/fr/actualites/7', '/actualites/'],
+      ['/fr/actualite/999999/actualite-disparue', '/actualites/'],
+      ['/fr/associations/1/999/categorie-inconnue', '/vivre-ici/associations/'],
+      ['/fr/usefulnumber/index/page/9', '/demarches/numeros-utiles/'],
+      ['/fr/information/999999/page-inconnue', '/plan-du-site/'],
+      ['/fr/rubrique-inconnue', '/'],
+      ['/fr', '/'],
+    ]) {
+      const res = await request.get(from!, { maxRedirects: 0 });
+      expect(res.status(), from).toBe(301);
+      expect(new URL(res.headers().location!, 'http://x').pathname, from).toBe(to);
+    }
+  });
+
+  test('suit une ancienne adresse jusqu’à la page correspondante', async ({ page }) => {
+    const res = await page.goto('/fr/information/14200/passeport');
+    expect(res?.status()).toBe(200);
+    await expect(page).toHaveURL(/\/demarches\/etat-civil\/passeport\/$/);
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Passeport');
+  });
+
   test('affiche une page 404 utile', async ({ page }) => {
     const res = await page.goto('/cette-page-n-existe-pas/');
     expect(res?.status()).toBe(404);

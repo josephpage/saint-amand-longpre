@@ -100,9 +100,18 @@ l'administration le nombre d'actualités (≈ 135), de séances (≈ 195) et d'�
 
 ## 6. Vérifications avant d'annoncer le site
 
-- [ ] `https://www.saintamandlongpre.fr` s'affiche, cadenas HTTPS valide ; `http://` et le domaine
-      nu redirigent (Cloudflare → SSL/TLS → « Toujours utiliser HTTPS »).
-- [ ] Anciennes adresses : `/fr/information/3512/etat-civil` → `/demarches/etat-civil/` (301).
+- [ ] `https://www.saintamandlongpre.fr` s'affiche, cadenas HTTPS valide.
+- [ ] **Une seule adresse officielle** (sinon le domaine sans `www` servirait les mêmes pages en
+      double) : dans Cloudflare, SSL/TLS → Certificats de périphérie → « Toujours utiliser
+      HTTPS » activé, puis Règles → Redirect Rules → modèle « Rediriger du domaine racine vers
+      WWW » (code 301, chaîne de requête conservée). Vérifier que
+      `http://saintamandlongpre.fr/fr/actualites` aboutit sur
+      `https://www.saintamandlongpre.fr/actualites/`.
+- [ ] **Anciennes adresses** : depuis un poste de développement, lancer
+      `pnpm check:redirects --base https://www.saintamandlongpre.fr`. Le script rejoue les
+      2 046 anciennes adresses connues et des adresses inventées dans chaque rubrique : toutes
+      doivent répondre 301 et aboutir sur une page existante. Relancer une semaine plus tard,
+      puis surveiller Search Console → Pages.
 - [ ] Formulaire de contact : un message arrive dans la boîte de la mairie, « Répondre » écrit à
       l'expéditeur.
 - [ ] Signalement avec photo : la photo est jointe.
@@ -110,7 +119,6 @@ l'administration le nombre d'actualités (≈ 135), de séances (≈ 195) et d'�
       (onglet Actions de GitHub pour suivre), puis la supprimer.
 - [ ] Bouton « Prévisualiser » sur un brouillon : l'aperçu s'ouvre sur le site.
 - [ ] Recherche : « passeport » renvoie la page Passeport.
-- [ ] Search Console : ajouter le domaine, envoyer `https://www.saintamandlongpre.fr/sitemap-index.xml`.
 - [ ] Planifier l'audit RGAA, puis mettre à jour la déclaration d'accessibilité.
 - [ ] Prévenir le prestataire actuel (Réseau des Communes) de la fin du contrat après la bascule.
 

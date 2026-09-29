@@ -3,13 +3,14 @@
  *
  * Usage : pnpm scrape [--refresh] [--skip-media]
  *   --refresh     ignore le cache disque et interroge à nouveau l'ancien serveur
- *   --skip-media  ne télécharge pas les images et documents
+ *   --skip-media  ne télécharge rien : seuls les médias déjà en cache sont repris
  *
  * Produit data/scrape/snapshot.json et data/scrape/media/.
  */
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import {
+  legacyFallback,
   slugify,
   snapshotSchema,
   uniqueSlug,
@@ -549,7 +550,8 @@ async function main() {
     item.html = fix(item.html);
 
   // ------------------------------------------------------------- Médias
-  let downloaded: Snapshot['media'] = [];
+  // --skip-media réutilise les médias déjà téléchargés au lieu de les ignorer.
+  let downloaded: Snapshot['media'] = skipMedia ? media.cachedOnly() : [];
   if (!skipMedia) {
     console.log('Téléchargement des médias…');
     downloaded = await media.downloadAll((done, total) => {
@@ -603,6 +605,22 @@ async function main() {
 
   const heroImageId = keep(heroId) ?? keep(bannerIds[0]);
 
+  // Variantes d'adresse : l'ancien site acceptait l'identifiant seul
+  // (« /fr/actualite/156663 ») et l'utilisait lui-même dans certains liens.
+  for (const [from, to] of [...redirects.entries()]) {
+    const idOnly = /^(\/fr\/[a-z-]+\/(?:1\/)?\d+)\/[^/]+$/.exec(from)?.[1];
+    if (idOnly && !redirects.has(idOnly)) redirects.set(idOnly, to);
+  }
+  // Toute adresse explorée sans correspondance exacte (pagination, filtres,
+  // diaporamas…) est rattachée à la rubrique équivalente du nouveau site.
+  let fallbacks = 0;
+  for (const path of pages.keys()) {
+    if (path !== '/' && !redirects.has(path)) {
+      redirects.set(path, legacyFallback(path));
+      fallbacks += 1;
+    }
+  }
+
   const snapshot: Snapshot = snapshotSchema.parse({
     version: 1,
     scrapedAt,
@@ -646,7 +664,7 @@ async function main() {
     `  salles         ${snapshot.rooms.length}`,
     `  annuaire       ${snapshot.directory.length}`,
     `  médias         ${snapshot.media.length}`,
-    `  redirections   ${snapshot.redirects.length}`,
+    `  redirections   ${snapshot.redirects.length} (dont ${fallbacks} vers une rubrique)`,
     ...(failed.length ? [`Pages en échec :`, ...failed.map((f) => `  - ${f}`)] : []),
     ...['other'].flatMap(() => {
       const ignored = byKind('other');

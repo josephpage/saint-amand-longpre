@@ -114,6 +114,13 @@ export class MediaStore {
     return this.done.get(id);
   }
 
+  /** Médias enregistrés déjà présents dans le cache, sans rien télécharger. */
+  cachedOnly(): SnapshotMedia[] {
+    return [...this.done.values()]
+      .filter((m) => this.pending.has(m.id))
+      .sort((a, b) => a.id.localeCompare(b.id));
+  }
+
   /** Télécharge tous les médias enregistrés et retourne ceux qui sont disponibles. */
   async downloadAll(onProgress?: (done: number, total: number) => void): Promise<SnapshotMedia[]> {
     await mkdir(MEDIA_DIR, { recursive: true });

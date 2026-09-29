@@ -68,6 +68,8 @@ export function createWpClient({ url, user, password, fetch: doFetch = fetch }: 
   return {
     get: <T>(path: string) => request<T>('GET', path),
     post: <T>(path: string, body: unknown) => request<T>('POST', path, body),
+    /** Place un contenu dans la corbeille de WordPress (récupérable depuis l'administration). */
+    trash: <T>(path: string) => request<T>('DELETE', path),
     upload: <T>(bytes: Uint8Array, filename: string, mime: string) =>
       request<T>('POST', '/wp/v2/media', bytes, {
         'content-type': mime,

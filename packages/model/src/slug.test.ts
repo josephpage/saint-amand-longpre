@@ -7,6 +7,11 @@ describe('slugify', () => {
     expect(slugify('  Salle des fêtes (160 places) ')).toBe('salle-des-fetes-160-places');
     expect(slugify('École & enfance')).toBe('ecole-enfance');
   });
+  it('évite les identifiants purement numériques, refusés par WordPress', () => {
+    expect(slugify('2025')).toBe('annee-2025');
+    expect(slugify('42')).toBe('numero-42');
+    expect(slugify('Élections 2026')).toBe('elections-2026');
+  });
 });
 
 describe('uniqueSlug', () => {

@@ -29,8 +29,10 @@ flowchart LR
 - **Îlots React** uniquement pour les formulaires et la recherche. Le menu et le statut d'ouverture
   utilisent quelques lignes de JavaScript natif.
 - **Recherche** : Pagefind indexe les pages au build (`integrations/post-build.ts`).
-- **Redirections** : les 500 anciennes adresses du site sont redirigées (301) par le fichier
-  `_redirects` généré au build depuis WordPress (réglage `sal_redirections`).
+- **Redirections** : toutes les anciennes adresses du site sont redirigées (301) par le fichier
+  `_redirects` généré au build depuis WordPress (réglage `sal_redirections`) : 1 002 règles
+  exactes, leurs variantes, puis des règles de secours par rubrique. Vérification exhaustive :
+  `pnpm check:redirects` (voir [reprise-contenu.md](reprise-contenu.md)).
 - **Formulaires** : validation zod partagée navigateur/serveur, Turnstile, champ piège, limite
   d'envois (binding Rate Limiting), envoi Brevo. Aucun message n'est stocké ; la photo d'un
   signalement est jointe à l'e-mail.

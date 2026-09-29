@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scrapedAt": "2026-09-28T20:38:26.173Z",
+  "scrapedAt": "2026-09-29T08:29:11.680Z",
   "source": "http://www.saintamandlongpre.fr",
   "settings": {
     "name": "Mairie de Saint-Amand-Longpré",
@@ -3200,8 +3200,8 @@
     {
       "title": "Forum des associations",
       "slug": "exemple-forum-des-associations",
-      "start": "2026-10-10T09:00",
-      "end": "2026-10-10T13:00",
+      "start": "2026-10-17T09:00",
+      "end": "2026-10-17T13:00",
       "allDay": false,
       "location": "Gymnase",
       "address": "Saint-Amand-Longpré",
@@ -6481,116 +6481,232 @@
       "to": "/accessibilite/"
     },
     {
+      "from": "/fr/actualite/101595",
+      "to": "/actualites/enquete-publique-sage-loir/"
+    },
+    {
       "from": "/fr/actualite/101595/enquete-publique-sage-loir",
       "to": "/actualites/enquete-publique-sage-loir/"
+    },
+    {
+      "from": "/fr/actualite/104004",
+      "to": "/actualites/nouvelle-adresse-de-messagerie-de-la-commune/"
     },
     {
       "from": "/fr/actualite/104004/nouvelle-adresse-messagerie-commune",
       "to": "/actualites/nouvelle-adresse-de-messagerie-de-la-commune/"
     },
     {
+      "from": "/fr/actualite/104450",
+      "to": "/actualites/expo-loir-et-cher-2020/"
+    },
+    {
       "from": "/fr/actualite/104450/expo-loir-cher-2020",
       "to": "/actualites/expo-loir-et-cher-2020/"
+    },
+    {
+      "from": "/fr/actualite/105441",
+      "to": "/actualites/animations-de-la-mediatheque-et-du-mutimedia-juillet-et-aout-2017/"
     },
     {
       "from": "/fr/actualite/105441/animations-mediatheque-mutimedia-juillet-aout-2017",
       "to": "/actualites/animations-de-la-mediatheque-et-du-mutimedia-juillet-et-aout-2017/"
     },
     {
+      "from": "/fr/actualite/106465",
+      "to": "/actualites/meilleurs-voeux-pour-2021/"
+    },
+    {
       "from": "/fr/actualite/106465/meilleurs-voeux-2021",
       "to": "/actualites/meilleurs-voeux-pour-2021/"
+    },
+    {
+      "from": "/fr/actualite/106928",
+      "to": "/actualites/soutien-a-charlie-hebdo-et-aux-victimes-des-attentats/"
     },
     {
       "from": "/fr/actualite/106928/soutien-charlie-hebdo-victimes-attentats",
       "to": "/actualites/soutien-a-charlie-hebdo-et-aux-victimes-des-attentats/"
     },
     {
+      "from": "/fr/actualite/108077",
+      "to": "/actualites/mise-en-exploitation-de-la-nouvelle-station-d-epuration/"
+    },
+    {
       "from": "/fr/actualite/108077/mise-exploitation-nouvelle-station-epuration",
       "to": "/actualites/mise-en-exploitation-de-la-nouvelle-station-d-epuration/"
+    },
+    {
+      "from": "/fr/actualite/111179",
+      "to": "/actualites/resultats-communales-des-elections-departementales-du-22-fevrier/"
     },
     {
       "from": "/fr/actualite/111179/resultats-communales-elections-departementales-22-fevrier",
       "to": "/actualites/resultats-communales-des-elections-departementales-du-22-fevrier/"
     },
     {
+      "from": "/fr/actualite/112689",
+      "to": "/actualites/inscriptions-des-nouveaux-eleves-en-maternelle-rentree-septembre-2023/"
+    },
+    {
       "from": "/fr/actualite/112689/inscriptions-nouveaux-eleves-maternelle-rentree-septembre-2023",
       "to": "/actualites/inscriptions-des-nouveaux-eleves-en-maternelle-rentree-septembre-2023/"
+    },
+    {
+      "from": "/fr/actualite/113969",
+      "to": "/actualites/commemoration-du-8-mai1945/"
     },
     {
       "from": "/fr/actualite/113969/commemoration-8-mai1945",
       "to": "/actualites/commemoration-du-8-mai1945/"
     },
     {
+      "from": "/fr/actualite/11409",
+      "to": "/actualites/presentation-de-la-commune/"
+    },
+    {
       "from": "/fr/actualite/11409/presentation-commune",
       "to": "/actualites/presentation-de-la-commune/"
+    },
+    {
+      "from": "/fr/actualite/11411",
+      "to": "/actualites/eglise-de-longpre/"
     },
     {
       "from": "/fr/actualite/11411/eglise-longpre",
       "to": "/actualites/eglise-de-longpre/"
     },
     {
+      "from": "/fr/actualite/114546",
+      "to": "/actualites/bourses-scolaires/"
+    },
+    {
       "from": "/fr/actualite/114546/bourses-scolaires",
       "to": "/actualites/bourses-scolaires/"
+    },
+    {
+      "from": "/fr/actualite/115761",
+      "to": "/actualites/visite-d-usine-d-incineration-par-le-syndicat-valdem/"
     },
     {
       "from": "/fr/actualite/115761/visite-usine-incineration-par-syndicat-valdem",
       "to": "/actualites/visite-d-usine-d-incineration-par-le-syndicat-valdem/"
     },
     {
+      "from": "/fr/actualite/116093",
+      "to": "/actualites/inauguration-de-la-nouvelle-station-d-epuration/"
+    },
+    {
       "from": "/fr/actualite/116093/inauguration-nouvelle-station-epuration",
       "to": "/actualites/inauguration-de-la-nouvelle-station-d-epuration/"
+    },
+    {
+      "from": "/fr/actualite/117942",
+      "to": "/actualites/prevention-des-incendies-arrete-jusqu-au-31-aout-2017/"
     },
     {
       "from": "/fr/actualite/117942/prevention-incendies-arrete-jusqu-au-31-aout-2017",
       "to": "/actualites/prevention-des-incendies-arrete-jusqu-au-31-aout-2017/"
     },
     {
+      "from": "/fr/actualite/121637",
+      "to": "/actualites/travaux-d-ecoulement-d-eaux-pluviales-rue-anatole-france/"
+    },
+    {
       "from": "/fr/actualite/121637/travaux-ecoulement-eaux-pluviales-rue-anatole-france",
       "to": "/actualites/travaux-d-ecoulement-d-eaux-pluviales-rue-anatole-france/"
+    },
+    {
+      "from": "/fr/actualite/121726",
+      "to": "/actualites/journee-de-mobilisation-contre-la-baisse-des-dotations/"
     },
     {
       "from": "/fr/actualite/121726/journee-mobilisation-contre-baisse-dotations",
       "to": "/actualites/journee-de-mobilisation-contre-la-baisse-des-dotations/"
     },
     {
+      "from": "/fr/actualite/123432",
+      "to": "/actualites/remplacement-des-equipements-d-eclairage-public/"
+    },
+    {
       "from": "/fr/actualite/123432/remplacement-equipements-eclairage-public",
       "to": "/actualites/remplacement-des-equipements-d-eclairage-public/"
+    },
+    {
+      "from": "/fr/actualite/125520",
+      "to": "/actualites/hommage-aux-victimes-des-attentats-du-22-mars-2016-en-belgique/"
     },
     {
       "from": "/fr/actualite/125520/hommage-victimes-attentats-22-mars-2016-belgique",
       "to": "/actualites/hommage-aux-victimes-des-attentats-du-22-mars-2016-en-belgique/"
     },
     {
+      "from": "/fr/actualite/126801",
+      "to": "/actualites/elections-regionales-resultats-communaux-des-deux-tours/"
+    },
+    {
       "from": "/fr/actualite/126801/elections-regionales-resultats-communaux-deux-tours",
       "to": "/actualites/elections-regionales-resultats-communaux-des-deux-tours/"
+    },
+    {
+      "from": "/fr/actualite/130964",
+      "to": "/actualites/service-public-d-assainissement-non-collectif-spanc/"
     },
     {
       "from": "/fr/actualite/130964/service-public-assainissement-non-collectif-%28spanc%29",
       "to": "/actualites/service-public-d-assainissement-non-collectif-spanc/"
     },
     {
+      "from": "/fr/actualite/131261",
+      "to": "/actualites/paiement-ligne-des-factures-de-restauration-scolaire/"
+    },
+    {
       "from": "/fr/actualite/131261/paiement-ligne-factures-restauration-scolaire",
       "to": "/actualites/paiement-ligne-des-factures-de-restauration-scolaire/"
+    },
+    {
+      "from": "/fr/actualite/135246",
+      "to": "/actualites/ceremonie-du-11-novembre/"
     },
     {
       "from": "/fr/actualite/135246/ceremonie-11-novembre",
       "to": "/actualites/ceremonie-du-11-novembre/"
     },
     {
+      "from": "/fr/actualite/136245",
+      "to": "/actualites/travaux-d-elagage-et-d-abattage-par-erdf/"
+    },
+    {
       "from": "/fr/actualite/136245/travaux-elagage-abattage-par-erdf",
       "to": "/actualites/travaux-d-elagage-et-d-abattage-par-erdf/"
+    },
+    {
+      "from": "/fr/actualite/137459",
+      "to": "/actualites/informations-sur-les-demarches-suite-aux-inondations-nouveaute-21-juin/"
     },
     {
       "from": "/fr/actualite/137459/informations-demarches-suite-inondations-nouveaute-21-juin",
       "to": "/actualites/informations-sur-les-demarches-suite-aux-inondations-nouveaute-21-juin/"
     },
     {
+      "from": "/fr/actualite/139424",
+      "to": "/actualites/renouvellement-du-contrat-de-dsp-de-l-aep/"
+    },
+    {
       "from": "/fr/actualite/139424/renouvellement-contrat-dsp-aep",
       "to": "/actualites/renouvellement-du-contrat-de-dsp-de-l-aep/"
     },
     {
+      "from": "/fr/actualite/141184",
+      "to": "/actualites/amenagement-d-un-parking-pour-le-syndicat-scolaire-amandinois/"
+    },
+    {
       "from": "/fr/actualite/141184/amenagement-un-parking-syndicat-scolaire-amandinois",
       "to": "/actualites/amenagement-d-un-parking-pour-le-syndicat-scolaire-amandinois/"
+    },
+    {
+      "from": "/fr/actualite/143758",
+      "to": "/actualites/plan-local-d-urbansime-intercommunal-pluih-nouvel-outil-de-communication/"
     },
     {
       "from": "/fr/actualite/143758/plan-local-urbansime-intercommunal-%28pluih%29-nouvel-outil-communication",
@@ -6601,32 +6717,64 @@
       "to": "/actualites/plan-local-d-urbansime-intercommunal-pluih-nouvel-outil-de-communication-2/"
     },
     {
+      "from": "/fr/actualite/144923",
+      "to": "/actualites/evolution-de-l-intercommunalite-4-communautes-deviennent-territoires-vendomois/"
+    },
+    {
       "from": "/fr/actualite/144923/evolution-intercommunalite-4-communautes-deviennent-territoires-vendomois",
       "to": "/actualites/evolution-de-l-intercommunalite-4-communautes-deviennent-territoires-vendomois/"
+    },
+    {
+      "from": "/fr/actualite/144928",
+      "to": "/actualites/installation-d-une-usine-de-deferrisation/"
     },
     {
       "from": "/fr/actualite/144928/installation-une-usine-deferrisation",
       "to": "/actualites/installation-d-une-usine-de-deferrisation/"
     },
     {
+      "from": "/fr/actualite/14740",
+      "to": "/actualites/mise-en-ligne-des-analyses-d-eau-potable/"
+    },
+    {
       "from": "/fr/actualite/14740/mise-ligne-analyses-eau-potable",
       "to": "/actualites/mise-en-ligne-des-analyses-d-eau-potable/"
+    },
+    {
+      "from": "/fr/actualite/149585",
+      "to": "/actualites/communaute-d-agglomeration-territoire-vendomois-elections-de-l-executif/"
     },
     {
       "from": "/fr/actualite/149585/communaute-agglomeration-territoire-vendomois-elections-executif",
       "to": "/actualites/communaute-d-agglomeration-territoire-vendomois-elections-de-l-executif/"
     },
     {
+      "from": "/fr/actualite/152458",
+      "to": "/actualites/reserve-communale-de-securite-civile-rcsc/"
+    },
+    {
       "from": "/fr/actualite/152458/reserve-communale-securite-civile-%28rcsc%29",
       "to": "/actualites/reserve-communale-de-securite-civile-rcsc/"
+    },
+    {
+      "from": "/fr/actualite/153451",
+      "to": "/actualites/arrivee-de-la-4g-sur-le-territoire-communal/"
     },
     {
       "from": "/fr/actualite/153451/arrivee-4g-territoire-communal",
       "to": "/actualites/arrivee-de-la-4g-sur-le-territoire-communal/"
     },
     {
+      "from": "/fr/actualite/155414",
+      "to": "/actualites/elections-europeennes-resultats-de-saint-amand-longpre/"
+    },
+    {
       "from": "/fr/actualite/155414/elections-europeennes-resultats-saint-amand-longpre",
       "to": "/actualites/elections-europeennes-resultats-de-saint-amand-longpre/"
+    },
+    {
+      "from": "/fr/actualite/155981",
+      "to": "/actualites/programme-accueil-de-loisirs-2017/"
     },
     {
       "from": "/fr/actualite/155981/programme-accueil-loisirs-2017",
@@ -6641,340 +6789,680 @@
       "to": "/actualites/souscription-chapelle-nd-villethiou/"
     },
     {
+      "from": "/fr/actualite/156954",
+      "to": "/actualites/attributions-gestion-volumetrique-2017/"
+    },
+    {
       "from": "/fr/actualite/156954/attributions-gestion-volumetrique-2017",
       "to": "/actualites/attributions-gestion-volumetrique-2017/"
+    },
+    {
+      "from": "/fr/actualite/158824",
+      "to": "/actualites/evenement-caniculaire-jusqu-au-jeudi-22-juin-2017/"
     },
     {
       "from": "/fr/actualite/158824/evenement-caniculaire-jusqu-au-jeudi-22-juin-2017",
       "to": "/actualites/evenement-caniculaire-jusqu-au-jeudi-22-juin-2017/"
     },
     {
+      "from": "/fr/actualite/161449",
+      "to": "/actualites/collecte-des-ordures-rapprochement-de-bacs-entre-voisins/"
+    },
+    {
       "from": "/fr/actualite/161449/collecte-ordures-rapprochement-bacs-entre-voisins",
       "to": "/actualites/collecte-des-ordures-rapprochement-de-bacs-entre-voisins/"
+    },
+    {
+      "from": "/fr/actualite/162597",
+      "to": "/actualites/choix-et-associations-de-plantes-au-jardin/"
     },
     {
       "from": "/fr/actualite/162597/choix-associations-plantes-jardin",
       "to": "/actualites/choix-et-associations-de-plantes-au-jardin/"
     },
     {
+      "from": "/fr/actualite/163138",
+      "to": "/actualites/rapports-sur-le-prix-et-la-qualite-de-service-de-l-eau/"
+    },
+    {
       "from": "/fr/actualite/163138/rapports-prix-qualite-service-eau",
       "to": "/actualites/rapports-sur-le-prix-et-la-qualite-de-service-de-l-eau/"
+    },
+    {
+      "from": "/fr/actualite/167844",
+      "to": "/actualites/objectif-zero-pesticide-signature-de-la-charte/"
     },
     {
       "from": "/fr/actualite/167844/objectif-zero-pesticide-signature-charte",
       "to": "/actualites/objectif-zero-pesticide-signature-de-la-charte/"
     },
     {
+      "from": "/fr/actualite/168418",
+      "to": "/actualites/avancees-du-scot-dans-le-vendomois-juin-2019/"
+    },
+    {
       "from": "/fr/actualite/168418/avancees-scot-dans-vendomois-juin-2019",
       "to": "/actualites/avancees-du-scot-dans-le-vendomois-juin-2019/"
+    },
+    {
+      "from": "/fr/actualite/169346",
+      "to": "/actualites/remi-transports-hors-agglomeration-dits-inter-urbains/"
     },
     {
       "from": "/fr/actualite/169346/remi-transports-hors-agglomeration-dits-inter-urbains",
       "to": "/actualites/remi-transports-hors-agglomeration-dits-inter-urbains/"
     },
     {
+      "from": "/fr/actualite/169863",
+      "to": "/actualites/mise-en-fonction-de-la-borne-de-recharge-pour-vehicules-electriques/"
+    },
+    {
       "from": "/fr/actualite/169863/mise-fonction-borne-recharge-vehicules-electriques",
       "to": "/actualites/mise-en-fonction-de-la-borne-de-recharge-pour-vehicules-electriques/"
+    },
+    {
+      "from": "/fr/actualite/170461",
+      "to": "/actualites/journee-recrutement-pour-animations-ete-2018/"
     },
     {
       "from": "/fr/actualite/170461/journee-recrutement-animations-ete-2018",
       "to": "/actualites/journee-recrutement-pour-animations-ete-2018/"
     },
     {
+      "from": "/fr/actualite/173979",
+      "to": "/actualites/deploiement-du-tres-haut-debit-sur-le-departement/"
+    },
+    {
       "from": "/fr/actualite/173979/deploiement-tres-haut-debit-departement",
       "to": "/actualites/deploiement-du-tres-haut-debit-sur-le-departement/"
+    },
+    {
+      "from": "/fr/actualite/173984",
+      "to": "/actualites/amenagement-des-anciens-vestiaires-de-football/"
     },
     {
       "from": "/fr/actualite/173984/amenagement-anciens-vestiaires-football",
       "to": "/actualites/amenagement-des-anciens-vestiaires-de-football/"
     },
     {
+      "from": "/fr/actualite/176355",
+      "to": "/actualites/lutte-contre-les-frelons-asiatiques/"
+    },
+    {
       "from": "/fr/actualite/176355/lutte-contre-frelons-asiatiques",
       "to": "/actualites/lutte-contre-les-frelons-asiatiques/"
+    },
+    {
+      "from": "/fr/actualite/176700",
+      "to": "/actualites/ceremonie-du-18-juin/"
     },
     {
       "from": "/fr/actualite/176700/ceremonie-18-juin",
       "to": "/actualites/ceremonie-du-18-juin/"
     },
     {
+      "from": "/fr/actualite/177501",
+      "to": "/actualites/inscriptions-aux-activites-du-mercredi-pour-les-enfants/"
+    },
+    {
       "from": "/fr/actualite/177501/inscriptions-activites-mercredi-enfants",
       "to": "/actualites/inscriptions-aux-activites-du-mercredi-pour-les-enfants/"
+    },
+    {
+      "from": "/fr/actualite/177857",
+      "to": "/actualites/stage-enfants-multisports-de-juillet/"
     },
     {
       "from": "/fr/actualite/177857/stage-enfants-multisports-juillet",
       "to": "/actualites/stage-enfants-multisports-de-juillet/"
     },
     {
+      "from": "/fr/actualite/178036",
+      "to": "/actualites/travaux-de-renouvellement-de-canalisation-d-eau-potable/"
+    },
+    {
       "from": "/fr/actualite/178036/travaux-renouvellement-canalisation-eau-potable",
       "to": "/actualites/travaux-de-renouvellement-de-canalisation-d-eau-potable/"
+    },
+    {
+      "from": "/fr/actualite/179699",
+      "to": "/actualites/resultats-detailles-du-recensement-de-la-population-de-2015/"
     },
     {
       "from": "/fr/actualite/179699/resultats-detailles-recensement-population-2015",
       "to": "/actualites/resultats-detailles-du-recensement-de-la-population-de-2015/"
     },
     {
+      "from": "/fr/actualite/180566",
+      "to": "/actualites/forum-des-associations/"
+    },
+    {
       "from": "/fr/actualite/180566/forum-associations",
       "to": "/actualites/forum-des-associations/"
+    },
+    {
+      "from": "/fr/actualite/181592",
+      "to": "/actualites/dispositif-voisins-vigilants/"
     },
     {
       "from": "/fr/actualite/181592/dispositif-voisins-vigilants",
       "to": "/actualites/dispositif-voisins-vigilants/"
     },
     {
+      "from": "/fr/actualite/181637",
+      "to": "/actualites/peinture-des-mains-courantes-et-abris-d-entraineurs/"
+    },
+    {
       "from": "/fr/actualite/181637/peinture-mains-courantes-abris-entraineurs",
       "to": "/actualites/peinture-des-mains-courantes-et-abris-d-entraineurs/"
+    },
+    {
+      "from": "/fr/actualite/185236",
+      "to": "/actualites/permanence-electorale-du-31-decembre/"
     },
     {
       "from": "/fr/actualite/185236/permanence-electorale-31-decembre",
       "to": "/actualites/permanence-electorale-du-31-decembre/"
     },
     {
+      "from": "/fr/actualite/186234",
+      "to": "/actualites/restauration-de-la-chapelle-notre-dame-de-villethiou/"
+    },
+    {
       "from": "/fr/actualite/186234/restauration-chapelle-dame-villethiou",
       "to": "/actualites/restauration-de-la-chapelle-notre-dame-de-villethiou/"
+    },
+    {
+      "from": "/fr/actualite/191580",
+      "to": "/actualites/1er-festi-amandinois/"
     },
     {
       "from": "/fr/actualite/191580/1er-festi-amandinois",
       "to": "/actualites/1er-festi-amandinois/"
     },
     {
+      "from": "/fr/actualite/193609",
+      "to": "/actualites/construction-de-la-nouvelle-gendarmerie-poursuite-des-travaux/"
+    },
+    {
       "from": "/fr/actualite/193609/construction-nouvelle-gendarmerie-poursuite-travaux",
       "to": "/actualites/construction-de-la-nouvelle-gendarmerie-poursuite-des-travaux/"
+    },
+    {
+      "from": "/fr/actualite/193611",
+      "to": "/actualites/amenagements-devant-le-college/"
     },
     {
       "from": "/fr/actualite/193611/amenagements-devant-college",
       "to": "/actualites/amenagements-devant-le-college/"
     },
     {
+      "from": "/fr/actualite/198651",
+      "to": "/actualites/refection-des-deux-courts-de-tennis/"
+    },
+    {
       "from": "/fr/actualite/198651/refection-deux-courts-tennis",
       "to": "/actualites/refection-des-deux-courts-de-tennis/"
+    },
+    {
+      "from": "/fr/actualite/198652",
+      "to": "/actualites/installation-d-un-plateau-multisports-financement-regional/"
     },
     {
       "from": "/fr/actualite/198652/installation-un-plateau-multisports-financement-regional",
       "to": "/actualites/installation-d-un-plateau-multisports-financement-regional/"
     },
     {
+      "from": "/fr/actualite/200010",
+      "to": "/actualites/soutien-aux-victimes-de-secheresse-en-2018/"
+    },
+    {
       "from": "/fr/actualite/200010/soutien-victimes-secheresse-2018",
       "to": "/actualites/soutien-aux-victimes-de-secheresse-en-2018/"
+    },
+    {
+      "from": "/fr/actualite/201216",
+      "to": "/actualites/secheresse-arrete-prefectoral-du-20-juin-2025/"
     },
     {
       "from": "/fr/actualite/201216/secheresse-arrete-prefectoral-20-juin-2025",
       "to": "/actualites/secheresse-arrete-prefectoral-du-20-juin-2025/"
     },
     {
+      "from": "/fr/actualite/201218",
+      "to": "/actualites/amenagement-de-la-place-du-11-aout/"
+    },
+    {
       "from": "/fr/actualite/201218/amenagement-place-11-aout",
       "to": "/actualites/amenagement-de-la-place-du-11-aout/"
+    },
+    {
+      "from": "/fr/actualite/201395",
+      "to": "/actualites/valorisation-de-la-station-d-epuration/"
     },
     {
       "from": "/fr/actualite/201395/valorisation-station-epuration",
       "to": "/actualites/valorisation-de-la-station-d-epuration/"
     },
     {
+      "from": "/fr/actualite/214978",
+      "to": "/actualites/elections-du-maire-et-des-adjoints/"
+    },
+    {
       "from": "/fr/actualite/214978/elections-maire-adjoints",
       "to": "/actualites/elections-du-maire-et-des-adjoints/"
+    },
+    {
+      "from": "/fr/actualite/216743",
+      "to": "/actualites/recensement-des-personnes-en-prevision-d-une-canicule/"
     },
     {
       "from": "/fr/actualite/216743/recensement-personnes-prevision-une-canicule",
       "to": "/actualites/recensement-des-personnes-en-prevision-d-une-canicule/"
     },
     {
+      "from": "/fr/actualite/219133",
+      "to": "/actualites/travaux-de-restauration-et-d-entretien-de-la-brenne-enquete-publique/"
+    },
+    {
       "from": "/fr/actualite/219133/travaux-restauration-entretien-brenne-enquete-publique",
       "to": "/actualites/travaux-de-restauration-et-d-entretien-de-la-brenne-enquete-publique/"
+    },
+    {
+      "from": "/fr/actualite/22188",
+      "to": "/actualites/modification-des-imprimes-de-demande-de-logement-social/"
     },
     {
       "from": "/fr/actualite/22188/modification-imprimes-demande-logement-social",
       "to": "/actualites/modification-des-imprimes-de-demande-de-logement-social/"
     },
     {
+      "from": "/fr/actualite/230547",
+      "to": "/actualites/vigilance-meteorologique-orage/"
+    },
+    {
       "from": "/fr/actualite/230547/vigilance-meteorologique-orage",
       "to": "/actualites/vigilance-meteorologique-orage/"
+    },
+    {
+      "from": "/fr/actualite/232165",
+      "to": "/actualites/consultation-du-public-vsf/"
     },
     {
       "from": "/fr/actualite/232165/consultation-public-vsf",
       "to": "/actualites/consultation-du-public-vsf/"
     },
     {
+      "from": "/fr/actualite/235762",
+      "to": "/actualites/elections-europeennes-du-9-juin-2024/"
+    },
+    {
       "from": "/fr/actualite/235762/elections-europeennes-9-juin-2024",
       "to": "/actualites/elections-europeennes-du-9-juin-2024/"
+    },
+    {
+      "from": "/fr/actualite/25077",
+      "to": "/actualites/transport-a-la-demande/"
     },
     {
       "from": "/fr/actualite/25077/transport-demande",
       "to": "/actualites/transport-a-la-demande/"
     },
     {
+      "from": "/fr/actualite/254036",
+      "to": "/actualites/avis-d-enquete-publique-pour-alienation-partielle-du-chemin-rural-n-19/"
+    },
+    {
       "from": "/fr/actualite/254036/avis-enquete-publique-alienation-partielle-chemin-rural-n19",
       "to": "/actualites/avis-d-enquete-publique-pour-alienation-partielle-du-chemin-rural-n-19/"
+    },
+    {
+      "from": "/fr/actualite/254235",
+      "to": "/actualites/catastrophe-naturelle-orages-juin-2022/"
     },
     {
       "from": "/fr/actualite/254235/catastrophe-naturelle-orages-juin-2022",
       "to": "/actualites/catastrophe-naturelle-orages-juin-2022/"
     },
     {
+      "from": "/fr/actualite/255506",
+      "to": "/actualites/securite-routiere/"
+    },
+    {
       "from": "/fr/actualite/255506/securite-routiere",
       "to": "/actualites/securite-routiere/"
+    },
+    {
+      "from": "/fr/actualite/255508",
+      "to": "/actualites/elagage-a-proximite-des-reseaux-electriques-haute-tension-20-000v-poste-source-vendome/"
     },
     {
       "from": "/fr/actualite/255508/elagage-proximite-reseaux-electriques-haute-tension-20-000v-%28poste-source-vendome%29",
       "to": "/actualites/elagage-a-proximite-des-reseaux-electriques-haute-tension-20-000v-poste-source-vendome/"
     },
     {
+      "from": "/fr/actualite/261244",
+      "to": "/actualites/recensement-de-la-population-de-saint-amand-longpre/"
+    },
+    {
       "from": "/fr/actualite/261244/recensement-population-saint-amand-longpre",
       "to": "/actualites/recensement-de-la-population-de-saint-amand-longpre/"
+    },
+    {
+      "from": "/fr/actualite/261305",
+      "to": "/actualites/voeux-2025/"
     },
     {
       "from": "/fr/actualite/261305/voeux-2025",
       "to": "/actualites/voeux-2025/"
     },
     {
+      "from": "/fr/actualite/262676",
+      "to": "/actualites/obligation-de-confinement-des-basses-cours-levee-des-reserves/"
+    },
+    {
       "from": "/fr/actualite/262676/obligation-confinement-basses-cours-levee-reserves",
       "to": "/actualites/obligation-de-confinement-des-basses-cours-levee-des-reserves/"
+    },
+    {
+      "from": "/fr/actualite/263570",
+      "to": "/actualites/deuxieme-marche-de-printemps/"
     },
     {
       "from": "/fr/actualite/263570/deuxieme-marche-printemps",
       "to": "/actualites/deuxieme-marche-de-printemps/"
     },
     {
+      "from": "/fr/actualite/264507",
+      "to": "/actualites/centre-de-loisirs-ete-2024/"
+    },
+    {
       "from": "/fr/actualite/264507/centre-loisirs-ete-2024",
       "to": "/actualites/centre-de-loisirs-ete-2024/"
+    },
+    {
+      "from": "/fr/actualite/269733",
+      "to": "/actualites/restructuration-et-reamenagement-de-la-mairie/"
     },
     {
       "from": "/fr/actualite/269733/restructuration-reamenagement-mairie",
       "to": "/actualites/restructuration-et-reamenagement-de-la-mairie/"
     },
     {
+      "from": "/fr/actualite/270262",
+      "to": "/actualites/programme-de-renovation-energetique-du-patrimoine-d-eclairage-public/"
+    },
+    {
       "from": "/fr/actualite/270262/programme-renovation-energetique-patrimoine-eclairage-public",
       "to": "/actualites/programme-de-renovation-energetique-du-patrimoine-d-eclairage-public/"
+    },
+    {
+      "from": "/fr/actualite/271648",
+      "to": "/actualites/grippe-aviaire/"
     },
     {
       "from": "/fr/actualite/271648/grippe-aviaire",
       "to": "/actualites/grippe-aviaire/"
     },
     {
+      "from": "/fr/actualite/28193",
+      "to": "/actualites/remboursement-partiel-de-la-taxe-interieure-sur-les-carburants-tic-activites-agricoles/"
+    },
+    {
       "from": "/fr/actualite/28193/remboursement-partiel-taxe-interieure-carburants-%28tic%29-activites-agricoles",
       "to": "/actualites/remboursement-partiel-de-la-taxe-interieure-sur-les-carburants-tic-activites-agricoles/"
+    },
+    {
+      "from": "/fr/actualite/31082",
+      "to": "/actualites/informations-sur-l-implantation-d-arbres/"
     },
     {
       "from": "/fr/actualite/31082/informations-implantation-arbres",
       "to": "/actualites/informations-sur-l-implantation-d-arbres/"
     },
     {
+      "from": "/fr/actualite/33489",
+      "to": "/actualites/syndicat-scolaire-amandinois-nouveau-groupe-scolaire/"
+    },
+    {
       "from": "/fr/actualite/33489/syndicat-scolaire-amandinois-nouveau-groupe-scolaire",
       "to": "/actualites/syndicat-scolaire-amandinois-nouveau-groupe-scolaire/"
+    },
+    {
+      "from": "/fr/actualite/37448",
+      "to": "/actualites/agrandissement-et-amenagement-du-cimetiere/"
     },
     {
       "from": "/fr/actualite/37448/agrandissement-amenagement-cimetiere",
       "to": "/actualites/agrandissement-et-amenagement-du-cimetiere/"
     },
     {
+      "from": "/fr/actualite/41157",
+      "to": "/actualites/nouveaux-horaires-de-la-dechetterie-et-nouvelle-plate-forme/"
+    },
+    {
       "from": "/fr/actualite/41157/nouveaux-horaires-dechetterie-nouvelle-plate-forme",
       "to": "/actualites/nouveaux-horaires-de-la-dechetterie-et-nouvelle-plate-forme/"
+    },
+    {
+      "from": "/fr/actualite/47163",
+      "to": "/actualites/reforme-de-l-urbanisme-nouveaux-imprimes/"
     },
     {
       "from": "/fr/actualite/47163/reforme-urbanisme-nouveaux-imprimes",
       "to": "/actualites/reforme-de-l-urbanisme-nouveaux-imprimes/"
     },
     {
+      "from": "/fr/actualite/47359",
+      "to": "/actualites/controle-de-la-contribution-a-l-audiovisuel-public/"
+    },
+    {
       "from": "/fr/actualite/47359/controle-contribution-audiovisuel-public",
       "to": "/actualites/controle-de-la-contribution-a-l-audiovisuel-public/"
+    },
+    {
+      "from": "/fr/actualite/47388",
+      "to": "/actualites/sensibilisation-a-l-utilisation-de-produits-phytosanitaires/"
     },
     {
       "from": "/fr/actualite/47388/sensibilisation-utilisation-produits-phytosanitaires",
       "to": "/actualites/sensibilisation-a-l-utilisation-de-produits-phytosanitaires/"
     },
     {
+      "from": "/fr/actualite/50563",
+      "to": "/actualites/modification-des-jours-de-collecte-des-orudures-menageres/"
+    },
+    {
       "from": "/fr/actualite/50563/modification-jours-collecte-orudures-menageres",
       "to": "/actualites/modification-des-jours-de-collecte-des-orudures-menageres/"
+    },
+    {
+      "from": "/fr/actualite/56335",
+      "to": "/actualites/la-canicule-vigilance-orange/"
     },
     {
       "from": "/fr/actualite/56335/la-canicule-vigilance-orange",
       "to": "/actualites/la-canicule-vigilance-orange/"
     },
     {
+      "from": "/fr/actualite/56550",
+      "to": "/actualites/de-la-couleur-et-du-coeur-a-l-ouvrage/"
+    },
+    {
       "from": "/fr/actualite/56550/de-couleur-coeur-ouvrage",
       "to": "/actualites/de-la-couleur-et-du-coeur-a-l-ouvrage/"
+    },
+    {
+      "from": "/fr/actualite/56888",
+      "to": "/actualites/lotissement-rue-poterie/"
     },
     {
       "from": "/fr/actualite/56888/lotissement-rue-poterie",
       "to": "/actualites/lotissement-rue-poterie/"
     },
     {
+      "from": "/fr/actualite/58469",
+      "to": "/actualites/refection-du-chateau-d-eau/"
+    },
+    {
       "from": "/fr/actualite/58469/refection-chateau-eau",
       "to": "/actualites/refection-du-chateau-d-eau/"
+    },
+    {
+      "from": "/fr/actualite/61181",
+      "to": "/actualites/calendrier-des-fetes-2013/"
     },
     {
       "from": "/fr/actualite/61181/calendrier-fetes-2013",
       "to": "/actualites/calendrier-des-fetes-2013/"
     },
     {
+      "from": "/fr/actualite/63553",
+      "to": "/actualites/marche-public-pour-la-construction-d-une-station-d-epuration/"
+    },
+    {
       "from": "/fr/actualite/63553/marche-public-construction-une-station-epuration",
       "to": "/actualites/marche-public-pour-la-construction-d-une-station-d-epuration/"
+    },
+    {
+      "from": "/fr/actualite/63984",
+      "to": "/actualites/l-ecole-elementaire-se-dote-d-un-site-internet/"
     },
     {
       "from": "/fr/actualite/63984/l-ecole-elementaire-dote-un-site-internet",
       "to": "/actualites/l-ecole-elementaire-se-dote-d-un-site-internet/"
     },
     {
+      "from": "/fr/actualite/64091",
+      "to": "/actualites/recensement-economique-des-marches-publics/"
+    },
+    {
       "from": "/fr/actualite/64091/recensement-economique-marches-publics",
       "to": "/actualites/recensement-economique-des-marches-publics/"
+    },
+    {
+      "from": "/fr/actualite/64786",
+      "to": "/actualites/modification-des-coordonnees-du-secretariat-du-syndicat-scolaire-amandinois/"
     },
     {
       "from": "/fr/actualite/64786/modification-coordonnees-secretariat-syndicat-scolaire-amandinois",
       "to": "/actualites/modification-des-coordonnees-du-secretariat-du-syndicat-scolaire-amandinois/"
     },
     {
+      "from": "/fr/actualite/66697",
+      "to": "/actualites/demenagement-du-point-lecture-et-multimedia/"
+    },
+    {
       "from": "/fr/actualite/66697/demenagement-point-lecture-multimedia",
       "to": "/actualites/demenagement-du-point-lecture-et-multimedia/"
+    },
+    {
+      "from": "/fr/actualite/67299",
+      "to": "/actualites/coupures-d-electricite-pour-travaux/"
     },
     {
       "from": "/fr/actualite/67299/coupures-electricite-travaux",
       "to": "/actualites/coupures-d-electricite-pour-travaux/"
     },
     {
+      "from": "/fr/actualite/67525",
+      "to": "/actualites/inscriptions-aux-ecoles-primaires/"
+    },
+    {
       "from": "/fr/actualite/67525/inscriptions-ecoles-primaires",
       "to": "/actualites/inscriptions-aux-ecoles-primaires/"
+    },
+    {
+      "from": "/fr/actualite/75956",
+      "to": "/actualites/travaux-sur-la-voie-sncf-du-20-aout-au-14-decembre-2013/"
     },
     {
       "from": "/fr/actualite/75956/travaux-voie-sncf-20-aout-14-decembre-2013",
       "to": "/actualites/travaux-sur-la-voie-sncf-du-20-aout-au-14-decembre-2013/"
     },
     {
+      "from": "/fr/actualite/78971",
+      "to": "/actualites/enquete-publique-du-syndicat-d-aep-du-plessis/"
+    },
+    {
       "from": "/fr/actualite/78971/enquete-publique-syndicat-aep-plessis",
       "to": "/actualites/enquete-publique-du-syndicat-d-aep-du-plessis/"
+    },
+    {
+      "from": "/fr/actualite/80372",
+      "to": "/actualites/marche-nocturne/"
     },
     {
       "from": "/fr/actualite/80372/marche-nocturne",
       "to": "/actualites/marche-nocturne/"
     },
     {
+      "from": "/fr/actualite/80488",
+      "to": "/actualites/deconstruction-de-l-ancien-groupe-scolaire/"
+    },
+    {
       "from": "/fr/actualite/80488/deconstruction-ancien-groupe-scolaire",
       "to": "/actualites/deconstruction-de-l-ancien-groupe-scolaire/"
+    },
+    {
+      "from": "/fr/actualite/82386",
+      "to": "/actualites/calendrier-des-fetes-2023/"
     },
     {
       "from": "/fr/actualite/82386/calendrier-fetes-2023",
       "to": "/actualites/calendrier-des-fetes-2023/"
     },
     {
+      "from": "/fr/actualite/85341",
+      "to": "/actualites/resultats-des-elections-municipales-et-communautaires/"
+    },
+    {
       "from": "/fr/actualite/85341/resultats-elections-municipales-communautaires",
       "to": "/actualites/resultats-des-elections-municipales-et-communautaires/"
+    },
+    {
+      "from": "/fr/actualite/88419",
+      "to": "/actualites/resultats-de-l-election-des-conseillers-municipaux-et-communautaires/"
     },
     {
       "from": "/fr/actualite/88419/resultats-election-conseillers-municipaux-communautaires",
       "to": "/actualites/resultats-de-l-election-des-conseillers-municipaux-et-communautaires/"
     },
     {
+      "from": "/fr/actualite/88835",
+      "to": "/actualites/election-du-mairie-et-des-ajoints/"
+    },
+    {
       "from": "/fr/actualite/88835/election-mairie-ajoints",
       "to": "/actualites/election-du-mairie-et-des-ajoints/"
+    },
+    {
+      "from": "/fr/actualite/89194",
+      "to": "/actualites/tour-du-loir-et-cher/"
     },
     {
       "from": "/fr/actualite/89194/tour-loir-cher",
       "to": "/actualites/tour-du-loir-et-cher/"
     },
     {
+      "from": "/fr/actualite/92621",
+      "to": "/actualites/resultats-des-elections-europeennes-du-25-mai-2014/"
+    },
+    {
       "from": "/fr/actualite/92621/resultats-elections-europeennes-25-mai-2014",
       "to": "/actualites/resultats-des-elections-europeennes-du-25-mai-2014/"
     },
     {
+      "from": "/fr/actualite/94954",
+      "to": "/actualites/destruction-a-tir-des-nuisibles/"
+    },
+    {
       "from": "/fr/actualite/94954/destruction-tir-nuisibles",
       "to": "/actualites/destruction-a-tir-des-nuisibles/"
+    },
+    {
+      "from": "/fr/actualite/98272",
+      "to": "/actualites/rentree-2017-aucun-changement/"
     },
     {
       "from": "/fr/actualite/98272/rentree-2017-aucun-changement",
@@ -6985,8 +7473,92 @@
       "to": "/actualites/"
     },
     {
+      "from": "/fr/actualites/1",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/10",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/11",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/12",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/13",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/14",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/15",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/16",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/2",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/3",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/4",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/5",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/6",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/7",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/8",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/actualites/9",
+      "to": "/actualites/"
+    },
+    {
       "from": "/fr/artisans",
       "to": "/vivre-ici/commerces-et-entreprises/"
+    },
+    {
+      "from": "/fr/artisans/1",
+      "to": "/vivre-ici/commerces-et-entreprises/"
+    },
+    {
+      "from": "/fr/artisans/2",
+      "to": "/vivre-ici/commerces-et-entreprises/"
+    },
+    {
+      "from": "/fr/association-actualite-diaporama/18113",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/association-actualite-diaporama/24697",
+      "to": "/actualites/"
+    },
+    {
+      "from": "/fr/association-actualite-diaporama/25290",
+      "to": "/actualites/"
     },
     {
       "from": "/fr/association-actualite/17460/10889/statuts-association",
@@ -7029,88 +7601,176 @@
       "to": "/actualites/centre-de-loisirs-ete-2023/"
     },
     {
+      "from": "/fr/association/1/17460",
+      "to": "/vivre-ici/associations/association-de-sauvegarde-de-notre-dame-de-villethiou/"
+    },
+    {
       "from": "/fr/association/1/17460/association-sauvegarde-dame-villethiou",
       "to": "/vivre-ici/associations/association-de-sauvegarde-de-notre-dame-de-villethiou/"
+    },
+    {
+      "from": "/fr/association/1/17760",
+      "to": "/vivre-ici/associations/presence-verte/"
     },
     {
       "from": "/fr/association/1/17760/presence-verte",
       "to": "/vivre-ici/associations/presence-verte/"
     },
     {
+      "from": "/fr/association/1/18590",
+      "to": "/vivre-ici/associations/passionata-danse/"
+    },
+    {
       "from": "/fr/association/1/18590/passionata-danse",
       "to": "/vivre-ici/associations/passionata-danse/"
+    },
+    {
+      "from": "/fr/association/1/20293",
+      "to": "/vivre-ici/associations/amitie-loisirs/"
     },
     {
       "from": "/fr/association/1/20293/amitie-loisirs",
       "to": "/vivre-ici/associations/amitie-loisirs/"
     },
     {
+      "from": "/fr/association/1/21063",
+      "to": "/vivre-ici/associations/agence-departementale-d-information-sur-le-logement-adil-41/"
+    },
+    {
       "from": "/fr/association/1/21063/agence-departementale-information-logement-%28adil-41%29",
       "to": "/vivre-ici/associations/agence-departementale-d-information-sur-le-logement-adil-41/"
+    },
+    {
+      "from": "/fr/association/1/24401",
+      "to": "/vivre-ici/associations/amicale-des-sapeurs-pompiers/"
     },
     {
       "from": "/fr/association/1/24401/amicale-sapeurs-pompiers",
       "to": "/vivre-ici/associations/amicale-des-sapeurs-pompiers/"
     },
     {
+      "from": "/fr/association/1/25090",
+      "to": "/vivre-ici/associations/les-volontaires-de-la-gym-de-saint-amand-longpre/"
+    },
+    {
       "from": "/fr/association/1/25090/les-volontaires-gym-saint-amand-longpre",
       "to": "/vivre-ici/associations/les-volontaires-de-la-gym-de-saint-amand-longpre/"
+    },
+    {
+      "from": "/fr/association/1/26123",
+      "to": "/vivre-ici/associations/je-pilote-ma-vie/"
     },
     {
       "from": "/fr/association/1/26123/je-pilote-ma-vie",
       "to": "/vivre-ici/associations/je-pilote-ma-vie/"
     },
     {
+      "from": "/fr/association/1/26197",
+      "to": "/vivre-ici/associations/unc/"
+    },
+    {
       "from": "/fr/association/1/26197/unc",
       "to": "/vivre-ici/associations/unc/"
+    },
+    {
+      "from": "/fr/association/1/26227",
+      "to": "/vivre-ici/associations/comite-des-fetes/"
     },
     {
       "from": "/fr/association/1/26227/comite-fetes",
       "to": "/vivre-ici/associations/comite-des-fetes/"
     },
     {
+      "from": "/fr/association/1/26229",
+      "to": "/vivre-ici/associations/les-amandinois-lusophones/"
+    },
+    {
       "from": "/fr/association/1/26229/les-amandinois-lusophones",
       "to": "/vivre-ici/associations/les-amandinois-lusophones/"
+    },
+    {
+      "from": "/fr/association/1/26231",
+      "to": "/vivre-ici/associations/foyer-rural/"
     },
     {
       "from": "/fr/association/1/26231/foyer-rural",
       "to": "/vivre-ici/associations/foyer-rural/"
     },
     {
+      "from": "/fr/association/1/26232",
+      "to": "/vivre-ici/associations/club-amandinois-petanque/"
+    },
+    {
       "from": "/fr/association/1/26232/club-amandinois-petanque",
       "to": "/vivre-ici/associations/club-amandinois-petanque/"
+    },
+    {
+      "from": "/fr/association/1/26233",
+      "to": "/vivre-ici/associations/les-vieilles-mob/"
     },
     {
       "from": "/fr/association/1/26233/les-vieilles-mob",
       "to": "/vivre-ici/associations/les-vieilles-mob/"
     },
     {
+      "from": "/fr/association/1/26234",
+      "to": "/vivre-ici/associations/a-p-e-les-enfants-en-fete/"
+    },
+    {
       "from": "/fr/association/1/26234/a-p-e-les-enfants-fete",
       "to": "/vivre-ici/associations/a-p-e-les-enfants-en-fete/"
+    },
+    {
+      "from": "/fr/association/1/26235",
+      "to": "/vivre-ici/associations/commerces-amandinois/"
     },
     {
       "from": "/fr/association/1/26235/commerces-amandinois",
       "to": "/vivre-ici/associations/commerces-amandinois/"
     },
     {
+      "from": "/fr/association/1/26238",
+      "to": "/vivre-ici/associations/le-pere-serge-croize/"
+    },
+    {
       "from": "/fr/association/1/26238/le-pere-serge-croize",
       "to": "/vivre-ici/associations/le-pere-serge-croize/"
+    },
+    {
+      "from": "/fr/association/1/26239",
+      "to": "/vivre-ici/associations/ehpad/"
     },
     {
       "from": "/fr/association/1/26239/ehpad",
       "to": "/vivre-ici/associations/ehpad/"
     },
     {
+      "from": "/fr/association/1/3674",
+      "to": "/vivre-ici/associations/admr/"
+    },
+    {
       "from": "/fr/association/1/3674/admr",
       "to": "/vivre-ici/associations/admr/"
+    },
+    {
+      "from": "/fr/association/1/3680",
+      "to": "/vivre-ici/associations/association-intercommunale-de-tennis-ait/"
     },
     {
       "from": "/fr/association/1/3680/association-intercommunale-tennis-%28ait%29",
       "to": "/vivre-ici/associations/association-intercommunale-de-tennis-ait/"
     },
     {
+      "from": "/fr/association/1/3681",
+      "to": "/vivre-ici/associations/eureka/"
+    },
+    {
       "from": "/fr/association/1/3681/eureka",
       "to": "/vivre-ici/associations/eureka/"
+    },
+    {
+      "from": "/fr/association/1/4491",
+      "to": "/vivre-ici/associations/avenir-football-de-saint-amand-longpre/"
     },
     {
       "from": "/fr/association/1/4491/avenir-football-saint-amand-longpre",
@@ -7125,7 +7785,23 @@
       "to": "/vivre-ici/commerces-et-entreprises/"
     },
     {
+      "from": "/fr/commerces/1",
+      "to": "/vivre-ici/commerces-et-entreprises/"
+    },
+    {
+      "from": "/fr/commerces/2",
+      "to": "/vivre-ici/commerces-et-entreprises/"
+    },
+    {
+      "from": "/fr/compte-rendu/23961",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/23961/2-fevrier-2010",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/23962",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7133,7 +7809,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/23982",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/23982/2-mars-2010",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/24629",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7141,7 +7825,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/24895",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/24895/4-mai-2010",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/25211",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7149,7 +7841,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/25439",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/25439/29-juin-2010",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/25727",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7157,7 +7857,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/26012",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/26012/7-septembre-2010",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/26453",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7165,7 +7873,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/26675",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/26675/9-novembre-2010",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/27015",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7173,7 +7889,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/27300",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/27300/4-janvier-2011",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/27742",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7181,7 +7905,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/27996",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/27996/1-mars-2011",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/28638",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7189,7 +7921,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/29199",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/29199/3-mai-2011",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/29584",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7197,7 +7937,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/30011",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/30011/5-juillet-2011",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/30094",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7205,7 +7953,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/30506",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/30506/6-septembre-2011",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/30904",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7213,7 +7969,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/31196",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/31196/8-novembre-2011",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/31603",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7221,7 +7985,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/32561",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/32561/10-janvier-2012",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/32562",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7229,7 +8001,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/32933",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/32933/6-mars-2012",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/33436",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7237,7 +8017,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/33707",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/33707/3-mai-2012",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/34124",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7245,7 +8033,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/34771",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/34771/3-juillet-2012",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/34845",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7253,7 +8049,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/35199",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/35199/4-septembre-2012",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/35836",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7261,7 +8065,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/35977",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/35977/6-novembre-2012",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/36193",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7269,7 +8081,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/36700",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/36700/8-janvier-2013",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/37099",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7277,7 +8097,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/37427",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/37427/5-mars-2013",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/38103",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7285,7 +8113,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/38539",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/38539/7-mai-2013",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/39532",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7293,7 +8129,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/39533",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/39533/2-juillet-2013",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/39682",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7301,7 +8145,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/39883",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/39883/3-septembre-2013",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/40368",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7309,7 +8161,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/40644",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/40644/5-novembre-2013",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/41092",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7317,7 +8177,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/41386",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/41386/7-janvier-2014",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/41799",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7325,7 +8193,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/42826",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/42826/4-mars-2014",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/42827",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7333,7 +8209,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/43295",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/43295/8-avril-2014",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/43709",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7341,7 +8225,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/44343",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/44343/10-juin-2014",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/45050",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7349,7 +8241,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/45317",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/45317/5-aout-2014",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/45385",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7357,7 +8257,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/46077",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/46077/7-octobre-2014",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/46960",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7365,7 +8273,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/47016",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/47016/5-decembre-2014",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/47549",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7373,7 +8289,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/47988",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/47988/3-fevrier-2015",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/48469",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7381,7 +8305,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/49005",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/49005/7-avril-2015",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/49346",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7389,7 +8321,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/49982",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/49982/2-juin-2015",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/50203",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7397,7 +8337,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/50674",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/50674/4-aout-2015",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/50925",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7405,7 +8353,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/51438",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/51438/6-octobre-2015",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/51960",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7413,7 +8369,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/52421",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/52421/1er-decembre-2015",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/52934",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7421,7 +8385,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/53241",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/53241/2-fevrier-2016",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/53859",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7429,7 +8401,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/54422",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/54422/5-avril-2016",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/54788",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7437,7 +8417,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/55396",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/55396/13-juin-2016",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/55976",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7445,7 +8433,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/56322",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/56322/2-aout-2016",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/56323",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7453,7 +8449,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/56680",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/56680/4-octobre-2016",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/57275",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7461,7 +8465,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/57717",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/57717/5-decembre-2016",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/57957",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7469,7 +8481,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/58354",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/58354/10-janvier-2017",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/58733",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7477,7 +8497,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/59122",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/59122/7-mars-2017",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/59714",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7485,7 +8513,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/59980",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/59980/2-mai-2017",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/60606",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7493,7 +8529,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/60706",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/60706/30-juin-2017",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/61044",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7501,7 +8545,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/61265",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/61265/8-aout-2017",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/61368",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7509,7 +8561,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/62011",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/62011/3-octobre-2017",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/62474",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7517,7 +8577,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/62731",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/62731/5-decembre-2017",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/63097",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7525,7 +8593,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/63640",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/63640/6-fevrier-2018",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/64207",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7533,7 +8609,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/64607",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/64607/10-avril-2018",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/65145",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7541,7 +8625,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/65273",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/65273/5-juin-2018",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/65964",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7549,7 +8641,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/66379",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/66379/4-septembre-2018",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/66805",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7557,7 +8657,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/67314",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/67314/6-novembre-2018",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/67903",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7565,7 +8673,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/68283",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/68283/5-fevrier-2019",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/68788",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7573,7 +8689,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/69278",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/69278/2-avril-2019",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/69609",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7581,7 +8705,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/69961",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/69961/4-juin-2019",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/70627",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7589,7 +8721,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/70947",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/70947/3-septembre-2019",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/71100",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7597,7 +8737,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/71737",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/71737/5-novembre-2019",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/72166",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7605,7 +8753,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/72459",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/72459/7-janvier-2020",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/72634",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7613,7 +8769,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/74155",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/74155/3-mars-2020",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/74156",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7621,7 +8785,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/74157",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/74157/16-juin-2020",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/74890",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7629,7 +8801,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/75231",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/75231/8-septembre-2020",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/75758",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7637,7 +8817,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/76043",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/76043/3-novembre-2020",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/76978",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7645,7 +8833,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/77341",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/77341/2-mars-2021",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/78141",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7653,7 +8849,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/78142",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/78142/6-avril-2021",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/78385",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7661,7 +8865,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/78602",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/78602/1-juin-2021",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/78796",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7669,7 +8881,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/79350",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/79350/7-septembre-2021",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/79618",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7677,7 +8897,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/79827",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/79827/2-novembre-2021",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/80175",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7685,7 +8913,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/80758",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/80758/1-fevrier-2022",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/80759",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7693,7 +8929,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/81089",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/81089/1-mars-2022",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/81474",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7701,7 +8945,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/81656",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/81656/3-mai-2022",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/81937",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7709,7 +8961,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/82216",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/82216/5-juillet-2022",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/82668",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7717,7 +8977,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/83137",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/83137/8-novembre-2022",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/83356",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7725,7 +8993,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/83539",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/83539/17-decembre-2022",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/83632",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7733,7 +9009,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/83837",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/83837/7-fevrier-2023",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/84075",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7741,7 +9025,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/84395",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/84395/4-avril-2023",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/84673",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7749,7 +9041,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/84903",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/84903/6-juin-2023",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/84937",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7757,7 +9057,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/85172",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/85172/4-juillet-2023",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/85484",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7765,7 +9073,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/85726",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/85726/3-octobre-2023",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/85985",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7773,7 +9089,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/86205",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/86205/5-decembre-2023",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/86502",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7781,7 +9105,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/86681",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/86681/6-fevrier-2024",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/86920",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7789,7 +9121,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/87197",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/87197/2-avril-2024",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/87413",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7797,7 +9137,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/87525",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/87525/14-mai-2024",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/87684",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7805,7 +9153,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/87861",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/87861/2-juillet-2024",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/88096",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7813,7 +9169,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/88360",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/88360/7-octobre-2024",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/88528",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7821,7 +9185,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/88696",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/88696/2-decembre-2024",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/88752",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7829,7 +9201,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/88909",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/88909/6-janvier-2025",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/89062",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7837,7 +9217,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/89304",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/89304/31-mars-2025",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/89526",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7845,7 +9233,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/89698",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/89698/24-juin-2025",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/89910",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7853,7 +9249,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/90033",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/90033/13-octobre-2025",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/90135",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7861,7 +9265,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/90146",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/90146/22-novembre-2025",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/90211",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7869,7 +9281,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/90285",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/90285/12-janvier-2026",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/90433",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7877,7 +9297,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/90477",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/90477/9-mars-2026",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/90549",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7885,7 +9313,15 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/90658",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/90658/7-avril-2026",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/90812",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7893,11 +9329,23 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/90919",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/90919/1er-juin-2026",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/compte-rendu/91058",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/compte-rendu/91058/6-juillet-2026",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/compte-rendu/91215",
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
@@ -7909,7 +9357,51 @@
       "to": "/mairie/conseil-municipal/comptes-rendus/"
     },
     {
+      "from": "/fr/comptes-rendus/1",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/comptes-rendus/10",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/comptes-rendus/2",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/comptes-rendus/3",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/comptes-rendus/4",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/comptes-rendus/5",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/comptes-rendus/6",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/comptes-rendus/7",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/comptes-rendus/8",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
+      "from": "/fr/comptes-rendus/9",
+      "to": "/mairie/conseil-municipal/comptes-rendus/"
+    },
+    {
       "from": "/fr/conseil-municipal",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
+      "from": "/fr/conseil-municipal-profil/16969",
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
@@ -7917,7 +9409,15 @@
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
+      "from": "/fr/conseil-municipal-profil/30652",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
       "from": "/fr/conseil-municipal-profil/30652/agnes-minier",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
+      "from": "/fr/conseil-municipal-profil/30653",
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
@@ -7925,7 +9425,15 @@
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
+      "from": "/fr/conseil-municipal-profil/30658",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
       "from": "/fr/conseil-municipal-profil/30658/jennifer-carvalho",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
+      "from": "/fr/conseil-municipal-profil/31457",
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
@@ -7933,7 +9441,15 @@
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
+      "from": "/fr/conseil-municipal-profil/31458",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
       "from": "/fr/conseil-municipal-profil/31458/sandrine-guillonneau",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
+      "from": "/fr/conseil-municipal-profil/31459",
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
@@ -7941,7 +9457,15 @@
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
+      "from": "/fr/conseil-municipal-profil/31566",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
       "from": "/fr/conseil-municipal-profil/31566/alain-hiron",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
+      "from": "/fr/conseil-municipal-profil/31567",
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
@@ -7949,7 +9473,15 @@
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
+      "from": "/fr/conseil-municipal-profil/31568",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
       "from": "/fr/conseil-municipal-profil/31568/aurelie-blanc",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
+      "from": "/fr/conseil-municipal-profil/31569",
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
@@ -7957,7 +9489,15 @@
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
+      "from": "/fr/conseil-municipal-profil/31570",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
       "from": "/fr/conseil-municipal-profil/31570/geoffroy-ondet",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
+      "from": "/fr/conseil-municipal-profil/31571",
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
@@ -7965,7 +9505,15 @@
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
+      "from": "/fr/conseil-municipal-profil/31572",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
       "from": "/fr/conseil-municipal-profil/31572/lydie-gaillard",
+      "to": "/mairie/conseil-municipal/elus/"
+    },
+    {
+      "from": "/fr/conseil-municipal-profil/31573",
       "to": "/mairie/conseil-municipal/elus/"
     },
     {
@@ -7985,16 +9533,32 @@
       "to": "/decouvrir/photos/"
     },
     {
+      "from": "/fr/en-images-diaporama/10058",
+      "to": "/decouvrir/photos/voeux/"
+    },
+    {
       "from": "/fr/en-images-diaporama/10058/voeux",
       "to": "/decouvrir/photos/voeux/"
+    },
+    {
+      "from": "/fr/en-images-diaporama/11950",
+      "to": "/decouvrir/photos/sivos/"
     },
     {
       "from": "/fr/en-images-diaporama/11950/sivos",
       "to": "/decouvrir/photos/sivos/"
     },
     {
+      "from": "/fr/en-images-diaporama/13874",
+      "to": "/decouvrir/photos/tour-de-france/"
+    },
+    {
       "from": "/fr/en-images-diaporama/13874/tour-france",
       "to": "/decouvrir/photos/tour-de-france/"
+    },
+    {
+      "from": "/fr/en-images-diaporama/590",
+      "to": "/decouvrir/photos/presentation/"
     },
     {
       "from": "/fr/en-images-diaporama/590/presentation",
@@ -8009,8 +9573,28 @@
       "to": "/vivre-ici/commerces-et-entreprises/"
     },
     {
+      "from": "/fr/entreprises/1",
+      "to": "/vivre-ici/commerces-et-entreprises/"
+    },
+    {
+      "from": "/fr/entreprises/2",
+      "to": "/vivre-ici/commerces-et-entreprises/"
+    },
+    {
+      "from": "/fr/entreprises/3",
+      "to": "/vivre-ici/commerces-et-entreprises/"
+    },
+    {
+      "from": "/fr/evenement/185646",
+      "to": "/agenda/ceremonie-des-voeux-a-la-population-2019-01-11/"
+    },
+    {
       "from": "/fr/evenement/185646/ceremonie-voeux-population",
       "to": "/agenda/ceremonie-des-voeux-a-la-population-2019-01-11/"
+    },
+    {
+      "from": "/fr/evenement/227771",
+      "to": "/agenda/conseil-municipal-pour-elections-du-maire-et-des-adjoints-2026-03-20/"
     },
     {
       "from": "/fr/evenement/227771/conseil-municipal-elections-maire-adjoints",
@@ -8025,328 +9609,656 @@
       "to": "/actualites/"
     },
     {
+      "from": "/fr/information/100102",
+      "to": "/mairie/conseil-municipal/deliberations-et-arretes/2025/"
+    },
+    {
       "from": "/fr/information/100102/2025",
       "to": "/mairie/conseil-municipal/deliberations-et-arretes/2025/"
+    },
+    {
+      "from": "/fr/information/100207",
+      "to": "/demarches/urbanisme/zones-acceleration-des-energies-renouvelables/"
     },
     {
       "from": "/fr/information/100207/zones-acceleration-energies-renouvelables",
       "to": "/demarches/urbanisme/zones-acceleration-des-energies-renouvelables/"
     },
     {
+      "from": "/fr/information/100516",
+      "to": "/mairie/conseil-municipal/deliberations-et-arretes/2026/"
+    },
+    {
       "from": "/fr/information/100516/2026",
       "to": "/mairie/conseil-municipal/deliberations-et-arretes/2026/"
+    },
+    {
+      "from": "/fr/information/12467",
+      "to": "/vivre-ici/ecole-et-enfance/liste-des-assistantes-maternelles/"
     },
     {
       "from": "/fr/information/12467/liste-assistantes-maternelles",
       "to": "/vivre-ici/ecole-et-enfance/liste-des-assistantes-maternelles/"
     },
     {
+      "from": "/fr/information/13824",
+      "to": "/demarches/urbanisme/autorisations/"
+    },
+    {
       "from": "/fr/information/13824/les-autorisations-urbanisme",
       "to": "/demarches/urbanisme/autorisations/"
+    },
+    {
+      "from": "/fr/information/14174",
+      "to": "/demarches/etat-civil/pacs/"
     },
     {
       "from": "/fr/information/14174/pacs",
       "to": "/demarches/etat-civil/pacs/"
     },
     {
+      "from": "/fr/information/14175",
+      "to": "/demarches/etat-civil/mariage/"
+    },
+    {
       "from": "/fr/information/14175/mariage",
       "to": "/demarches/etat-civil/mariage/"
+    },
+    {
+      "from": "/fr/information/14176",
+      "to": "/demarches/etat-civil/parrainage-civil/"
     },
     {
       "from": "/fr/information/14176/parrainage-civil",
       "to": "/demarches/etat-civil/parrainage-civil/"
     },
     {
+      "from": "/fr/information/14189",
+      "to": "/vivre-ici/le-plan-local-d-urbanisme-plu/"
+    },
+    {
       "from": "/fr/information/14189/le-plan-local-urbanisme-%28plu%29",
       "to": "/vivre-ici/le-plan-local-d-urbanisme-plu/"
+    },
+    {
+      "from": "/fr/information/14197",
+      "to": "/demarches/etat-civil/carte-nationale-d-identite/"
     },
     {
       "from": "/fr/information/14197/carte-nationale-identite",
       "to": "/demarches/etat-civil/carte-nationale-d-identite/"
     },
     {
+      "from": "/fr/information/14200",
+      "to": "/demarches/etat-civil/passeport/"
+    },
+    {
       "from": "/fr/information/14200/passeport",
       "to": "/demarches/etat-civil/passeport/"
+    },
+    {
+      "from": "/fr/information/15461",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-conseils-d-administration/maison-de-retraite-ehpad/"
     },
     {
       "from": "/fr/information/15461/maison-retraite-ehpad",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-conseils-d-administration/maison-de-retraite-ehpad/"
     },
     {
+      "from": "/fr/information/15464",
+      "to": "/vivre-ici/sidelc-syndicat-d-electricite/"
+    },
+    {
       "from": "/fr/information/15464/sidelc-%28syndicat-electricite%29",
       "to": "/vivre-ici/sidelc-syndicat-d-electricite/"
+    },
+    {
+      "from": "/fr/information/15465",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-mixte-du-pays-vendomois/"
     },
     {
       "from": "/fr/information/15465/syndicat-mixte-pays-vendomois",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-mixte-du-pays-vendomois/"
     },
     {
+      "from": "/fr/information/15467",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-d-aep-et-d-assainissement/"
+    },
+    {
       "from": "/fr/information/15467/syndicat-aep-assainissement",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-d-aep-et-d-assainissement/"
+    },
+    {
+      "from": "/fr/information/15468",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-d-aep-du-plessis/"
     },
     {
       "from": "/fr/information/15468/syndicat-aep-plessis",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-d-aep-du-plessis/"
     },
     {
+      "from": "/fr/information/15469",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-scolaire-amandinois/"
+    },
+    {
       "from": "/fr/information/15469/syndicat-scolaire-amandinois",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-scolaire-amandinois/"
+    },
+    {
+      "from": "/fr/information/17787",
+      "to": "/mairie/personnel-communal/le-personnel-technique/"
     },
     {
       "from": "/fr/information/17787/le-personnel-technique",
       "to": "/mairie/personnel-communal/le-personnel-technique/"
     },
     {
+      "from": "/fr/information/17789",
+      "to": "/mairie/personnel-communal/le-personnel-administratif/"
+    },
+    {
       "from": "/fr/information/17789/le-personnel-administratif",
       "to": "/mairie/personnel-communal/le-personnel-administratif/"
+    },
+    {
+      "from": "/fr/information/18242",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-intercommunalde-la-perception/"
     },
     {
       "from": "/fr/information/18242/syndicat-intercommunalde-perception",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-intercommunalde-la-perception/"
     },
     {
+      "from": "/fr/information/18352",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-conseils-d-administration/college-honore-de-balzac/"
+    },
+    {
       "from": "/fr/information/18352/college-honore-balzac",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-conseils-d-administration/college-honore-de-balzac/"
+    },
+    {
+      "from": "/fr/information/19379",
+      "to": "/vivre-ici/assainissement-non-collectif-spanc/"
     },
     {
       "from": "/fr/information/19379/assainissement-non-collectif-%28spanc%29",
       "to": "/vivre-ici/assainissement-non-collectif-spanc/"
     },
     {
+      "from": "/fr/information/19609",
+      "to": "/mairie/missions-communales/debit-de-boissons/"
+    },
+    {
       "from": "/fr/information/19609/debit-boissons",
       "to": "/mairie/missions-communales/debit-de-boissons/"
+    },
+    {
+      "from": "/fr/information/20633",
+      "to": "/mairie/intercommunalite/territoires-vendomois/mediatheque/"
     },
     {
       "from": "/fr/information/20633/mediatheque",
       "to": "/mairie/intercommunalite/territoires-vendomois/mediatheque/"
     },
     {
+      "from": "/fr/information/20636",
+      "to": "/mairie/missions-communales/gestion-des-dechets/"
+    },
+    {
       "from": "/fr/information/20636/gestion-dechets",
       "to": "/mairie/missions-communales/gestion-des-dechets/"
+    },
+    {
+      "from": "/fr/information/20637",
+      "to": "/mairie/missions-communales/logements-sociaux/"
     },
     {
       "from": "/fr/information/20637/logements-sociaux",
       "to": "/mairie/missions-communales/logements-sociaux/"
     },
     {
+      "from": "/fr/information/20638",
+      "to": "/demarches/etat-civil/copie-integrale-d-actes/"
+    },
+    {
       "from": "/fr/information/20638/copie-integrale-actes",
       "to": "/demarches/etat-civil/copie-integrale-d-actes/"
+    },
+    {
+      "from": "/fr/information/20639",
+      "to": "/vivre-ici/ecole-et-enfance/menus-et-reglement-restaurant-scolaire/"
     },
     {
       "from": "/fr/information/20639/menus-reglement-restaurant-scolaire",
       "to": "/vivre-ici/ecole-et-enfance/menus-et-reglement-restaurant-scolaire/"
     },
     {
+      "from": "/fr/information/20640",
+      "to": "/mairie/intercommunalite/territoires-vendomois/reseau-multimedia/"
+    },
+    {
       "from": "/fr/information/20640/reseau-multimedia",
       "to": "/mairie/intercommunalite/territoires-vendomois/reseau-multimedia/"
+    },
+    {
+      "from": "/fr/information/20650",
+      "to": "/mairie/missions-communales/chiens-dangereux/"
     },
     {
       "from": "/fr/information/20650/chiens-dangereux",
       "to": "/mairie/missions-communales/chiens-dangereux/"
     },
     {
+      "from": "/fr/information/20663",
+      "to": "/mairie/intercommunalite/territoires-vendomois/conseil-communautaire/"
+    },
+    {
       "from": "/fr/information/20663/conseil-communautaire",
       "to": "/mairie/intercommunalite/territoires-vendomois/conseil-communautaire/"
+    },
+    {
+      "from": "/fr/information/20936",
+      "to": "/vivre-ici/ecole-et-enfance/inscription-des-eleves/"
     },
     {
       "from": "/fr/information/20936/inscription-eleves",
       "to": "/vivre-ici/ecole-et-enfance/inscription-des-eleves/"
     },
     {
+      "from": "/fr/information/28958",
+      "to": "/vivre-ici/sidelc-syndicat-d-electricite/rapports-annuels-et-recueils/"
+    },
+    {
       "from": "/fr/information/28958/rapports-annuels-recueils",
       "to": "/vivre-ici/sidelc-syndicat-d-electricite/rapports-annuels-et-recueils/"
+    },
+    {
+      "from": "/fr/information/28959",
+      "to": "/vivre-ici/sidelc-syndicat-d-electricite/delegues/"
     },
     {
       "from": "/fr/information/28959/delegues",
       "to": "/vivre-ici/sidelc-syndicat-d-electricite/delegues/"
     },
     {
+      "from": "/fr/information/29111",
+      "to": "/mairie/intercommunalite/territoires-vendomois/mediatheque/animations-de-la-mediatheque/"
+    },
+    {
       "from": "/fr/information/29111/animations-mediatheque",
       "to": "/mairie/intercommunalite/territoires-vendomois/mediatheque/animations-de-la-mediatheque/"
+    },
+    {
+      "from": "/fr/information/29112",
+      "to": "/mairie/intercommunalite/territoires-vendomois/mediatheque/point-lecture-de-saint-amand-longpre/"
     },
     {
       "from": "/fr/information/29112/point-lecture-saint-amand-longpre",
       "to": "/mairie/intercommunalite/territoires-vendomois/mediatheque/point-lecture-de-saint-amand-longpre/"
     },
     {
+      "from": "/fr/information/29142",
+      "to": "/mairie/intercommunalite/territoires-vendomois/mediatheque/presentation/"
+    },
+    {
       "from": "/fr/information/29142/presentation",
       "to": "/mairie/intercommunalite/territoires-vendomois/mediatheque/presentation/"
+    },
+    {
+      "from": "/fr/information/29144",
+      "to": "/mairie/intercommunalite/territoires-vendomois/reseau-multimedia/presentation/"
     },
     {
       "from": "/fr/information/29144/presentation",
       "to": "/mairie/intercommunalite/territoires-vendomois/reseau-multimedia/presentation/"
     },
     {
+      "from": "/fr/information/29145",
+      "to": "/mairie/intercommunalite/territoires-vendomois/reseau-multimedia/animations/"
+    },
+    {
       "from": "/fr/information/29145/animations",
       "to": "/mairie/intercommunalite/territoires-vendomois/reseau-multimedia/animations/"
+    },
+    {
+      "from": "/fr/information/31382",
+      "to": "/demarches/etat-civil/deces/"
     },
     {
       "from": "/fr/information/31382/deces",
       "to": "/demarches/etat-civil/deces/"
     },
     {
+      "from": "/fr/information/3497",
+      "to": "/mairie/missions-communales/"
+    },
+    {
       "from": "/fr/information/3497/autres-missions-communales",
       "to": "/mairie/missions-communales/"
+    },
+    {
+      "from": "/fr/information/3499",
+      "to": "/demarches/urbanisme/"
     },
     {
       "from": "/fr/information/3499/urbanisme",
       "to": "/demarches/urbanisme/"
     },
     {
+      "from": "/fr/information/3512",
+      "to": "/demarches/etat-civil/"
+    },
+    {
       "from": "/fr/information/3512/etat-civil",
       "to": "/demarches/etat-civil/"
+    },
+    {
+      "from": "/fr/information/4487",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-commissions-municipales/"
     },
     {
       "from": "/fr/information/4487/les-commissions-municipales",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-commissions-municipales/"
     },
     {
+      "from": "/fr/information/4488",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-conseils-d-administration/"
+    },
+    {
       "from": "/fr/information/4488/les-conseils-administration",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-conseils-d-administration/"
+    },
+    {
+      "from": "/fr/information/4489",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/"
     },
     {
       "from": "/fr/information/4489/les-differents-syndicats",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/"
     },
     {
+      "from": "/fr/information/4490",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/le-centre-communal-d-action-sociale/"
+    },
+    {
       "from": "/fr/information/4490/le-centre-communal-action-sociale",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/le-centre-communal-d-action-sociale/"
+    },
+    {
+      "from": "/fr/information/5064",
+      "to": "/mairie/personnel-communal/"
     },
     {
       "from": "/fr/information/5064/le-personnel-communal",
       "to": "/mairie/personnel-communal/"
     },
     {
+      "from": "/fr/information/5397",
+      "to": "/mairie/intercommunalite/territoires-vendomois/"
+    },
+    {
       "from": "/fr/information/5397/communaute-agglomeration-territoires-vendomois",
       "to": "/mairie/intercommunalite/territoires-vendomois/"
+    },
+    {
+      "from": "/fr/information/54689",
+      "to": "/mairie/missions-communales/cimetiere/"
     },
     {
       "from": "/fr/information/54689/cimetiere",
       "to": "/mairie/missions-communales/cimetiere/"
     },
     {
+      "from": "/fr/information/61450",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/"
+    },
+    {
       "from": "/fr/information/61450/commissions-communales-syndicats-communaux",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/"
+    },
+    {
+      "from": "/fr/information/6298",
+      "to": "/mairie/conseil-municipal/convocations/"
     },
     {
       "from": "/fr/information/6298/convocations-conseils-municipaux",
       "to": "/mairie/conseil-municipal/convocations/"
     },
     {
+      "from": "/fr/information/6339",
+      "to": "/vivre-ici/ecole-et-enfance/"
+    },
+    {
       "from": "/fr/information/6339/enfance-syndicat-scolaire-amandinois",
       "to": "/vivre-ici/ecole-et-enfance/"
+    },
+    {
+      "from": "/fr/information/65766",
+      "to": "/mairie/missions-communales/autorisation-de-destruction-de-nuisibles/"
     },
     {
       "from": "/fr/information/65766/autorisation-destruction-nuisibles",
       "to": "/mairie/missions-communales/autorisation-de-destruction-de-nuisibles/"
     },
     {
+      "from": "/fr/information/76233",
+      "to": "/vivre-ici/ecole-et-enfance/sivos-convocations-et-compte-rendus/"
+    },
+    {
       "from": "/fr/information/76233/sivos-convocations-compte-rendus",
       "to": "/vivre-ici/ecole-et-enfance/sivos-convocations-et-compte-rendus/"
+    },
+    {
+      "from": "/fr/information/76923",
+      "to": "/vivre-ici/ecole-et-enfance/parents-d-eleves-delegues-ecoles-primaires/"
     },
     {
       "from": "/fr/information/76923/parents-eleves-delegues-ecoles-primaires",
       "to": "/vivre-ici/ecole-et-enfance/parents-d-eleves-delegues-ecoles-primaires/"
     },
     {
+      "from": "/fr/information/83157",
+      "to": "/demarches/urbanisme/pluih/"
+    },
+    {
       "from": "/fr/information/83157/pluih",
       "to": "/demarches/urbanisme/pluih/"
+    },
+    {
+      "from": "/fr/information/83208",
+      "to": "/mairie/intercommunalite/territoires-vendomois/maison-medicale/"
     },
     {
       "from": "/fr/information/83208/maison-medicale",
       "to": "/mairie/intercommunalite/territoires-vendomois/maison-medicale/"
     },
     {
+      "from": "/fr/information/83506",
+      "to": "/vivre-ici/agriculture/"
+    },
+    {
       "from": "/fr/information/83506/agriculture",
       "to": "/vivre-ici/agriculture/"
+    },
+    {
+      "from": "/fr/information/83507",
+      "to": "/vivre-ici/agriculture/catastrophes-naturelles/"
     },
     {
       "from": "/fr/information/83507/catastrophes-naturelles",
       "to": "/vivre-ici/agriculture/catastrophes-naturelles/"
     },
     {
+      "from": "/fr/information/86330",
+      "to": "/vivre-ici/assainissement/"
+    },
+    {
       "from": "/fr/information/86330/assainissement-collectif",
       "to": "/vivre-ici/assainissement/"
+    },
+    {
+      "from": "/fr/information/86331",
+      "to": "/vivre-ici/assainissement/rapport-sur-le-prix-et-la-qualite-de-service/"
     },
     {
       "from": "/fr/information/86331/rapport-prix-qualite-service",
       "to": "/vivre-ici/assainissement/rapport-sur-le-prix-et-la-qualite-de-service/"
     },
     {
+      "from": "/fr/information/86332",
+      "to": "/vivre-ici/assainissement/rapport-sur-le-prix-et-la-qualite-de-service/rpqs-2016/"
+    },
+    {
       "from": "/fr/information/86332/rpqs-2016",
       "to": "/vivre-ici/assainissement/rapport-sur-le-prix-et-la-qualite-de-service/rpqs-2016/"
+    },
+    {
+      "from": "/fr/information/86372",
+      "to": "/vivre-ici/ecole-et-enfance/garderie/"
     },
     {
       "from": "/fr/information/86372/garderie",
       "to": "/vivre-ici/ecole-et-enfance/garderie/"
     },
     {
+      "from": "/fr/information/87637",
+      "to": "/vivre-ici/le-schema-de-coherence-territorial-scot/"
+    },
+    {
       "from": "/fr/information/87637/le-schema-coherence-territorial-%28scot%29",
       "to": "/vivre-ici/le-schema-de-coherence-territorial-scot/"
+    },
+    {
+      "from": "/fr/information/87704",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-d-aep-du-plessis/conseils-syndicaux/"
     },
     {
       "from": "/fr/information/87704/conseils-syndicaux",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-d-aep-du-plessis/conseils-syndicaux/"
     },
     {
+      "from": "/fr/information/87705",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-d-aep-du-plessis/rapport-sur-le-prix-et-la-qualite-du-service-rpqs/"
+    },
+    {
       "from": "/fr/information/87705/rapport-prix-qualite-service-rpqs",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-d-aep-du-plessis/rapport-sur-le-prix-et-la-qualite-du-service-rpqs/"
+    },
+    {
+      "from": "/fr/information/87706",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-d-aep-du-plessis/rapport-d-analyses-de-l-eau-potable/"
     },
     {
       "from": "/fr/information/87706/rapport-analyses-eau-potable",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-d-aep-du-plessis/rapport-d-analyses-de-l-eau-potable/"
     },
     {
+      "from": "/fr/information/87934",
+      "to": "/vivre-ici/transports/"
+    },
+    {
       "from": "/fr/information/87934/transports",
       "to": "/vivre-ici/transports/"
+    },
+    {
+      "from": "/fr/information/87935",
+      "to": "/vivre-ici/transports/transports-hors-agglomeration-dits-inter-urbains/"
     },
     {
       "from": "/fr/information/87935/transports-hors-agglomeration-dits-inter-urbains",
       "to": "/vivre-ici/transports/transports-hors-agglomeration-dits-inter-urbains/"
     },
     {
+      "from": "/fr/information/89102",
+      "to": "/vivre-ici/animations-intercommunales/"
+    },
+    {
       "from": "/fr/information/89102/animations-communaute-agglomerations",
       "to": "/vivre-ici/animations-intercommunales/"
+    },
+    {
+      "from": "/fr/information/89541",
+      "to": "/mairie/intercommunalite/territoires-vendomois/lutte-contre-le-frelon-asiatique/"
     },
     {
       "from": "/fr/information/89541/lutte-contre-frelon-asiatique",
       "to": "/mairie/intercommunalite/territoires-vendomois/lutte-contre-le-frelon-asiatique/"
     },
     {
+      "from": "/fr/information/90384",
+      "to": "/vivre-ici/agriculture/prevention-incendie/"
+    },
+    {
       "from": "/fr/information/90384/prevention-incendie",
       "to": "/vivre-ici/agriculture/prevention-incendie/"
+    },
+    {
+      "from": "/fr/information/90461",
+      "to": "/vivre-ici/assainissement/rapport-sur-le-prix-et-la-qualite-de-service/rpqs-2017/"
     },
     {
       "from": "/fr/information/90461/rpqs-2017",
       "to": "/vivre-ici/assainissement/rapport-sur-le-prix-et-la-qualite-de-service/rpqs-2017/"
     },
     {
+      "from": "/fr/information/92543",
+      "to": "/vivre-ici/assainissement/rapport-sur-le-prix-et-la-qualite-de-service/rpqs-2018/"
+    },
+    {
       "from": "/fr/information/92543/rpqs-2018",
       "to": "/vivre-ici/assainissement/rapport-sur-le-prix-et-la-qualite-de-service/rpqs-2018/"
+    },
+    {
+      "from": "/fr/information/92544",
+      "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-d-aep-du-plessis/rapport-sur-le-prix-et-la-qualite-du-service-rpqs/rpqs-2018/"
     },
     {
       "from": "/fr/information/92544/rpqs-2018",
       "to": "/mairie/conseil-municipal/commissions-et-syndicats/les-differents-syndicats/syndicat-d-aep-du-plessis/rapport-sur-le-prix-et-la-qualite-du-service-rpqs/rpqs-2018/"
     },
     {
+      "from": "/fr/information/96812",
+      "to": "/vivre-ici/mobilite-en-vendomois-move/"
+    },
+    {
       "from": "/fr/information/96812/mobilite-vendomois-%28move%29",
       "to": "/vivre-ici/mobilite-en-vendomois-move/"
+    },
+    {
+      "from": "/fr/information/97641",
+      "to": "/mairie/conseil-municipal/"
     },
     {
       "from": "/fr/information/97641/le-conseil-municipal",
       "to": "/mairie/conseil-municipal/"
     },
     {
+      "from": "/fr/information/97642",
+      "to": "/mairie/conseil-municipal/deliberations-et-arretes/"
+    },
+    {
       "from": "/fr/information/97642/publication-deliberations-arretes",
       "to": "/mairie/conseil-municipal/deliberations-et-arretes/"
+    },
+    {
+      "from": "/fr/information/97643",
+      "to": "/mairie/conseil-municipal/deliberations-et-arretes/2022/"
     },
     {
       "from": "/fr/information/97643/2022",
       "to": "/mairie/conseil-municipal/deliberations-et-arretes/2022/"
     },
     {
+      "from": "/fr/information/98249",
+      "to": "/mairie/conseil-municipal/deliberations-et-arretes/2023/"
+    },
+    {
       "from": "/fr/information/98249/2023",
       "to": "/mairie/conseil-municipal/deliberations-et-arretes/2023/"
+    },
+    {
+      "from": "/fr/information/99256",
+      "to": "/mairie/conseil-municipal/deliberations-et-arretes/2024/"
     },
     {
       "from": "/fr/information/99256/2024",
@@ -8361,7 +10273,15 @@
       "to": "/"
     },
     {
+      "from": "/fr/marche-public/1436",
+      "to": "/mairie/marches-publics/"
+    },
+    {
       "from": "/fr/marche-public/1436/choix-un-maitre-oeuvre-creation-une-zone-habitation",
+      "to": "/mairie/marches-publics/"
+    },
+    {
+      "from": "/fr/marche-public/2026",
       "to": "/mairie/marches-publics/"
     },
     {
@@ -8369,7 +10289,15 @@
       "to": "/mairie/marches-publics/"
     },
     {
+      "from": "/fr/marche-public/2598",
+      "to": "/mairie/marches-publics/"
+    },
+    {
       "from": "/fr/marche-public/2598/fourniture-livraison-repas-liaison-froide-restaurant-scolaire",
+      "to": "/mairie/marches-publics/"
+    },
+    {
+      "from": "/fr/marche-public/2671",
       "to": "/mairie/marches-publics/"
     },
     {
@@ -8377,7 +10305,15 @@
       "to": "/mairie/marches-publics/"
     },
     {
+      "from": "/fr/marche-public/2705",
+      "to": "/mairie/marches-publics/"
+    },
+    {
       "from": "/fr/marche-public/2705/equipement-forage",
+      "to": "/mairie/marches-publics/"
+    },
+    {
+      "from": "/fr/marche-public/3106",
       "to": "/mairie/marches-publics/"
     },
     {
@@ -8389,11 +10325,23 @@
       "to": "/mairie/marches-publics/"
     },
     {
+      "from": "/fr/marche-public/4175",
+      "to": "/mairie/marches-publics/"
+    },
+    {
       "from": "/fr/marche-public/4175/marche-restauration-scolaire",
       "to": "/mairie/marches-publics/"
     },
     {
+      "from": "/fr/marche-public/4320",
+      "to": "/mairie/marches-publics/"
+    },
+    {
       "from": "/fr/marche-public/4320/etude-connaissance-gestion-patrimoniale-reseaux-aep",
+      "to": "/mairie/marches-publics/"
+    },
+    {
+      "from": "/fr/marche-public/4587",
       "to": "/mairie/marches-publics/"
     },
     {
@@ -8405,7 +10353,15 @@
       "to": "/mairie/marches-publics/"
     },
     {
+      "from": "/fr/marche-public/4992",
+      "to": "/mairie/marches-publics/"
+    },
+    {
       "from": "/fr/marche-public/4992/dsp-adduction-eau-potable",
+      "to": "/mairie/marches-publics/"
+    },
+    {
+      "from": "/fr/marche-public/638",
       "to": "/mairie/marches-publics/"
     },
     {
@@ -8413,11 +10369,23 @@
       "to": "/mairie/marches-publics/"
     },
     {
+      "from": "/fr/marche-public/739",
+      "to": "/mairie/marches-publics/"
+    },
+    {
       "from": "/fr/marche-public/739/mission-sps",
       "to": "/mairie/marches-publics/"
     },
     {
+      "from": "/fr/marche-public/756",
+      "to": "/mairie/marches-publics/"
+    },
+    {
       "from": "/fr/marche-public/756/construction-un-groupe-scolaire-selon-demarche-haute-qualite-environnementale",
+      "to": "/mairie/marches-publics/"
+    },
+    {
+      "from": "/fr/marche-public/800",
       "to": "/mairie/marches-publics/"
     },
     {
@@ -8445,6 +10413,18 @@
       "to": "/demarches/numeros-utiles/"
     },
     {
+      "from": "/fr/numeros-utiles/1",
+      "to": "/demarches/numeros-utiles/"
+    },
+    {
+      "from": "/fr/numeros-utiles/2",
+      "to": "/demarches/numeros-utiles/"
+    },
+    {
+      "from": "/fr/numeros-utiles/3",
+      "to": "/demarches/numeros-utiles/"
+    },
+    {
       "from": "/fr/petites-annonces",
       "to": "/"
     },
@@ -8465,8 +10445,24 @@
       "to": "/contact/"
     },
     {
+      "from": "/fr/salle-municipale-diaporama/383",
+      "to": "/demarches/louer-une-salle/"
+    },
+    {
+      "from": "/fr/salle-municipale-diaporama/383/salle-associations",
+      "to": "/demarches/louer-une-salle/"
+    },
+    {
+      "from": "/fr/salle-municipale/382",
+      "to": "/demarches/louer-une-salle/salle-des-fetes/"
+    },
+    {
       "from": "/fr/salle-municipale/382/salle-fetes",
       "to": "/demarches/louer-une-salle/salle-des-fetes/"
+    },
+    {
+      "from": "/fr/salle-municipale/383",
+      "to": "/demarches/louer-une-salle/salle-des-associations/"
     },
     {
       "from": "/fr/salle-municipale/383/salle-associations",

@@ -23,13 +23,17 @@ snapshot structuré (`data/scrape/snapshot.json` et `data/scrape/media/`).
      l'actualité suivante est reprise et l'actualité est marquée « date estimée » ;
    - catégories d'actualités déduites par mots-clés ;
    - liens internes réécrits vers les nouvelles adresses ;
-   - une redirection 301 par ancienne adresse.
+   - une redirection 301 par ancienne adresse, plus une variante par identifiant seul
+     (`/fr/actualite/156663`) ; toute adresse explorée sans équivalent exact (pagination,
+     filtres, diaporamas) est rattachée à sa rubrique (`packages/model/src/legacy.ts`) ;
+   - aucun identifiant d'URL purement numérique (WordPress les renomme) : « 2025 » devient
+     « annee-2025 ».
 5. **Médias** (`media.ts`) : original récupéré plutôt que la vignette, type détecté sur le contenu
    (certains fichiers sont servis sans type), dimensions lues avec Sharp.
 6. **Validation** du snapshot avec le schéma zod partagé (`packages/model`).
 
-Dernier passage (28/09/2026) : 90 pages, 135 actualités, 2 évènements, 195 séances du conseil,
-15 élus, 2 salles, 103 fiches d'annuaire, 985 médias, 503 redirections.
+Dernier passage (29/09/2026) : 90 pages, 135 actualités, 2 évènements, 195 séances du conseil,
+15 élus, 2 salles, 103 fiches d'annuaire, 985 médias, 1 002 redirections.
 
 ## Jeu de données de test
 
@@ -49,6 +53,22 @@ de bout en bout.
 - convertit le texte en bloc « Classique », les galeries en blocs Galerie et les pièces jointes en
   blocs Fichier, modifiables dans l'éditeur ;
 - est idempotent : l'identifiant d'origine est stocké dans `_sal_source_id`, une relance met à jour.
+
+## Redirections des anciennes adresses
+
+Le fichier `_redirects` généré au build contient, dans l'ordre : les redirections exactes (1 002),
+leurs variantes avec barre finale jusqu'à la limite de 2 000 règles de Cloudflare, puis 40 règles
+génériques par rubrique (`/fr/actualite/*` → `/actualites/`…) pour toute ancienne adresse jamais
+explorée. Les paramètres d'URL (`?page=2`) sont conservés.
+
+`pnpm check:redirects [--base URL]` rejoue toutes les anciennes adresses connues et des adresses
+inventées dans chaque rubrique : chacune doit répondre 301 et aboutir sur une page existante.
+Dernier passage sur un site construit depuis WordPress avec tout le contenu : 2 046 adresses, 2 046
+redirigées vers une page existante, en une seule redirection.
+
+Réimporter après une modification du scraper : `pnpm cms:import --source scrape --prune` met à
+la corbeille les contenus d'un import précédent qui n'existent plus (jamais les contenus créés dans
+WordPress).
 
 ## Points à relire après import
 
