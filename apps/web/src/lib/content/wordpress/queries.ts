@@ -1,14 +1,14 @@
 const IMAGE = `sourceUrl altText mediaDetails { width height }`;
 const PAGE_INFO = `pageInfo { hasNextPage endCursor }`;
 
-const PAGE_FIELDS = `databaseId title uri content menuOrder excerpt`;
-const POST_FIELDS = `databaseId slug title date content excerpt
+const PAGE_FIELDS = `databaseId title uri content menuOrder excerpt modified`;
+const POST_FIELDS = `databaseId slug title date modified content excerpt
   categories { nodes { name } }
   featuredImage { node { ${IMAGE} } }`;
-const EVENT_FIELDS = `databaseId slug title content excerpt
+const EVENT_FIELDS = `databaseId slug title modified content excerpt
   featuredImage { node { ${IMAGE} } }
   infosEvenement { debut fin journeeEntiere lieu adresse }`;
-const ROOM_FIELDS = `databaseId slug title content excerpt
+const ROOM_FIELDS = `databaseId slug title modified content excerpt
   featuredImage { node { ${IMAGE} } }
   infosSalle { capacite placesAssises }`;
 

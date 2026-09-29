@@ -1,6 +1,5 @@
 import cloudflare from '@astrojs/cloudflare';
 import react from '@astrojs/react';
-import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, envField } from 'astro/config';
 import { fixtureMedia } from './integrations/fixture-media.ts';
@@ -21,12 +20,7 @@ export default defineConfig({
     prerenderEnvironment: 'node',
     imageService: { build: 'compile', runtime: 'passthrough' },
   }),
-  integrations: [
-    react(),
-    sitemap({ filter: (page) => !/\/(preview|recherche)\//.test(page) }),
-    fixtureMedia(),
-    postBuild(),
-  ],
+  integrations: [react(), fixtureMedia(), postBuild()],
   image: {
     domains: [new URL(wpGraphqlUrl).hostname, 'localhost'],
   },

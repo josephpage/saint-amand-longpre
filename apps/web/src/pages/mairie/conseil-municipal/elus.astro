@@ -4,6 +4,7 @@ import PageHeader from '~/components/PageHeader.astro';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { breadcrumb, getContent, sortElected } from '~/lib/content/index.ts';
 import { SECTION_LABELS } from '~/lib/navigation.ts';
+import { electedSchema } from '~/lib/seo.ts';
 
 const content = await getContent();
 const elected = sortElected(content.elected);
@@ -17,6 +18,7 @@ const path = '/mairie/conseil-municipal/elus/';
 
 <BaseLayout
   title="Les élus"
+  jsonLd={electedSchema(elected, Astro.site!)}
   description="Le maire, les adjoints et les conseillers municipaux de Saint-Amand-Longpré."
 >
   <PageHeader

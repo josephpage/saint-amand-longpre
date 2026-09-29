@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro';
 import RoomArticle from '~/components/RoomArticle.astro';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { getContent, type Room } from '~/lib/content/index.ts';
+import { roomSchema } from '~/lib/seo.ts';
 
 export const getStaticPaths = (async () => {
   const content = await getContent();
@@ -16,6 +17,10 @@ const { room } = Astro.props;
 const content = await getContent();
 ---
 
-<BaseLayout title={room.title} {...(room.excerpt ? { description: room.excerpt } : {})}>
+<BaseLayout
+  title={room.title}
+  {...(room.excerpt ? { description: room.excerpt } : {})}
+  jsonLd={roomSchema(room, Astro.site!, content.settings)}
+>
   <RoomArticle room={room} settings={content.settings} />
 </BaseLayout>

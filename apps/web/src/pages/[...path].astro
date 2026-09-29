@@ -48,13 +48,14 @@ let html = '';
 let children: NavItem[];
 let siblings: NavItem[] = [];
 let path: string;
+let modified: string | undefined;
 
 if (props.kind === 'section') {
   ({ label: title, intro, href: path } = props.section);
   children = props.section.items;
 } else {
   const { page } = props;
-  ({ title, html, path } = page);
+  ({ title, html, path, modified } = page);
   children = [
     ...(EXTRA_CHILDREN[page.path] ?? []),
     ...childrenOf(content.pages, page.path).map((p) => ({
@@ -76,7 +77,12 @@ const description = props.kind === 'page' ? props.page.excerpt : intro;
 ---
 
 <BaseLayout title={title} {...(description ? { description } : {})}>
-  <PageHeader title={title} crumbs={crumbs} {...(intro ? { intro } : {})} />
+  <PageHeader
+    title={title}
+    crumbs={crumbs}
+    {...(intro ? { intro } : {})}
+    {...(modified ? { modified } : {})}
+  />
   <div class="container-site grid gap-10 py-10 lg:grid-cols-[1fr_20rem]">
     <div class="min-w-0" data-pagefind-body>
       {html && <Prose html={html} />}

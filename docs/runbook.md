@@ -114,6 +114,50 @@ l'administration le nombre d'actualités (≈ 135), de séances (≈ 195) et d'�
 - [ ] Planifier l'audit RGAA, puis mettre à jour la déclaration d'accessibilité.
 - [ ] Prévenir le prestataire actuel (Réseau des Communes) de la fin du contrat après la bascule.
 
+## 7. Référencement (SEO) et assistants IA (GEO)
+
+Le site publie tout ce qu'il faut (voir [architecture.md](architecture.md#référencement-et-assistants-ia)).
+Il reste à le faire connaître et à aligner les sources externes que Google et les IA croisent.
+
+**Cloudflare**
+
+- [ ] Sécurité → Paramètres → **Configurer les politiques des robots IA** : Search = Autoriser,
+      Agent = Autoriser, Training = Autoriser (informations publiques ; à arbitrer par la mairie).
+      Par défaut, Cloudflare bloque les robots « Training » et « Agent » sur les pages avec
+      publicité : le site n'en a pas, mais autant l'expliciter.
+- [ ] Laisser **désactivés** « Managed robots.txt » (il remplacerait le robots.txt du site) et
+      « Bot Fight Mode » (il peut bloquer des robots légitimes).
+- [ ] Mise en cache → Configuration → **Crawler Hints** : activé (notifie Bing et les moteurs
+      IndexNow à chaque changement).
+
+**Moteurs de recherche**
+
+- [ ] [Google Search Console](https://search.google.com/search-console) : propriété de domaine
+      (vérification DNS dans Cloudflare), envoyer `https://www.saintamandlongpre.fr/sitemap.xml`,
+      demander l'indexation de l'accueil et de `/decouvrir/la-commune/`.
+- [ ] [Bing Webmaster Tools](https://www.bing.com/webmasters) : importer depuis Search Console.
+      Bing alimente ChatGPT (recherche), Copilot et DuckDuckGo : c'est essentiel pour le GEO.
+- [ ] Surveiller l'onglet « Pages » de Search Console pendant un mois : les anciennes adresses
+      doivent passer en « Page avec redirection ».
+
+**Sources externes à mettre à jour** (les IA y recoupent les informations)
+
+- [ ] **Annuaire Service-Public** : l'adresse du site y figure en `http://`. La mairie la corrige via
+      le lien « Signaler une erreur » de sa fiche (ou le correspondant annuaire de la préfecture).
+- [ ] **Google Business Profile** « Mairie de Saint-Amand-Longpré » : revendiquer la fiche, y
+      mettre le site, les horaires, le téléphone et l'e-mail.
+- [ ] **Wikidata** ([Q1424723](https://www.wikidata.org/wiki/Q1424723)) : propriété « site officiel »
+      (P856) = `https://www.saintamandlongpre.fr` ; l'infobox Wikipédia la reprend.
+- [ ] **OpenStreetMap** : balise `website` du nœud de la mairie.
+- [ ] Page Facebook de la commune et site de Territoires Vendômois : lien vers le nouveau site.
+
+**Contrôles**
+
+- [ ] [Test des résultats enrichis](https://search.google.com/test/rich-results) sur l'accueil,
+      une actualité, un évènement et `/decouvrir/la-commune/` : aucune erreur.
+- [ ] Poser à ChatGPT, Perplexity et Gemini « Quels sont les horaires de la mairie de
+      Saint-Amand-Longpré ? » quelques semaines après la mise en ligne : la réponse doit citer le site.
+
 ## Retour arrière
 
 Tant que l'ancien site existe, il suffit de rétablir chez le registrar les anciens serveurs DNS (ou,

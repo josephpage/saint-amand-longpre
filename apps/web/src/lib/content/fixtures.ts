@@ -57,6 +57,8 @@ function fromSnapshot(snapshot: Snapshot, mediaBase = FIXTURES_MEDIA_BASE): Site
   };
 
   const s = snapshot.settings;
+  /** Dans le jeu de données, tout a été « modifié » à la date du scraping. */
+  const modified = snapshot.scrapedAt.slice(0, 10);
   const hero = image(s.heroImageId, 'Saint-Amand-Longpré');
 
   return {
@@ -74,6 +76,7 @@ function fromSnapshot(snapshot: Snapshot, mediaBase = FIXTURES_MEDIA_BASE): Site
     },
     pages: snapshot.pages.map((p) => ({
       id: `page:${p.path}`,
+      modified,
       title: p.title,
       path: p.path,
       ...(p.parentPath ? { parentPath: p.parentPath } : {}),
@@ -86,6 +89,7 @@ function fromSnapshot(snapshot: Snapshot, mediaBase = FIXTURES_MEDIA_BASE): Site
       const img = image(n.imageId, '');
       return {
         id: `news:${n.slug}`,
+        modified: n.date > modified ? n.date : modified,
         slug: n.slug,
         title: n.title,
         date: n.date,
@@ -99,6 +103,7 @@ function fromSnapshot(snapshot: Snapshot, mediaBase = FIXTURES_MEDIA_BASE): Site
       const img = image(e.imageId, '');
       return {
         id: `event:${e.slug}`,
+        modified,
         slug: e.slug,
         title: e.title,
         start: e.start,
@@ -135,6 +140,7 @@ function fromSnapshot(snapshot: Snapshot, mediaBase = FIXTURES_MEDIA_BASE): Site
     }),
     rooms: snapshot.rooms.map((r) => ({
       id: `room:${r.slug}`,
+      modified,
       slug: r.slug,
       title: r.title,
       ...(r.excerpt ? { excerpt: r.excerpt } : {}),

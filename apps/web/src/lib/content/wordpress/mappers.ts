@@ -25,6 +25,7 @@ type Featured = { featuredImage?: { node: WpImage } | null };
 
 export interface WpPage {
   databaseId: number;
+  modified?: string | null;
   title: string;
   uri: string | null;
   content: string | null;
@@ -33,6 +34,7 @@ export interface WpPage {
 }
 export interface WpPost extends Featured {
   databaseId: number;
+  modified?: string | null;
   slug: string;
   title: string;
   date: string;
@@ -42,6 +44,7 @@ export interface WpPost extends Featured {
 }
 export interface WpEvent extends Featured {
   databaseId: number;
+  modified?: string | null;
   slug: string;
   title: string;
   content: string | null;
@@ -75,6 +78,7 @@ export interface WpElected extends Featured {
 }
 export interface WpRoom extends Featured {
   databaseId: number;
+  modified?: string | null;
   slug: string;
   title: string;
   content: string | null;
@@ -142,6 +146,9 @@ function mapImage(img: WpImage | null | undefined, fallbackAlt = ''): Image | un
   };
 }
 
+/** « 2026-09-12T10:00:00 » → « 2026-09-12 ». */
+const day = (value: string | null | undefined) => (value ? { modified: value.slice(0, 10) } : {});
+
 const excerptOf = (excerpt: string | null | undefined, content: string | null | undefined) =>
   truncate(decode(textFromHtml(excerpt || content || '')), 180);
 
@@ -180,6 +187,7 @@ export function mapPage(p: WpPage): Page | null {
   const excerpt = excerptOf(p.excerpt, p.content);
   return {
     id: `wp:${p.databaseId}`,
+    ...day(p.modified),
     title: decode(p.title),
     path,
     ...(parentPath ? { parentPath } : {}),
@@ -194,6 +202,7 @@ export function mapPost(p: WpPost): News {
   const image = mapImage(p.featuredImage?.node);
   return {
     id: `wp:${p.databaseId}`,
+    ...day(p.modified),
     slug: p.slug,
     title: decode(p.title),
     date: p.date.slice(0, 10),
@@ -213,6 +222,7 @@ export function mapEvent(e: WpEvent): Event | null {
   const excerpt = excerptOf(e.excerpt, e.content);
   return {
     id: `wp:${e.databaseId}`,
+    ...day(e.modified),
     slug: e.slug,
     title: decode(e.title),
     start,
@@ -267,6 +277,7 @@ export function mapRoom(r: WpRoom): Room {
   const excerpt = excerptOf(r.excerpt, r.content);
   return {
     id: `wp:${r.databaseId}`,
+    ...day(r.modified),
     slug: r.slug,
     title: decode(r.title),
     ...(excerpt ? { excerpt } : {}),

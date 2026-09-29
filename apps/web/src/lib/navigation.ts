@@ -52,6 +52,11 @@ export const VIRTUAL_PAGES: Record<string, NavItem> = {
     href: '/vivre-ici/commerces-et-entreprises/',
     description: 'Commerces, artisans et entreprises',
   },
+  commune: {
+    label: 'La commune en bref',
+    href: '/decouvrir/la-commune/',
+    description: 'Chiffres clés, histoire, intercommunalité et questions fréquentes',
+  },
   actualites: {
     label: 'Actualités',
     href: '/actualites/',
@@ -72,6 +77,7 @@ export const SECTION_LABELS: Record<string, string> = {
   '/demarches/numeros-utiles/': 'Numéros utiles',
   '/vivre-ici/associations/': 'Associations',
   '/vivre-ici/commerces-et-entreprises/': 'Commerces et entreprises',
+  '/decouvrir/la-commune/': 'La commune en bref',
 };
 
 const toItem = (p: Page): NavItem => ({
@@ -117,7 +123,7 @@ export function buildNavigation(pages: Page[]): NavSection[] {
       label: 'Découvrir',
       href: '/decouvrir/',
       intro: 'L’histoire, le patrimoine et les images de Saint-Amand-Longpré.',
-      items: childrenOf(pages, '/decouvrir/').map(toItem),
+      items: [v.commune!, ...childrenOf(pages, '/decouvrir/').map(toItem)],
     },
   ];
 }

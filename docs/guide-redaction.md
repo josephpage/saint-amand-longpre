@@ -41,6 +41,21 @@ s'affiche comme une pièce jointe à télécharger. Nommez le document clairemen
 Réglages → **Mairie**. Les horaires s'écrivent une ligne par créneau : numéro du jour (1 = lundi),
 heure d'ouverture, heure de fermeture, par exemple `5 14:00 16:30`.
 
+## Être bien trouvé sur Google et par les assistants IA
+
+- **Titre** : reprenez les mots des habitants (« Inscription à l’école maternelle », pas
+  « Scolarité 2026 »).
+- **Première phrase** : la réponse directe (qui, quoi, quand, où, combien). Les moteurs et les IA
+  la reprennent souvent telle quelle.
+- **Extrait** (panneau de droite) : une ou deux phrases qui résument la page ; elles servent de
+  description dans les résultats de recherche.
+- **Dates, horaires, lieux, tarifs** écrits en toutes lettres dans le texte, pas seulement dans un PDF
+  ou une image.
+- **Mettre à jour plutôt que dupliquer** : corrigez la page existante (la date « Mis à jour le »
+  change toute seule) au lieu de publier une nouvelle page sur le même sujet.
+- Les horaires, le téléphone et l'adresse se modifient uniquement dans Réglages → Mairie : ils se
+  répercutent partout (pages, données pour Google, réponses des IA).
+
 ## Bonnes pratiques
 
 - Un titre par idée, des phrases courtes, des listes à puces pour les pièces à fournir.

@@ -19,6 +19,11 @@ const { news } = Astro.props;
 <BaseLayout
   title={news.title}
   description={news.excerpt}
+  article={{
+    published: news.date,
+    section: news.category,
+    ...(news.modified ? { modified: news.modified } : {}),
+  }}
   {...(news.image ? { image: news.image.src } : {})}
   jsonLd={newsArticle(news, Astro.site!)}
 >

@@ -59,6 +59,27 @@ flowchart LR
 | `alerte`    | Bandeau d'information (canicule, travaux…) | niveau, lien, date d'expiration            |
 | Réglages    | Coordonnées, horaires, photo d'accueil     | page Réglages → Mairie                     |
 
+## Référencement et assistants IA
+
+- **Données structurées** (schema.org, JSON-LD, `src/lib/seo.ts`) : chaque page porte un graphe
+  commun reliant le site, la commune (`GovernmentOrganization`, codes Insee et SIREN), son territoire
+  (`City`, lié à Wikidata et Wikipédia) et la mairie (`GovernmentOffice`, horaires). S'y ajoutent
+  `WebPage` et `BreadcrumbList` sur chaque page, `NewsArticle`, `Event`, `EventVenue` (salles),
+  la composition du conseil municipal et une `FAQPage`.
+- **Page de référence** `/decouvrir/la-commune/` : faits sourcés (Insee, geo.api.gouv.fr,
+  Service-Public) et questions fréquentes générées à partir des données du site
+  (`src/lib/faq.ts`), donc toujours à jour.
+- **`llms.txt` et `llms-full.txt`** ([convention llms.txt](https://llmstxt.org)) : résumé Markdown
+  des faits essentiels et des rubriques, et texte intégral des pages principales.
+- **`robots.txt`** : moteurs et assistants IA explicitement autorisés ; préférences d'usage
+  (Content Signals) en commentaire.
+- **`sitemap.xml`** généré depuis le contenu avec les dates de modification ; le build échoue si
+  une page publiée n'y figure pas.
+- **Fraîcheur** : date « Mis à jour le » visible et déclarée (`dateModified`) sur les pages.
+- Balises Open Graph et Twitter, `max-image-preview:large`, adresses canoniques, 301 depuis
+  l'ancien site. Lighthouse (build WordPress) : SEO 100, accessibilité 100, performance 94 à 100.
+- Données officielles de la commune : `COMMUNE` dans `src/site.config.ts`.
+
 ## Choix notables
 
 - **Workers plutôt que Pages** : l'adaptateur Cloudflare d'Astro 7 ne gère plus Pages. Les pages

@@ -8,7 +8,6 @@ import BaseLayout from '~/layouts/BaseLayout.astro';
 import { activeAlerts, getContent, latestNews, upcomingEvents } from '~/lib/content/index.ts';
 import { todayInParis } from '~/lib/dates.ts';
 import { summarizeHours } from '~/lib/hours.ts';
-import { governmentOffice } from '~/lib/seo.ts';
 
 const content = await getContent();
 const { settings } = content;
@@ -129,7 +128,6 @@ const tiles: {
   rawTitle
   hideAlerts
   description="Site officiel de la commune de Saint-Amand-Longpré : démarches, horaires de la mairie, actualités, agenda, associations et vie locale."
-  jsonLd={governmentOffice(settings, Astro.site!)}
 >
   <section class="relative isolate overflow-hidden bg-nuit" aria-labelledby="titre-accueil">
     {settings.heroImage && (

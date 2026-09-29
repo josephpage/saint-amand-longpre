@@ -18,6 +18,8 @@ export interface Document {
 
 export interface Page {
   id: string;
+  /** Date de dernière modification, AAAA-MM-JJ. */
+  modified?: string;
   title: string;
   /** Chemin public, par exemple « /demarches/etat-civil/passeport/ ». */
   path: string;
@@ -30,6 +32,8 @@ export interface Page {
 
 export interface News {
   id: string;
+  /** Date de dernière modification, AAAA-MM-JJ. */
+  modified?: string;
   slug: string;
   title: string;
   /** Date de publication, AAAA-MM-JJ. */
@@ -42,6 +46,8 @@ export interface News {
 
 export interface Event {
   id: string;
+  /** Date de dernière modification, AAAA-MM-JJ. */
+  modified?: string;
   slug: string;
   title: string;
   /** Date et heure locales (Europe/Paris), AAAA-MM-JJTHH:MM. */
@@ -75,6 +81,8 @@ export interface Elected {
 
 export interface Room {
   id: string;
+  /** Date de dernière modification, AAAA-MM-JJ. */
+  modified?: string;
   slug: string;
   title: string;
   excerpt?: string;

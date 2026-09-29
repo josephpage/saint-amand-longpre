@@ -24,3 +24,32 @@ export const BLASON = {
   license: 'CC BY-SA 3.0',
   licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/deed.fr',
 };
+
+/**
+ * Données officielles de la commune (API Découpage administratif,
+ * geo.api.gouv.fr, consultée le 29 septembre 2026) et identifiants publics.
+ * Elles alimentent les données structurées, la page « La commune en bref » et llms.txt.
+ */
+export const COMMUNE = {
+  name: 'Saint-Amand-Longpré',
+  inseeCode: '41199',
+  siren: '214101990',
+  postalCode: '41310',
+  /** Population légale publiée par l'Insee. */
+  population: 1218,
+  /** Superficie en km² (2 145,5 ha). */
+  areaKm2: 21.46,
+  department: { name: 'Loir-et-Cher', code: '41' },
+  region: 'Centre-Val de Loire',
+  intercommunality: {
+    name: 'Communauté d’agglomération Territoires Vendômois',
+    url: 'https://www.territoiresvendomois.fr/',
+  },
+  /** Fusion de Saint-Amand-de-Vendôme et Longpré. */
+  mergedIn: 1965,
+  wikidata: 'https://www.wikidata.org/wiki/Q1424723',
+  wikipedia: 'https://fr.wikipedia.org/wiki/Saint-Amand-Longpr%C3%A9',
+  servicePublic:
+    'https://lannuaire.service-public.gouv.fr/centre-val-de-loire/loir-et-cher/f1da08a7-79ea-4936-bb6f-13c664bd657d',
+  insee: 'https://www.insee.fr/fr/statistiques/2011101?geo=COM-41199',
+};

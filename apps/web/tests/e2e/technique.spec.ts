@@ -48,13 +48,16 @@ test.describe('Redirections et erreurs', () => {
 
 test.describe('Référencement', () => {
   test('publie le plan du site et les données structurées', async ({ page, request }) => {
-    expect((await request.get('/sitemap-index.xml')).status()).toBe(200);
+    expect((await request.get('/sitemap.xml')).status()).toBe(200);
     expect(await (await request.get('/robots.txt')).text()).toContain('Sitemap:');
     await page.goto('/');
     const jsonLd = JSON.parse(
       (await page.locator('script[type="application/ld+json"]').textContent()) ?? '{}',
     );
-    expect(jsonLd['@type']).toBe('GovernmentOffice');
+    expect(jsonLd['@graph'].map((n: { '@type': unknown }) => n['@type'])).toContainEqual([
+      'GovernmentOffice',
+      'CivicStructure',
+    ]);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       'href',
       'https://www.saintamandlongpre.fr/',
@@ -83,5 +86,55 @@ test.describe('Blason', () => {
       /licenses\/by-sa\/3\.0/,
     );
     await expect(credits).toContainText('sans modification');
+  });
+});
+
+test.describe('Référencement et moteurs IA', () => {
+  test('autorise explicitement moteurs et assistants IA', async ({ request }) => {
+    const robots = await (await request.get('/robots.txt')).text();
+    expect(robots).toContain('Allow: /');
+    expect(robots).toContain('search=yes, ai-input=yes');
+    expect(robots).not.toMatch(/^Content-Signal/m);
+    expect(robots).toContain('Sitemap: https://www.saintamandlongpre.fr/sitemap.xml');
+  });
+
+  test('publie llms.txt et llms-full.txt', async ({ request }) => {
+    const llms = await request.get('/llms.txt');
+    expect(llms.status()).toBe(200);
+    expect(await llms.text()).toContain('# Saint-Amand-Longpré');
+    expect(await (await request.get('/llms-full.txt')).text()).toContain('## Questions fréquentes');
+  });
+
+  test('décrit la commune et répond aux questions fréquentes', async ({ page }) => {
+    await page.goto('/decouvrir/la-commune/');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Saint-Amand-Longpré en bref');
+    await expect(page.getByText('41199', { exact: true })).toBeVisible();
+    const faq = page.getByText(
+      'Quels sont les horaires d’ouverture de la mairie de Saint-Amand-Longpré ?',
+    );
+    await faq.click();
+    await expect(
+      page.getByText(/La mairie de Saint-Amand-Longpré est ouverte du lundi au jeudi/),
+    ).toBeVisible();
+    const types = await page.locator('script[type="application/ld+json"]').allTextContents();
+    expect(types.join()).toContain('"FAQPage"');
+  });
+
+  test('chaque page déclare son fil d’Ariane et l’entité commune', async ({ page }) => {
+    await page.goto('/demarches/etat-civil/passeport/');
+    const blocks = (await page.locator('script[type="application/ld+json"]').allTextContents()).map(
+      (t) => JSON.parse(t),
+    );
+    const graph = blocks.flatMap((b) => b['@graph'] ?? [b]);
+    expect(graph.find((n) => n['@type'] === 'BreadcrumbList')?.itemListElement.at(-1).name).toBe(
+      'Passeport',
+    );
+    expect(graph.find((n) => n['@type'] === 'GovernmentOrganization')?.sameAs).toContain(
+      'https://www.wikidata.org/wiki/Q1424723',
+    );
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+      'content',
+      /max-image-preview:large/,
+    );
   });
 });
