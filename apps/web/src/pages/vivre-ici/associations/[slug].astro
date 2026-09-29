@@ -57,21 +57,21 @@ const base = '/vivre-ici/associations/';
       <h2 class="text-xl">Contact</h2>
       {entry.phone && (
         <p class="flex gap-2">
-          <Icon name="phone" class="icon size-5 text-terracotta-text" />
-          <a class="text-encre" href={`tel:${entry.phone.replace(/[^\d+]/g, '')}`}>
+          <Icon name="phone" class="icon size-5 text-rouge" />
+          <a class="text-nuit" href={`tel:${entry.phone.replace(/[^\d+]/g, '')}`}>
             {entry.phone}
           </a>
         </p>
       )}
       {entry.email && (
         <p class="flex gap-2">
-          <Icon name="mail" class="icon size-5 text-terracotta-text" />
+          <Icon name="mail" class="icon size-5 text-rouge" />
           <a href={`mailto:${entry.email}`}>{entry.email}</a>
         </p>
       )}
       {entry.website && (
         <p class="flex gap-2">
-          <Icon name="globe" class="icon size-5 text-terracotta-text" />
+          <Icon name="globe" class="icon size-5 text-rouge" />
           <a href={entry.website} rel="noopener noreferrer">
             Site internet
           </a>
@@ -79,7 +79,7 @@ const base = '/vivre-ici/associations/';
       )}
       {entry.address && (
         <p class="flex gap-2">
-          <Icon name="pin" class="icon size-5 text-terracotta-text" />
+          <Icon name="pin" class="icon size-5 text-rouge" />
           {entry.address}
         </p>
       )}

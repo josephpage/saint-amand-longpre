@@ -1,5 +1,10 @@
 # Crédits des images
 
+## logo-saint-amand-longpre.svg, logo-monogramme.svg
+
+Logo officiel de la ville de Saint-Amand-Longpré (charte graphique 2026), propriété de la commune.
+`logo-monogramme.svg` en est extrait sans modification des tracés (monogramme seul, recadré).
+
 ## blason-saint-amand-longpre.svg
 
 - Œuvre : « Blason ville fr Saint-Amand-Longpré (Loir-et-Cher).svg » (foliolé d'or et de gueules)

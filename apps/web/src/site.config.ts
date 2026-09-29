@@ -12,7 +12,15 @@ export const LEGAL = {
   accessibilityStatementDate: '28 septembre 2026',
 };
 
-/** Blason de la commune et conditions de réutilisation (CC BY-SA 3.0). */
+/** Logo officiel de la commune (charte graphique 2026) : propriété de la commune. */
+export const LOGO = {
+  /** Logo complet : monogramme « SA » et « Ville de Saint-Amand-Longpré ». */
+  src: '/images/logo-saint-amand-longpre.svg',
+  /** Monogramme seul (favicon, petits formats). */
+  monogram: '/images/logo-monogramme.svg',
+};
+
+/** Blason historique, source du logo, et conditions de réutilisation (CC BY-SA 3.0). */
 export const BLASON = {
   src: '/images/blason-saint-amand-longpre.svg',
   title: 'Blason ville fr Saint-Amand-Longpré (Loir-et-Cher).svg',

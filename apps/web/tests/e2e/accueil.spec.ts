@@ -5,7 +5,7 @@ test.describe('Accueil', () => {
     await page.goto('/');
     await expect(page).toHaveTitle('Mairie de Saint-Amand-Longpré (Loir-et-Cher)');
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-      'Saint-Amand-Longpré, au quotidien',
+      'Saint-Amand-Longpré, entre patrimoine, nature et avenir',
     );
     for (const name of [
       'Faire une démarche',

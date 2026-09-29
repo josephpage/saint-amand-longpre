@@ -5,7 +5,7 @@ import BaseLayout from '~/layouts/BaseLayout.astro';
 
 <BaseLayout title="Page introuvable" noindex>
   <div class="container-site grid max-w-3xl gap-5 py-20">
-    <p class="eyebrow text-terracotta-text">Erreur 404</p>
+    <p class="eyebrow text-rouge">Erreur 404</p>
     <h1 class="text-4xl">Cette page est introuvable</h1>
     <p class="text-lg text-muted">
       L’adresse a peut-être changé lors de la refonte du site. Utilisez la recherche ou repartez de
@@ -15,7 +15,7 @@ import BaseLayout from '~/layouts/BaseLayout.astro';
       action="/recherche/"
       method="get"
       role="search"
-      class="flex overflow-hidden rounded-lg border-2 border-encre bg-white"
+      class="flex overflow-hidden rounded-lg border-2 border-nuit bg-white"
     >
       <label for="q404" class="sr-only">
         Rechercher sur le site
@@ -27,7 +27,7 @@ import BaseLayout from '~/layouts/BaseLayout.astro';
         class="min-w-0 flex-1 px-4 py-3"
         placeholder="Que cherchez-vous ?"
       />
-      <button class="bg-terracotta px-5 font-bold text-white" type="submit">
+      <button class="bg-rouge px-5 font-bold text-white" type="submit">
         Rechercher
       </button>
     </form>

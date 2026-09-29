@@ -6,11 +6,9 @@
       "entry": ["src/pages/**/*.{astro,ts}", "integrations/*.ts", "scripts/*.ts", "tests/**/*.ts"],
       "project": ["src/**/*.{astro,ts,tsx}", "integrations/*.ts", "scripts/*.ts", "tests/**/*.ts"],
       "ignoreDependencies": [
-        "@fontsource-variable/source-serif-4",
-        "@fontsource/allura",
-        "@fontsource/atkinson-hyperlegible-next",
-        "tailwindcss",
-        "cloudflare"
+        "@fontsource-variable/lora",
+        "@fontsource-variable/montserrat",
+        "tailwindcss"
       ]
     },
     "tools/scraper": {},

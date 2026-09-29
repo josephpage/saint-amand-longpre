@@ -73,7 +73,7 @@ export default function Search() {
       <form
         role="search"
         onSubmit={onSubmit}
-        className="flex overflow-hidden rounded-lg border-2 border-encre bg-white focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-terracotta"
+        className="flex overflow-hidden rounded-full border-2 border-nuit bg-white focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-riviere-text"
       >
         <label htmlFor="recherche" className="sr-only">
           Rechercher sur le site
@@ -84,12 +84,12 @@ export default function Search() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Carte d’identité, salle des fêtes, conseil municipal…"
-          className="min-w-0 flex-1 px-4 py-3 text-base focus:outline-none"
+          className="min-w-0 flex-1 px-5 py-3 text-base focus:outline-none"
           autoComplete="off"
         />
         <button
           type="submit"
-          className="bg-terracotta px-5 font-bold text-white hover:bg-terracotta-dark"
+          className="bg-rouge px-6 font-display font-semibold text-white hover:bg-rouge-dark"
         >
           Rechercher
         </button>
@@ -110,13 +110,13 @@ export default function Search() {
           {state.results.map((r) => (
             <li key={r.url} className="card p-5">
               <h2 className="text-lg">
-                <a href={r.url} className="text-encre">
+                <a href={r.url} className="text-nuit">
                   {r.meta.title ?? r.url}
                 </a>
               </h2>
               {/* L'extrait est produit par Pagefind à partir des pages du site (balises <mark> uniquement). */}
               <p
-                className="mt-1 text-sm text-muted [&_mark]:bg-terracotta-soft [&_mark]:text-encre"
+                className="mt-1 text-sm text-muted [&_mark]:bg-rouge-soft [&_mark]:text-nuit"
                 dangerouslySetInnerHTML={{ __html: r.excerpt }}
               />
             </li>

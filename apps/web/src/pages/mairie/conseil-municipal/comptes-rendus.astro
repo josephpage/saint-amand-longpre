@@ -48,7 +48,7 @@ const path = '/mairie/conseil-municipal/comptes-rendus/';
               .filter((m) => m.date.startsWith(year))
               .map((meeting) => (
                 <li class="flex flex-wrap items-center gap-x-4 gap-y-2 p-4">
-                  <Icon name="file" class="icon text-terracotta-text" />
+                  <Icon name="file" class="icon text-rouge" />
                   <div class="min-w-0 flex-1">
                     <p class="font-semibold">Séance du {formatDate(meeting.date)}</p>
                     {meeting.html && <Prose html={meeting.html} class="mt-1 text-sm text-muted" />}

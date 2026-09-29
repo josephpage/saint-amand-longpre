@@ -40,18 +40,18 @@ const where = [event.location, event.address].filter(Boolean).join(', ');
   <aside class="card grid content-start gap-4 p-5">
     <h2 class="text-xl">Informations pratiques</h2>
     <p class="flex gap-3">
-      <Icon name="calendar" class="icon text-terracotta-text" />
+      <Icon name="calendar" class="icon text-rouge" />
       <span>
         <time datetime={event.start}>{formatEventDate(event.start, event.end)}</time>
       </span>
     </p>
     <p class="flex gap-3">
-      <Icon name="clock" class="icon text-terracotta-text" />
+      <Icon name="clock" class="icon text-rouge" />
       <span>{formatEventTime(event.start, event.end, event.allDay)}</span>
     </p>
     {where && (
       <p class="flex gap-3">
-        <Icon name="pin" class="icon text-terracotta-text" />
+        <Icon name="pin" class="icon text-rouge" />
         <span>{where}</span>
       </p>
     )}

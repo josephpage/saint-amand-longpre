@@ -101,8 +101,12 @@ flowchart LR
 - **Pas de lettre d'information** au lancement (décision de périmètre).
 - **Pas de cookie** : Cloudflare Web Analytics et Turnstile n'en déposent pas ; aucun bandeau de
   consentement n'est nécessaire.
+- **Charte graphique 2026** : logo « SA » de la commune (monogramme en SVG en ligne,
+  `Logo.astro`, favicon `logo-monogramme.svg`), palette bleu nuit, rouge, or, vert sauge, bleu
+  rivière et sable, rubans ondulés et filet or sous les titres. Les couleurs trop claires pour du
+  texte ont une variante assombrie (`-text`, contraste ≥ 4,5:1).
 - **Blason** : fichier officiel de Wikimedia Commons (Spedona, CC BY-SA 3.0), utilisé sans
-  modification comme logo et favicon ; crédit dans les mentions légales et
-  `apps/web/public/images/CREDITS.md`. Toute version modifiée doit rester sous CC BY-SA.
-- **Typographie** : Source Serif 4, Atkinson Hyperlegible Next (conçue pour la malvoyance) et Allura
-  (devise), auto-hébergées via Fontsource.
+  modification sur « La commune en bref », comme source du logo ; crédit dans les mentions légales
+  et `apps/web/public/images/CREDITS.md`.
+- **Typographie** : Montserrat (titres, interface) et Lora (texte courant), polices de la charte,
+  auto-hébergées via Fontsource.

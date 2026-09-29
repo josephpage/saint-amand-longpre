@@ -80,9 +80,12 @@ Architecture complète : [docs/architecture.md](docs/architecture.md).
   imports. Alias `~/` pour `apps/web/src`.
 - Préférer un composant Astro sans JavaScript. N'ajouter un îlot React que pour une vraie
   interaction ; le menu et le statut d'ouverture sont en JavaScript natif.
-- Styles : classes Tailwind et jetons de `global.css` (`terracotta`, `nuit`, `bocage`, `sauge`,
-  `lin`, `pierre`, `encre`…). Ne pas ajouter de couleurs en dur. Polices : Source Serif 4 (titres),
-  Atkinson Hyperlegible Next (texte) ; Allura est réservée à la devise.
+- Styles : classes Tailwind et jetons de `global.css`, issus de la charte graphique 2026 (`nuit`,
+  `rouge`, `jaune`, `sauge`, `riviere`, `sable`). Pour du texte, utiliser les variantes `-text`
+  (contraste RGAA) ; le jaune ne porte jamais de texte. Couleurs thématiques des catégories dans
+  `src/lib/theme.ts`. Ne pas ajouter de couleurs en dur. Polices : Montserrat (`font-display` :
+  titres, interface) et Lora (`font-serif` : texte courant, grands titres d'accroche). Motifs :
+  rubans (`Ribbons.astro`), filet jaune sous les titres (`title-bar`), monogramme (`Logo.astro`).
 - Accessibilité : HTML sémantique, un seul `h1`, contrastes AA, focus visible, libellés de
   formulaires, texte alternatif. Les tests E2E lancent axe sur chaque page type.
 - Tests : Vitest à côté du code (`*.test.ts`) pour toute logique (dates, horaires, mappers,

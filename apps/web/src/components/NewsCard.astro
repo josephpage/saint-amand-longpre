@@ -2,7 +2,9 @@
 import { Image } from 'astro:assets';
 import type { News } from '~/lib/content/types.ts';
 import { formatDate } from '~/lib/dates.ts';
+import { CHIP, categoryTone } from '~/lib/theme.ts';
 import Icon from './Icon.astro';
+import Logo from './Logo.astro';
 
 interface Props {
   news: News;
@@ -11,6 +13,7 @@ interface Props {
   eager?: boolean;
 }
 const { news, headingLevel: Heading = 'h3', eager = false } = Astro.props;
+const tone = categoryTone(news.category);
 ---
 
 <article class="card group relative grid grid-cols-[7rem_1fr] overflow-hidden transition-transform hover:-translate-y-0.5 sm:flex sm:flex-col">
@@ -27,25 +30,27 @@ const { news, headingLevel: Heading = 'h3', eager = false } = Astro.props;
     />
   ) : (
     <div
-      class="grid size-full place-items-center bg-sauge text-bocage sm:aspect-[4/3]"
+      class="motif-ecailles grid size-full place-items-center bg-nuit sm:aspect-[4/3]"
       aria-hidden="true"
     >
-      <Icon name="megaphone" class="icon size-8 stroke-[1.4] sm:size-12" />
+      <Logo class="h-10 w-auto text-sable sm:h-16" />
     </div>
   )}
-  <div class="flex flex-1 flex-col gap-2 p-4">
-    <p class="eyebrow text-encre">{news.category}</p>
-    <Heading class="text-lg leading-snug">
+  <div class="flex flex-1 flex-col gap-2.5 p-4 sm:p-5">
+    <p>
+      <span class:list={['chip', CHIP[tone]]}>{news.category}</span>
+    </p>
+    <Heading class="text-base leading-snug sm:text-[1.05rem]">
       <a
         href={`/actualites/${news.slug}/`}
-        class="text-encre no-underline after:absolute after:inset-0 group-hover:underline"
+        class="text-nuit no-underline after:absolute after:inset-0 group-hover:underline"
       >
         {news.title}
       </a>
     </Heading>
     {news.excerpt && <p class="line-clamp-3 hidden text-sm text-muted sm:block">{news.excerpt}</p>}
-    <p class="mt-auto inline-flex items-center gap-1.5 pt-1 text-sm text-muted">
-      <Icon name="calendar" class="icon size-4" />
+    <p class="mt-auto inline-flex items-center gap-1.5 pt-1 font-display text-[0.8rem] font-medium text-muted">
+      <Icon name="calendar" class="icon size-4 text-rouge" />
       <time datetime={news.date}>{formatDate(news.date)}</time>
     </p>
   </div>
