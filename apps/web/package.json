@@ -11,7 +11,6 @@
     "typecheck": "astro sync && tsc --noEmit -p tsconfig.json",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "codegen:schema": "node scripts/fetch-schema.ts",
     "map": "node scripts/static-map.ts",
     "deploy": "wrangler deploy",
     "cf-typegen": "wrangler types"

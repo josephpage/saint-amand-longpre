@@ -73,3 +73,4 @@ La source du contenu et les variables du Worker dépendent de `CLOUDFLARE_ENV` (
 - [Reprise du contenu de l'ancien site](docs/reprise-contenu.md)
 - [Guide de rédaction pour le secrétariat](docs/guide-redaction.md)
 - [Photos à prendre pour illustrer le site](docs/photos-a-prendre.md)
+- [Instructions pour les agents IA](AGENTS.md)
