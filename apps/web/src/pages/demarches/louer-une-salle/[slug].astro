@@ -1,0 +1,21 @@
+---
+import type { GetStaticPaths } from 'astro';
+import RoomArticle from '~/components/RoomArticle.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getContent, type Room } from '~/lib/content/index.ts';
+
+export const getStaticPaths = (async () => {
+  const content = await getContent();
+  return content.rooms.map((room) => ({ params: { slug: room.slug }, props: { room } }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  room: Room;
+}
+const { room } = Astro.props;
+const content = await getContent();
+---
+
+<BaseLayout title={room.title} {...(room.excerpt ? { description: room.excerpt } : {})}>
+  <RoomArticle room={room} settings={content.settings} />
+</BaseLayout>

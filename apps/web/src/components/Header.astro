@@ -1,0 +1,202 @@
+---
+import type { NavSection } from '~/lib/navigation.ts';
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+
+interface Props {
+  sections: NavSection[];
+  currentPath: string;
+}
+
+const { sections, currentPath } = Astro.props;
+const MAX_ITEMS = 8;
+const isCurrent = (s: NavSection) =>
+  currentPath.startsWith(s.href) ||
+  (s.key === 'agenda' &&
+    (currentPath.startsWith('/agenda/') || currentPath.startsWith('/actualites/')));
+---
+
+<header class="sticky top-0 z-40 border-b border-trait bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85">
+  <div class="container-site flex items-center gap-3 py-3 lg:gap-5">
+    <a
+      href="/"
+      class="flex shrink-0 items-center gap-3 text-encre no-underline"
+      aria-label="Saint-Amand-Longpré, retour à l’accueil"
+    >
+      <Logo class="hidden h-8 w-16 text-encre min-[400px]:block sm:h-9 sm:w-[72px]" />
+      <span class="leading-none">
+        <span class="block font-serif text-base font-semibold whitespace-nowrap min-[400px]:text-lg sm:text-xl">
+          Saint-Amand-Longpré
+        </span>
+        <span class="mt-1 block text-[0.7rem] tracking-[0.2em] text-muted uppercase">
+          Loir-et-Cher
+        </span>
+      </span>
+    </a>
+
+    <nav aria-label="Menu principal" class="ml-auto hidden xl:block">
+      <ul class="flex items-center gap-0.5">
+        {sections.map((section) => (
+          <li class="relative" data-menu>
+            <div class="flex items-center">
+              <a
+                href={section.href}
+                class:list={[
+                  'border-b-2 py-2 pr-1 pl-2.5 text-[0.95rem] font-semibold whitespace-nowrap no-underline',
+                  isCurrent(section)
+                    ? 'border-terracotta text-terracotta-text'
+                    : 'border-transparent text-encre hover:text-terracotta-text',
+                ]}
+                aria-current={isCurrent(section) ? 'true' : undefined}
+              >
+                {section.label}
+              </a>
+              {section.items.length > 0 && (
+                <button
+                  type="button"
+                  class="grid size-7 place-items-center rounded text-muted hover:text-terracotta-text"
+                  aria-expanded="false"
+                  aria-controls={`sous-menu-${section.key}`}
+                  data-menu-toggle
+                >
+                  <span class="sr-only">Afficher le sous-menu {section.label}</span>
+                  <Icon name="chevron-down" class="icon size-4 transition-transform" />
+                </button>
+              )}
+            </div>
+            {section.items.length > 0 && (
+              <div
+                id={`sous-menu-${section.key}`}
+                class="absolute top-full left-0 mt-2 hidden w-80 rounded-card border border-trait bg-white p-2 shadow-card"
+                data-menu-panel
+              >
+                <ul>
+                  {section.items.slice(0, MAX_ITEMS).map((item) => (
+                    <li>
+                      <a
+                        href={item.href}
+                        class="block rounded-lg px-3 py-2 text-encre no-underline hover:bg-lin"
+                      >
+                        <span class="block font-semibold">{item.label}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <a href={section.href} class="link-more mt-1 px-3 py-2">
+                  Tout voir dans « {section.label} »
+                  <Icon name="arrow-right" class="icon size-4" />
+                </a>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="ml-auto flex items-center gap-2 xl:ml-0">
+      <a
+        href="/recherche/"
+        class="grid size-10 place-items-center rounded-lg text-terracotta-text hover:bg-lin"
+        aria-label="Rechercher sur le site"
+      >
+        <Icon name="search" />
+      </a>
+      <a href="/contact/" class="btn hidden md:inline-flex xl:hidden 2xl:inline-flex">
+        Contacter la mairie
+      </a>
+      <button
+        type="button"
+        class="inline-flex size-10 items-center justify-center gap-2 rounded-lg border border-trait bg-white text-sm font-bold text-encre sm:w-auto sm:px-3 xl:hidden"
+        aria-expanded="false"
+        aria-controls="menu-mobile"
+        data-mobile-toggle
+      >
+        <Icon name="menu" class="icon size-5" />
+        <span class="sr-only sm:not-sr-only">Menu</span>
+      </button>
+    </div>
+  </div>
+
+  <nav
+    id="menu-mobile"
+    aria-label="Menu principal"
+    class="hidden max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-trait bg-white xl:hidden"
+    data-mobile-panel
+  >
+    <ul class="container-site divide-y divide-trait py-2">
+      {sections.map((section) => (
+        <li class="py-1">
+          <details class="group" open={isCurrent(section)}>
+            <summary class="flex cursor-pointer list-none items-center justify-between py-3 font-serif text-lg font-semibold">
+              {section.label}
+              <Icon
+                name="chevron-down"
+                class="icon size-5 transition-transform group-open:rotate-180"
+              />
+            </summary>
+            <ul class="pb-3">
+              <li>
+                <a href={section.href} class="block py-2 font-bold">
+                  {section.label} : accueil de la rubrique
+                </a>
+              </li>
+              {section.items.map((item) => (
+                <li>
+                  <a href={item.href} class="block py-2 text-encre no-underline">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        </li>
+      ))}
+      <li class="py-4">
+        <a href="/contact/" class="btn w-full justify-center">
+          Contacter la mairie
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  // Sous-menus du menu principal (motif « disclosure ») et menu mobile.
+  const toggles = document.querySelectorAll<HTMLButtonElement>('[data-menu-toggle]');
+  const closeAll = (except?: HTMLButtonElement) => {
+    toggles.forEach((btn) => {
+      if (btn === except) return;
+      btn.setAttribute('aria-expanded', 'false');
+      document.getElementById(btn.getAttribute('aria-controls')!)?.classList.add('hidden');
+      btn.querySelector('svg')?.classList.remove('rotate-180');
+    });
+  };
+  toggles.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      closeAll(btn);
+      btn.setAttribute('aria-expanded', String(open));
+      document
+        .getElementById(btn.getAttribute('aria-controls')!)
+        ?.classList.toggle('hidden', !open);
+      btn.querySelector('svg')?.classList.toggle('rotate-180', open);
+    });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    const open = [...toggles].find((b) => b.getAttribute('aria-expanded') === 'true');
+    closeAll();
+    open?.focus();
+  });
+  document.addEventListener('click', (event) => {
+    if (!(event.target as HTMLElement).closest('[data-menu]')) closeAll();
+  });
+
+  const mobileToggle = document.querySelector<HTMLButtonElement>('[data-mobile-toggle]');
+  const mobilePanel = document.querySelector<HTMLElement>('[data-mobile-panel]');
+  mobileToggle?.addEventListener('click', () => {
+    const open = mobileToggle.getAttribute('aria-expanded') !== 'true';
+    mobileToggle.setAttribute('aria-expanded', String(open));
+    mobilePanel?.classList.toggle('hidden', !open);
+  });
+</script>

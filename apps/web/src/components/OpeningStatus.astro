@@ -1,0 +1,41 @@
+---
+import type { OpeningSlot } from '~/lib/content/types.ts';
+
+/**
+ * Statut « Mairie ouverte / fermée », calculé dans le navigateur à l'heure de
+ * Paris (la page étant statique, un calcul au build serait vite périmé).
+ */
+interface Props {
+  hours: OpeningSlot[];
+  class?: string;
+}
+const { hours, class: className } = Astro.props;
+---
+
+<p
+  class:list={[
+    'inline-flex items-center gap-2 rounded-full bg-pierre px-3 py-1 text-sm font-bold text-muted data-[open=true]:bg-ouvert-soft data-[open=true]:text-ouvert',
+    className,
+  ]}
+  data-opening-status
+  data-hours={JSON.stringify(hours)}
+  aria-live="polite"
+>
+  <span class="size-2 rounded-full bg-current" aria-hidden="true"></span>
+  <span data-label>Horaires d’ouverture de la mairie</span>
+</p>
+
+<script>
+  import { openingStatus } from '~/lib/hours.ts';
+
+  const update = () => {
+    document.querySelectorAll<HTMLElement>('[data-opening-status]').forEach((el) => {
+      const status = openingStatus(JSON.parse(el.dataset.hours ?? '[]'));
+      el.dataset.open = String(status.open);
+      const label = el.querySelector('[data-label]');
+      if (label) label.textContent = status.label;
+    });
+  };
+  update();
+  setInterval(update, 60_000);
+</script>

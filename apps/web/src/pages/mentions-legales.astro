@@ -1,0 +1,58 @@
+---
+import PageHeader from '~/components/PageHeader.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getContent } from '~/lib/content/index.ts';
+import { LEGAL } from '~/site.config.ts';
+
+const { settings, elected } = await getContent();
+const mayor = elected.find((e) => e.role === 'maire');
+---
+
+<BaseLayout title="Mentions légales">
+  <PageHeader
+    title="Mentions légales"
+    crumbs={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Mentions légales', href: '/mentions-legales/' },
+    ]}
+  />
+  <div class="container-site prose-sal py-10">
+    <h2>Éditeur du site</h2>
+    <p>
+      {LEGAL.publisher}
+      <br />
+      Mairie, {settings.street}, {settings.postalCode} {settings.city}
+      <br />
+      Téléphone : {settings.phone}
+    </p>
+    <h2>Directeur ou directrice de la publication</h2>
+    <p>
+      {mayor ? `${mayor.name}, maire de Saint-Amand-Longpré.` : 'Le maire de Saint-Amand-Longpré.'}
+    </p>
+    <h2>Hébergement</h2>
+    <p>
+      Site public : Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis (
+      <a href="https://www.cloudflare.com/">cloudflare.com</a>).
+    </p>
+    <p>
+      Outil de gestion des contenus : {LEGAL.cmsHost.name}
+      {LEGAL.cmsHost.address ? `, ${LEGAL.cmsHost.address}` : ''}.
+    </p>
+    <h2>Propriété intellectuelle</h2>
+    <p>
+      Les textes, photographies et documents publiés sur ce site appartiennent à la commune ou à
+      leurs auteurs. Toute réutilisation doit être demandée à la mairie. Les documents
+      administratifs (comptes rendus, délibérations, arrêtés) sont librement réutilisables en citant
+      la source.
+    </p>
+    <p>
+      Fonds de carte : © contributeurs{' '}
+      <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, sous licence ODbL.
+    </p>
+    <h2>Données personnelles et cookies</h2>
+    <p>
+      Voir la page <a href="/donnees-personnelles/">Données personnelles</a>. Ce site ne dépose
+      aucun cookie de mesure d’audience ni de publicité.
+    </p>
+  </div>
+</BaseLayout>

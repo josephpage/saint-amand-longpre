@@ -1,0 +1,10 @@
+pnpm-lock.yaml
+dist/
+.astro/
+.wrangler/
+data/
+apps/cms/.data/
+apps/web/src/lib/wordpress/generated/
+*.php
+playwright-report/
+test-results/

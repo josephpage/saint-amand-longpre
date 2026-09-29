@@ -1,0 +1,75 @@
+---
+import { PREVIEW_SECRET } from 'astro:env/server';
+import EventArticle from '~/components/EventArticle.astro';
+import NewsArticle from '~/components/NewsArticle.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import Prose from '~/components/Prose.astro';
+import RoomArticle from '~/components/RoomArticle.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getContent, getPreview, type PreviewItem } from '~/lib/content/index.ts';
+import { verifyPreview } from '~/lib/preview-token.ts';
+
+/**
+ * Prévisualisation d'un contenu non publié, rendue à la demande dans le Worker.
+ * Le lien est signé par WordPress (HMAC) et expire au bout d'une heure.
+ */
+export const prerender = false;
+
+Astro.response.headers.set('cache-control', 'private, no-store');
+Astro.response.headers.set('x-robots-tag', 'noindex');
+
+let item: PreviewItem | null = null;
+let problem: string | null = null;
+
+if (!PREVIEW_SECRET) {
+  problem = 'La prévisualisation n’est pas configurée (PREVIEW_SECRET manquant).';
+} else {
+  const check = await verifyPreview(Astro.url.searchParams, PREVIEW_SECRET);
+  if (!check.ok) {
+    problem =
+      check.reason === 'expired'
+        ? 'Ce lien de prévisualisation a expiré. Cliquez à nouveau sur « Prévisualiser » dans WordPress.'
+        : 'Ce lien de prévisualisation n’est pas valide.';
+  } else {
+    try {
+      item = await getPreview(check.id);
+      if (!item) problem = 'Ce type de contenu ne peut pas être prévisualisé.';
+    } catch (error) {
+      problem = `WordPress n’a pas répondu : ${error instanceof Error ? error.message.replace(/\.$/, '') : 'erreur inconnue'}.`;
+    }
+  }
+}
+if (problem) Astro.response.status = item ? 200 : 403;
+const settings = item?.kind === 'room' ? (await getContent()).settings : undefined;
+---
+
+<BaseLayout title={item ? `Aperçu : ${item.item.title}` : 'Prévisualisation'} noindex>
+  <div class="bg-vigilance-soft">
+    <p class="container-site py-2 text-sm font-bold">
+      Aperçu non publié : cette page n’est visible que par vous.
+    </p>
+  </div>
+  {problem && (
+    <div class="container-site py-16">
+      <h1 class="text-3xl">Prévisualisation impossible</h1>
+      <p class="mt-3 text-lg">{problem}</p>
+    </div>
+  )}
+  {item?.kind === 'news' && <NewsArticle news={item.item} />}
+  {item?.kind === 'event' && <EventArticle event={item.item} />}
+  {item?.kind === 'room' && settings && <RoomArticle room={item.item} settings={settings} />}
+  {item?.kind === 'page' && (
+    <>
+      <PageHeader
+        title={item.item.title}
+        crumbs={[
+          { label: 'Accueil', href: '/' },
+          { label: item.item.title, href: item.item.path },
+        ]}
+      />
+      <div class="container-site py-10">
+        <Prose html={item.item.html} />
+      </div>
+    </>
+  )}
+</BaseLayout>

@@ -1,0 +1,185 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/source-serif-4/wght.css';
+@import '@fontsource/atkinson-hyperlegible-next/400.css';
+@import '@fontsource/atkinson-hyperlegible-next/600.css';
+@import '@fontsource/atkinson-hyperlegible-next/700.css';
+@import '@fontsource/allura/400.css';
+
+@theme {
+  --color-terracotta: #b5532a;
+  --color-terracotta-text: #a84a22;
+  --color-terracotta-dark: #96431d;
+  --color-terracotta-soft: #f6e6dc;
+  --color-nuit: #1d3441;
+  --color-nuit-muted: #a9b8c1;
+  --color-nuit-text: #e8edf0;
+  --color-bocage: #2f5d3a;
+  --color-sauge: #e4eadf;
+  --color-lin: #faf7f2;
+  --color-pierre: #f2ede4;
+  --color-encre: #1f2a33;
+  --color-muted: #5b6570;
+  --color-trait: #e6dfd3;
+  --color-ouvert: #2f6b45;
+  --color-ouvert-soft: #e3f0e7;
+  --color-vigilance: #935600;
+  --color-vigilance-soft: #fbebd2;
+  --color-urgence: #a3162b;
+  --color-urgence-soft: #fae4e7;
+
+  --font-serif: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-sans:
+    'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI',
+    sans-serif;
+  --font-script: 'Allura', 'Snell Roundhand', cursive;
+
+  --radius-card: 0.75rem;
+  --shadow-card: 0 1px 2px rgb(31 42 51 / 0.05), 0 10px 30px -12px rgb(31 42 51 / 0.22);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-lin font-sans text-[1.0625rem] leading-relaxed text-encre antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif font-semibold tracking-[-0.01em] text-balance;
+  }
+  a {
+    @apply text-terracotta-text underline underline-offset-2;
+  }
+  :focus-visible {
+    @apply rounded-sm outline-3 outline-offset-2 outline-terracotta;
+  }
+  ::selection {
+    @apply bg-terracotta-soft;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-lg bg-terracotta px-4.5 py-2.5 font-bold whitespace-nowrap text-white no-underline transition-colors hover:bg-terracotta-dark;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 font-bold text-encre no-underline shadow-card hover:text-terracotta-text;
+  }
+  .card {
+    @apply rounded-card bg-white shadow-card;
+  }
+  .link-more {
+    @apply inline-flex items-center gap-1.5 text-sm font-bold whitespace-nowrap text-terracotta-text no-underline hover:underline;
+  }
+  .eyebrow {
+    @apply text-xs font-bold tracking-[0.12em] uppercase;
+  }
+  .icon {
+    @apply size-6 shrink-0 fill-none stroke-current stroke-[1.9] [stroke-linecap:round] [stroke-linejoin:round];
+  }
+
+  /* Contenu éditorial venant de WordPress (ou du jeu de données). */
+  .prose-sal {
+    @apply max-w-[68ch] text-[1.0625rem] leading-[1.7];
+    & > * + * {
+      @apply mt-4;
+    }
+    & h2 {
+      @apply mt-10 text-2xl;
+    }
+    & h3 {
+      @apply mt-8 text-xl;
+    }
+    & h4 {
+      @apply mt-6 text-lg;
+    }
+    & ul {
+      @apply list-disc pl-6;
+    }
+    & ol {
+      @apply list-decimal pl-6;
+    }
+    & li + li {
+      @apply mt-1.5;
+    }
+    & a {
+      @apply underline;
+    }
+    & strong {
+      @apply font-bold;
+    }
+    & img {
+      @apply h-auto max-w-full rounded-lg;
+    }
+    & blockquote {
+      @apply border-l-4 border-terracotta pl-4 text-muted italic;
+    }
+    & table {
+      @apply block w-full border-collapse overflow-x-auto text-[0.95rem];
+    }
+    & th,
+    & td {
+      @apply border border-trait px-3 py-2 text-left align-top;
+    }
+    & th {
+      @apply bg-pierre font-bold;
+    }
+    & hr {
+      @apply my-8 border-trait;
+    }
+    /* Bloc « Fichier » de WordPress : présenté comme une pièce jointe. */
+    & .wp-block-file {
+      @apply flex items-center gap-3 rounded-lg border border-trait bg-white px-4 py-3;
+      &::before {
+        content: '';
+        @apply size-6 shrink-0 bg-terracotta-text;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpath d='M14 2v6h6M12 18v-6M9 15l3 3 3-3'/%3E%3C/svg%3E")
+          center / contain no-repeat;
+      }
+      & a {
+        @apply font-semibold text-encre;
+      }
+      & .wp-block-file__button {
+        @apply ml-auto shrink-0 text-sm font-bold text-terracotta-text no-underline;
+      }
+    }
+    & .wp-block-file + .wp-block-file {
+      @apply mt-2;
+    }
+    & .sal-documents-title {
+      @apply mt-10 text-xl;
+    }
+    & .wp-block-gallery {
+      @apply grid grid-cols-2 gap-3 sm:grid-cols-3;
+      & figure {
+        @apply m-0;
+      }
+      & img {
+        @apply aspect-[4/3] w-full object-cover;
+      }
+      & figcaption {
+        @apply mt-1 text-sm text-muted;
+      }
+    }
+    & .wp-block-image figcaption {
+      @apply mt-2 text-sm text-muted;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+---
+import DirectoryList from '~/components/DirectoryList.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { breadcrumb, directoryOf, getContent } from '~/lib/content/index.ts';
+import { SECTION_LABELS } from '~/lib/navigation.ts';
+
+const content = await getContent();
+const path = '/demarches/numeros-utiles/';
+---
+
+<BaseLayout
+  title="Numéros utiles"
+  description="Urgences, santé, services publics : les numéros utiles à Saint-Amand-Longpré."
+>
+  <PageHeader
+    title="Numéros utiles"
+    crumbs={breadcrumb(content.pages, path, SECTION_LABELS)}
+    intro="Santé, services publics, permanences en mairie."
+  />
+  <div class="container-site py-10">
+    <aside
+      class="mb-10 grid gap-3 rounded-card bg-urgence-soft p-5 sm:grid-cols-4"
+      aria-labelledby="titre-urgences"
+    >
+      <h2 id="titre-urgences" class="text-xl sm:col-span-4">
+        Numéros d’urgence
+      </h2>
+      <p>
+        <strong class="block font-serif text-3xl">15</strong> SAMU
+      </p>
+      <p>
+        <strong class="block font-serif text-3xl">17</strong> Police, gendarmerie
+      </p>
+      <p>
+        <strong class="block font-serif text-3xl">18</strong> Pompiers
+      </p>
+      <p>
+        <strong class="block font-serif text-3xl">112</strong> Urgence européenne
+      </p>
+    </aside>
+    <DirectoryList entries={directoryOf(content.directory, ['numero-utile'])} />
+  </div>
+</BaseLayout>

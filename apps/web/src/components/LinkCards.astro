@@ -1,0 +1,32 @@
+---
+import type { NavItem } from '~/lib/navigation.ts';
+import Icon from './Icon.astro';
+
+/** Grille de liens vers des sous-pages (rubriques, pages d'information). */
+interface Props {
+  items: NavItem[];
+  headingLevel?: 'h2' | 'h3';
+}
+const { items, headingLevel: Heading = 'h2' } = Astro.props;
+---
+
+<ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  {items.map((item) => (
+    <li class="card group relative flex items-start justify-between gap-3 p-5 transition-transform hover:-translate-y-0.5">
+      <div>
+        <Heading class="text-lg leading-snug">
+          <a
+            href={item.href}
+            class="text-encre no-underline after:absolute after:inset-0 group-hover:underline"
+          >
+            {item.label}
+          </a>
+        </Heading>
+        {item.description && (
+          <p class="mt-1.5 line-clamp-2 text-sm text-muted">{item.description}</p>
+        )}
+      </div>
+      <Icon name="chevron-right" class="icon mt-1 size-5 text-terracotta-text" />
+    </li>
+  ))}
+</ul>

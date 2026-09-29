@@ -1,0 +1,94 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { Image } from 'astro:assets';
+import Icon from '~/components/Icon.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import Prose from '~/components/Prose.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { directoryOf, getContent, type DirectoryEntry } from '~/lib/content/index.ts';
+
+export const getStaticPaths = (async () => {
+  const content = await getContent();
+  return directoryOf(content.directory, ['association']).map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  entry: DirectoryEntry;
+}
+const { entry } = Astro.props;
+const base = '/vivre-ici/associations/';
+---
+
+<BaseLayout
+  title={entry.title}
+  description={`${entry.title} : activités et contact de l’association à Saint-Amand-Longpré.`}
+>
+  <PageHeader
+    title={entry.title}
+    {...(entry.category ? { eyebrow: entry.category } : {})}
+    crumbs={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Vivre ici', href: '/vivre-ici/' },
+      { label: 'Associations', href: base },
+      { label: entry.title, href: `${base}${entry.slug}/` },
+    ]}
+  />
+  <div class="container-site grid gap-10 py-10 lg:grid-cols-[1fr_20rem]">
+    <div class="min-w-0" data-pagefind-body>
+      <Prose
+        html={entry.html || '<p>Contactez l’association pour en savoir plus sur ses activités.</p>'}
+      />
+    </div>
+    <aside class="card grid content-start gap-3 p-5">
+      {entry.logo && (
+        <Image
+          src={entry.logo.src}
+          alt={entry.logo.alt}
+          width={entry.logo.width ?? 300}
+          height={entry.logo.height ?? 200}
+          widths={[240, 480]}
+          sizes="15rem"
+          class="mb-2 max-h-40 w-auto rounded"
+        />
+      )}
+      <h2 class="text-xl">Contact</h2>
+      {entry.phone && (
+        <p class="flex gap-2">
+          <Icon name="phone" class="icon size-5 text-terracotta-text" />
+          <a class="text-encre" href={`tel:${entry.phone.replace(/[^\d+]/g, '')}`}>
+            {entry.phone}
+          </a>
+        </p>
+      )}
+      {entry.email && (
+        <p class="flex gap-2">
+          <Icon name="mail" class="icon size-5 text-terracotta-text" />
+          <a href={`mailto:${entry.email}`}>{entry.email}</a>
+        </p>
+      )}
+      {entry.website && (
+        <p class="flex gap-2">
+          <Icon name="globe" class="icon size-5 text-terracotta-text" />
+          <a href={entry.website} rel="noopener noreferrer">
+            Site internet
+          </a>
+        </p>
+      )}
+      {entry.address && (
+        <p class="flex gap-2">
+          <Icon name="pin" class="icon size-5 text-terracotta-text" />
+          {entry.address}
+        </p>
+      )}
+      {!entry.phone && !entry.email && !entry.website && (
+        <p class="text-sm text-muted">Coordonnées disponibles auprès de la mairie.</p>
+      )}
+      <a href={base} class="link-more mt-2">
+        Toutes les associations
+      </a>
+    </aside>
+  </div>
+</BaseLayout>

@@ -1,0 +1,52 @@
+---
+import DirectoryList from '~/components/DirectoryList.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { breadcrumb, directoryOf, getContent } from '~/lib/content/index.ts';
+import { SECTION_LABELS } from '~/lib/navigation.ts';
+
+const content = await getContent();
+const path = '/vivre-ici/commerces-et-entreprises/';
+const groups = [
+  { id: 'commerces', title: 'Commerces', entries: directoryOf(content.directory, ['commerce']) },
+  { id: 'artisans', title: 'Artisans', entries: directoryOf(content.directory, ['artisan']) },
+  {
+    id: 'entreprises',
+    title: 'Entreprises',
+    entries: directoryOf(content.directory, ['entreprise']),
+  },
+].filter((g) => g.entries.length > 0);
+---
+
+<BaseLayout
+  title="Commerces et entreprises"
+  description="Commerces, artisans et entreprises installés à Saint-Amand-Longpré."
+>
+  <PageHeader
+    title="Commerces et entreprises"
+    crumbs={breadcrumb(content.pages, path, SECTION_LABELS)}
+    intro="Les commerces, artisans et entreprises de la commune. Pour ajouter ou corriger une fiche, contactez la mairie."
+  >
+    <nav aria-label="Types d’activité" class="mt-5">
+      <ul class="flex flex-wrap gap-2">
+        {groups.map((g) => (
+          <li>
+            <a href={`#${g.id}`} class="btn-ghost">
+              {g.title} ({g.entries.length})
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </PageHeader>
+  <div class="container-site grid gap-16 py-10">
+    {groups.map((g) => (
+      <section id={g.id} aria-labelledby={`titre-${g.id}`}>
+        <h2 id={`titre-${g.id}`} class="mb-6 border-b border-trait pb-3 text-3xl">
+          {g.title}
+        </h2>
+        <DirectoryList entries={g.entries} />
+      </section>
+    ))}
+  </div>
+</BaseLayout>

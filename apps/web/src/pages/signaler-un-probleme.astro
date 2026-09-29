@@ -1,0 +1,40 @@
+---
+import { PUBLIC_TURNSTILE_SITE_KEY } from 'astro:env/client';
+import HelpBox from '~/components/HelpBox.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import ReportForm from '~/islands/ReportForm.tsx';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getContent } from '~/lib/content/index.ts';
+
+const { settings } = await getContent();
+---
+
+<BaseLayout
+  title="Signaler un problème"
+  description="Signaler à la mairie un problème sur la voie publique : voirie, éclairage, espaces verts, propreté."
+>
+  <PageHeader
+    title="Signaler un problème"
+    crumbs={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Démarches', href: '/demarches/' },
+      { label: 'Signaler un problème', href: '/signaler-un-probleme/' },
+    ]}
+    intro="Nid-de-poule, lampadaire éteint, dépôt sauvage : prévenez les services techniques de la mairie. Une photo aide à localiser le problème."
+  />
+  <div class="container-site grid gap-10 py-10 lg:grid-cols-[1fr_20rem]">
+    <div>
+      <p class="mb-6 rounded-card bg-urgence-soft p-4">
+        <strong>En cas de danger immédiat</strong>, appelez le 112 (ou le 18 pour les pompiers). Ce
+        formulaire n’est pas traité en urgence.
+      </p>
+      <ReportForm client:load siteKey={PUBLIC_TURNSTILE_SITE_KEY} />
+      <noscript>
+        <p class="card p-5">
+          Le formulaire nécessite JavaScript. Vous pouvez joindre la mairie au {settings.phone}.
+        </p>
+      </noscript>
+    </div>
+    <HelpBox settings={settings} />
+  </div>
+</BaseLayout>

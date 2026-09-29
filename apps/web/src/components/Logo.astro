@@ -1,0 +1,33 @@
+---
+/** Logo au trait : le clocher, les toits du bourg et un arbre. */
+interface Props {
+  class?: string;
+}
+const { class: className = 'h-9 w-[72px]' } = Astro.props;
+---
+
+<svg class={className} viewBox="0 0 120 60" aria-hidden="true" focusable="false">
+  <g
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M2 55h116"></path>
+    <path d="M8 55V42l10-7 10 7v13"></path>
+    <path d="M15 55v-6h6v6"></path>
+    <path d="M34 55V37l14-9 14 9v18"></path>
+    <path d="M42 44h3v4h-3zM51 44h3v4h-3z"></path>
+    <path d="M66 55V24h12v31"></path>
+    <path d="M66 24l6-20 6 20"></path>
+    <path d="M72 4V0M70 2h4"></path>
+    <path d="M70 55v-8a2 2 0 0 1 4 0v8"></path>
+    <circle cx="72" cy="32" r="2.2"></circle>
+    <path d="M84 55V41l11-7 11 7v14"></path>
+    <path d="M92 46h6v4h-6z"></path>
+    <path d="M113 55v-8"></path>
+    <circle cx="113" cy="41" r="6"></circle>
+    <path d="M2 55q10-4 22-2M96 55q12-5 22-2" opacity=".5"></path>
+  </g>
+</svg>

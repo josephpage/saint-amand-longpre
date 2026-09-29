@@ -1,0 +1,25 @@
+---
+import type { GetStaticPaths } from 'astro';
+import EventArticle from '~/components/EventArticle.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getContent, type Event } from '~/lib/content/index.ts';
+import { eventSchema } from '~/lib/seo.ts';
+
+export const getStaticPaths = (async () => {
+  const content = await getContent();
+  return content.events.map((event) => ({ params: { slug: event.slug }, props: { event } }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  event: Event;
+}
+const { event } = Astro.props;
+---
+
+<BaseLayout
+  title={event.title}
+  {...(event.excerpt ? { description: event.excerpt } : {})}
+  jsonLd={eventSchema(event, Astro.site!)}
+>
+  <EventArticle event={event} />
+</BaseLayout>

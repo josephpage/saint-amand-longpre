@@ -1,0 +1,71 @@
+---
+import { PUBLIC_TURNSTILE_SITE_KEY } from 'astro:env/client';
+import Icon from '~/components/Icon.astro';
+import OpeningStatus from '~/components/OpeningStatus.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import ContactForm from '~/islands/ContactForm.tsx';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getContent } from '~/lib/content/index.ts';
+import { summarizeHours } from '~/lib/hours.ts';
+
+const { settings } = await getContent();
+---
+
+<BaseLayout
+  title="Contacter la mairie"
+  description="Écrire à la mairie de Saint-Amand-Longpré, horaires d'ouverture, adresse et téléphone."
+>
+  <PageHeader
+    title="Contacter la mairie"
+    crumbs={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Contact', href: '/contact/' },
+    ]}
+    intro="Posez votre question par écrit : le secrétariat vous répond par e-mail, en général sous deux jours ouvrés."
+  />
+  <div class="container-site grid gap-10 py-10 lg:grid-cols-[1fr_20rem]">
+    <div>
+      <ContactForm client:load siteKey={PUBLIC_TURNSTILE_SITE_KEY} phone={settings.phone} />
+      <noscript>
+        <p class="card p-5">
+          Le formulaire nécessite JavaScript. Vous pouvez joindre la mairie au {settings.phone}.
+        </p>
+      </noscript>
+    </div>
+    <aside class="card grid content-start gap-4 p-5">
+      <h2 class="text-xl">Mairie de Saint-Amand-Longpré</h2>
+      <OpeningStatus hours={settings.hours} class="justify-self-start" />
+      <p class="flex gap-3">
+        <Icon name="pin" class="icon text-terracotta-text" />
+        <span>
+          {settings.street}
+          <br />
+          {settings.postalCode} {settings.city}
+        </span>
+      </p>
+      <p class="flex gap-3">
+        <Icon name="phone" class="icon text-terracotta-text" />
+        <a
+          class="font-serif text-xl font-semibold text-encre no-underline"
+          href={`tel:${settings.phone.replace(/\s/g, '')}`}
+        >
+          {settings.phone}
+        </a>
+      </p>
+      <div class="flex gap-3">
+        <Icon name="clock" class="icon text-terracotta-text" />
+        <dl class="text-sm">
+          {summarizeHours(settings.hours).map((line) => (
+            <div>
+              <dt class="font-bold">{line.days}</dt>
+              <dd>{line.hours}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <p class="text-sm text-muted">
+        Un problème sur la voie publique ? <a href="/signaler-un-probleme/">Signalez-le ici</a>.
+      </p>
+    </aside>
+  </div>
+</BaseLayout>

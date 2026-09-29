@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+.env
+.env.*
+!.env.example
+.dev.vars
+coverage/
+playwright-report/
+test-results/
+*.log
+.DS_Store
+# Données brutes du scraping (régénérables : pnpm scrape)
+data/scrape/
+apps/cms/.data/
+# Copie des médias du jeu de données (générée au démarrage du site)
+apps/web/public/_fixtures/

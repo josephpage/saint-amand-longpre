@@ -1,0 +1,80 @@
+# WordPress headless pour le développement local.
+#   pnpm cms:up     démarre WordPress (http://localhost:8080) et MariaDB
+#   pnpm cms:setup  installe WordPress, les extensions et crée les accès de l'importeur
+#   pnpm cms:import importe le jeu de données de test (ou le scraping) via l'API REST
+# La configuration de production est dans compose.prod.yaml.
+name: sal-cms
+
+x-db-env: &db-env
+  WORDPRESS_DB_HOST: db
+  WORDPRESS_DB_NAME: wordpress
+  WORDPRESS_DB_USER: wordpress
+  WORDPRESS_DB_PASSWORD: wordpress
+
+services:
+  db:
+    image: mariadb:11.8
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: wordpress
+      MARIADB_ROOT_PASSWORD: root
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'healthcheck.sh', '--connect', '--innodb_initialized']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  wordpress:
+    image: wordpress:7.1.2-php8.3-apache
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - '8080:80'
+    environment:
+      <<: *db-env
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_ENVIRONMENT_TYPE', 'local');
+        define('WP_HOME', 'http://localhost:8080');
+        define('WP_SITEURL', 'http://localhost:8080');
+        define('DISALLOW_FILE_EDIT', true);
+        define('SAL_SITE_URL', getenv('SAL_SITE_URL') ?: 'http://localhost:4390');
+        define('SAL_PREVIEW_SECRET', getenv('SAL_PREVIEW_SECRET') ?: 'dev-preview-secret-change-me');
+    volumes:
+      - wp:/var/www/html
+      - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+      - ./wordpress/php.ini:/usr/local/etc/php/conf.d/sal.ini:ro
+    healthcheck:
+      test:
+        ['CMD', 'curl', '-fsS', '-o', '/dev/null', 'http://localhost/wp-includes/images/blank.gif']
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  wpcli:
+    image: wordpress:cli-2.12.0-php8.3
+    profiles: ['tools']
+    user: '33:33'
+    depends_on:
+      wordpress:
+        condition: service_healthy
+    environment:
+      <<: *db-env
+      WP_URL: http://localhost:8080
+      WP_ADMIN_USER: admin
+      WP_ADMIN_PASSWORD: admin
+      WP_ADMIN_EMAIL: admin@example.test
+      WP_ENV: local
+      WP_CLI_CACHE_DIR: /tmp/wp-cli-cache
+    volumes:
+      - wp:/var/www/html
+      - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+      - ./scripts:/scripts:ro
+      - ./.data:/output
+
+volumes:
+  db:
+  wp:

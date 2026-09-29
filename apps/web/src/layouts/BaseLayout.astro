@@ -1,0 +1,101 @@
+---
+import '~/styles/global.css';
+import { PUBLIC_CF_BEACON_TOKEN } from 'astro:env/client';
+import AlertBar from '~/components/AlertBar.astro';
+import Footer from '~/components/Footer.astro';
+import Header from '~/components/Header.astro';
+import { activeAlerts, getContent } from '~/lib/content/index.ts';
+import { todayInParis } from '~/lib/dates.ts';
+import { buildNavigation } from '~/lib/navigation.ts';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Image de partage (URL absolue ou chemin). */
+  image?: string;
+  /** Données structurées schema.org à insérer dans la page. */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
+  /** Titre de la page tel quel, sans le nom du site (accueil). */
+  rawTitle?: boolean;
+  /** Masque le bandeau d'alerte (l'accueil l'affiche dans « À la une »). */
+  hideAlerts?: boolean;
+}
+
+const {
+  title,
+  description,
+  image,
+  jsonLd,
+  noindex = false,
+  rawTitle = false,
+  hideAlerts = false,
+} = Astro.props;
+const content = await getContent();
+const sections = buildNavigation(content.pages);
+const alerts = activeAlerts(content.alerts, todayInParis());
+const pageTitle = rawTitle ? title : `${title} · Saint-Amand-Longpré`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const shareSource = image ?? content.settings.heroImage?.src;
+const shareImage = shareSource ? new URL(shareSource, Astro.site) : undefined;
+const metaDescription =
+  description ??
+  'Site officiel de la commune de Saint-Amand-Longpré (Loir-et-Cher) : démarches, actualités, agenda et vie locale.';
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="alternate"
+      type="text/calendar"
+      title="Agenda de Saint-Amand-Longpré"
+      href="/agenda.ics"
+    />
+    <meta name="theme-color" content="#1d3441" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Saint-Amand-Longpré" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonical} />
+    {shareImage && <meta property="og:image" content={shareImage} />}
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    {PUBLIC_CF_BEACON_TOKEN && (
+      <script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={JSON.stringify({ token: PUBLIC_CF_BEACON_TOKEN })}
+      />
+    )}
+  </head>
+  <body class="flex min-h-dvh flex-col">
+    <div class="sr-only focus-within:not-sr-only focus-within:absolute focus-within:top-2 focus-within:left-2 focus-within:z-50">
+      <ul class="flex gap-2">
+        <li>
+          <a class="btn" href="#contenu">
+            Aller au contenu
+          </a>
+        </li>
+        <li>
+          <a class="btn" href="/recherche/">
+            Aller à la recherche
+          </a>
+        </li>
+      </ul>
+    </div>
+    {!hideAlerts && <AlertBar alerts={alerts} />}
+    <Header sections={sections} currentPath={Astro.url.pathname} />
+    <main id="contenu" tabindex="-1" class="flex-1 focus:outline-none">
+      <slot />
+    </main>
+    <Footer settings={content.settings} />
+  </body>
+</html>

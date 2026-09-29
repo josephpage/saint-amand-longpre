@@ -1,0 +1,63 @@
+---
+import PageHeader from '~/components/PageHeader.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getContent } from '~/lib/content/index.ts';
+
+const { settings } = await getContent();
+---
+
+<BaseLayout
+  title="Données personnelles"
+  description="Comment la mairie de Saint-Amand-Longpré traite vos données personnelles sur ce site."
+>
+  <PageHeader
+    title="Données personnelles"
+    crumbs={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Données personnelles', href: '/donnees-personnelles/' },
+    ]}
+  />
+  <div class="container-site prose-sal py-10">
+    <h2>Responsable du traitement</h2>
+    <p>
+      Commune de Saint-Amand-Longpré, représentée par son maire, {settings.street},{' '}
+      {settings.postalCode} {settings.city}.
+    </p>
+
+    <h2>Formulaires de contact et de signalement</h2>
+    <p>
+      Les informations saisies (nom, e-mail, téléphone facultatif, message, photo éventuelle)
+      servent uniquement à traiter votre demande. Elles sont transmises par e-mail au secrétariat de
+      mairie et ne sont pas conservées par le site.
+    </p>
+    <ul>
+      <li>Base légale : votre consentement, que vous donnez en cochant la case du formulaire.</li>
+      <li>
+        Destinataires : le secrétariat et les services de la mairie. L’envoi passe par le service
+        d’e-mails Brevo (Sendinblue SAS, France).
+      </li>
+      <li>
+        Durée de conservation : le temps nécessaire au traitement de votre demande, puis au plus un
+        an dans la messagerie de la mairie.
+      </li>
+    </ul>
+    <p>
+      La protection contre les envois automatisés est assurée par Cloudflare Turnstile, qui ne
+      dépose pas de cookie publicitaire.
+    </p>
+
+    <h2>Mesure d’audience</h2>
+    <p>
+      Le site utilise Cloudflare Web Analytics, qui compte les visites sans cookie et sans suivre
+      les visiteurs d’un site à l’autre. Aucun bandeau de consentement n’est donc nécessaire.
+    </p>
+
+    <h2>Vos droits</h2>
+    <p>
+      Vous pouvez accéder à vos données, les faire rectifier ou effacer, et retirer votre
+      consentement, en écrivant à la mairie ou via le <a href="/contact/">formulaire de contact</a>.
+      Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à
+      la <a href="https://www.cnil.fr/fr/plaintes">CNIL</a>.
+    </p>
+  </div>
+</BaseLayout>

@@ -1,0 +1,30 @@
+---
+import type { Settings } from '~/lib/content/types.ts';
+import Icon from './Icon.astro';
+import OpeningStatus from './OpeningStatus.astro';
+
+interface Props {
+  settings: Settings;
+}
+const { settings } = Astro.props;
+---
+
+<aside class="card grid gap-3 p-5" aria-labelledby="titre-aide">
+  <h2 id="titre-aide" class="text-xl">
+    Besoin d’aide ?
+  </h2>
+  <p class="text-sm text-muted">
+    Le secrétariat de mairie répond à vos questions par téléphone ou sur place.
+  </p>
+  <OpeningStatus hours={settings.hours} class="justify-self-start" />
+  <a
+    href={`tel:${settings.phone.replace(/\s/g, '')}`}
+    class="inline-flex items-center gap-2 font-serif text-xl font-semibold text-encre no-underline"
+  >
+    <Icon name="phone" class="icon size-5 text-terracotta-text" />
+    {settings.phone}
+  </a>
+  <a href="/contact/" class="btn justify-self-start">
+    Écrire à la mairie
+  </a>
+</aside>

@@ -1,0 +1,49 @@
+---
+import type { Event } from '~/lib/content/types.ts';
+import { dateBadge, formatEventTime } from '~/lib/dates.ts';
+import Icon from './Icon.astro';
+
+interface Props {
+  event: Event;
+  headingLevel?: 'h2' | 'h3';
+}
+const { event, headingLevel: Heading = 'h3' } = Astro.props;
+const badge = dateBadge(event.start);
+const where = event.location ?? event.address;
+---
+
+<article class="card group relative grid grid-cols-[3.5rem_1fr] items-center gap-4 p-3">
+  <p
+    class="rounded-lg bg-terracotta-soft py-1.5 text-center leading-tight text-terracotta-text"
+    aria-hidden="true"
+  >
+    <span class="block text-[0.7rem] font-bold tracking-wider uppercase">{badge.weekday}</span>
+    <span class="block font-serif text-2xl font-semibold">{badge.day}</span>
+    <span class="block text-[0.7rem] font-bold tracking-wider uppercase">{badge.month}</span>
+  </p>
+  <div>
+    <Heading class="text-base leading-snug">
+      <a
+        href={`/agenda/${event.slug}/`}
+        class="text-encre no-underline after:absolute after:inset-0 group-hover:underline"
+      >
+        {event.title}
+      </a>
+    </Heading>
+    <p class="mt-1 flex items-center gap-1.5 text-sm text-muted">
+      <Icon name="clock" class="icon size-4" />
+      <span>
+        <time datetime={event.start}>
+          {badge.weekday} {badge.day} {badge.month}
+        </time>
+        , {formatEventTime(event.start, event.end, event.allDay)}
+      </span>
+    </p>
+    {where && (
+      <p class="mt-0.5 flex items-center gap-1.5 text-sm text-muted">
+        <Icon name="pin" class="icon size-4" />
+        {where}
+      </p>
+    )}
+  </div>
+</article>

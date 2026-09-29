@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import type { Room, Settings } from '~/lib/content/types.ts';
+import HelpBox from './HelpBox.astro';
+import Icon from './Icon.astro';
+import PageHeader from './PageHeader.astro';
+import Prose from './Prose.astro';
+
+interface Props {
+  room: Room;
+  settings: Settings;
+}
+const { room, settings } = Astro.props;
+const base = '/demarches/louer-une-salle/';
+---
+
+<PageHeader
+  title={room.title}
+  crumbs={[
+    { label: 'Accueil', href: '/' },
+    { label: 'Démarches', href: '/demarches/' },
+    { label: 'Louer une salle', href: base },
+    { label: room.title, href: `${base}${room.slug}/` },
+  ]}
+>
+  {room.capacity && (
+    <p class="mt-3 inline-flex items-center gap-2 font-bold text-bocage">
+      <Icon name="users" class="icon size-5" />
+      Jusqu’à {room.capacity} personnes{room.seated ? `, dont ${room.seated} places assises` : ''}
+    </p>
+  )}
+</PageHeader>
+<div class="container-site grid gap-10 py-10 lg:grid-cols-[1fr_20rem]">
+  <div class="min-w-0" data-pagefind-body>
+    {room.photos.length > 0 && (
+      <ul class="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
+        {room.photos.map((photo, index) => (
+          <li class:list={[index === 0 && 'col-span-2 row-span-2']}>
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              width={photo.width ?? 800}
+              height={photo.height ?? 600}
+              widths={[400, 800]}
+              sizes="(min-width: 1024px) 30rem, 50vw"
+              class="size-full rounded-lg object-cover"
+            />
+          </li>
+        ))}
+      </ul>
+    )}
+    <Prose html={room.html} />
+  </div>
+  <HelpBox settings={settings} />
+</div>

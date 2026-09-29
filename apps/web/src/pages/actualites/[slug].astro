@@ -1,0 +1,26 @@
+---
+import type { GetStaticPaths } from 'astro';
+import NewsArticle from '~/components/NewsArticle.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getContent, type News } from '~/lib/content/index.ts';
+import { newsArticle } from '~/lib/seo.ts';
+
+export const getStaticPaths = (async () => {
+  const content = await getContent();
+  return content.news.map((news) => ({ params: { slug: news.slug }, props: { news } }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  news: News;
+}
+const { news } = Astro.props;
+---
+
+<BaseLayout
+  title={news.title}
+  description={news.excerpt}
+  {...(news.image ? { image: news.image.src } : {})}
+  jsonLd={newsArticle(news, Astro.site!)}
+>
+  <NewsArticle news={news} />
+</BaseLayout>

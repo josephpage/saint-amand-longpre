@@ -1,0 +1,43 @@
+---
+import Icon from '~/components/Icon.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page introuvable" noindex>
+  <div class="container-site grid max-w-3xl gap-5 py-20">
+    <p class="eyebrow text-terracotta-text">Erreur 404</p>
+    <h1 class="text-4xl">Cette page est introuvable</h1>
+    <p class="text-lg text-muted">
+      L’adresse a peut-être changé lors de la refonte du site. Utilisez la recherche ou repartez de
+      l’accueil.
+    </p>
+    <form
+      action="/recherche/"
+      method="get"
+      role="search"
+      class="flex overflow-hidden rounded-lg border-2 border-encre bg-white"
+    >
+      <label for="q404" class="sr-only">
+        Rechercher sur le site
+      </label>
+      <input
+        id="q404"
+        name="q"
+        type="search"
+        class="min-w-0 flex-1 px-4 py-3"
+        placeholder="Que cherchez-vous ?"
+      />
+      <button class="bg-terracotta px-5 font-bold text-white" type="submit">
+        Rechercher
+      </button>
+    </form>
+    <p class="flex flex-wrap gap-4">
+      <a href="/" class="btn">
+        Retour à l’accueil
+      </a>
+      <a href="/plan-du-site/" class="link-more">
+        Plan du site <Icon name="arrow-right" class="icon size-4" />
+      </a>
+    </p>
+  </div>
+</BaseLayout>

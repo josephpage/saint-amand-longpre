@@ -1,0 +1,38 @@
+---
+import type { Crumb } from '~/lib/content/select.ts';
+
+interface Props {
+  title: string;
+  crumbs: Crumb[];
+  intro?: string;
+  eyebrow?: string;
+}
+const { title, crumbs, intro, eyebrow } = Astro.props;
+const ancestors = crumbs.slice(0, -1);
+---
+
+<div class="border-b border-trait bg-pierre">
+  <div class="container-site py-8 sm:py-10">
+    {ancestors.length > 0 && (
+      <nav aria-label="Fil d’Ariane" class="mb-4 text-sm">
+        <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-muted">
+          {ancestors.map((crumb) => (
+            <li class="flex items-center gap-2">
+              <a href={crumb.href} class="text-muted hover:text-terracotta-text">
+                {crumb.label}
+              </a>
+              <span aria-hidden="true">›</span>
+            </li>
+          ))}
+          <li aria-current="page" class="text-encre">
+            {title}
+          </li>
+        </ol>
+      </nav>
+    )}
+    {eyebrow && <p class="eyebrow mb-2 text-terracotta-text">{eyebrow}</p>}
+    <h1 class="max-w-4xl text-3xl sm:text-4xl lg:text-[2.6rem]">{title}</h1>
+    {intro && <p class="mt-3 max-w-3xl text-lg text-muted">{intro}</p>}
+    <slot />
+  </div>
+</div>

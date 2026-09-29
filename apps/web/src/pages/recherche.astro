@@ -1,0 +1,27 @@
+---
+import PageHeader from '~/components/PageHeader.astro';
+import Search from '~/islands/Search.tsx';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Rechercher"
+  description="Rechercher une démarche, une actualité ou une information sur le site de la commune."
+  noindex
+>
+  <PageHeader
+    title="Rechercher sur le site"
+    crumbs={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Rechercher', href: '/recherche/' },
+    ]}
+  />
+  <div class="container-site max-w-3xl py-10">
+    <Search client:only="react" />
+    <noscript>
+      <p>
+        La recherche nécessite JavaScript. Consultez le <a href="/plan-du-site/">plan du site</a>.
+      </p>
+    </noscript>
+  </div>
+</BaseLayout>

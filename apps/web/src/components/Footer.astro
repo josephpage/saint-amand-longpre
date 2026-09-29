@@ -1,0 +1,102 @@
+---
+import type { Settings } from '~/lib/content/types.ts';
+import { summarizeHours } from '~/lib/hours.ts';
+import Icon from './Icon.astro';
+import Logo from './Logo.astro';
+
+interface Props {
+  settings: Settings;
+}
+const { settings } = Astro.props;
+const hours = summarizeHours(settings.hours);
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-16 bg-nuit text-nuit-text">
+  <div class="container-site grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.3fr]">
+    <div>
+      <Logo class="h-14 w-28 text-nuit-text" />
+      <p class="mt-3 font-serif text-2xl font-semibold">Saint-Amand-Longpré</p>
+      <p class="text-xs tracking-[0.2em] text-nuit-muted uppercase">Loir-et-Cher</p>
+      <address class="mt-5 text-sm leading-relaxed not-italic">
+        Mairie de Saint-Amand-Longpré
+        <br />
+        {settings.street}
+        <br />
+        {`${settings.postalCode} ${settings.city}`}
+        <br />
+        <a class="text-nuit-text" href={`tel:${settings.phone.replace(/\s/g, '')}`}>
+          {settings.phone}
+        </a>
+      </address>
+    </div>
+
+    <div class="lg:border-l lg:border-white/15 lg:pl-8">
+      <h2 class="font-sans text-base font-bold">Horaires de la mairie</h2>
+      <dl class="mt-3 space-y-2 text-sm">
+        {hours.map((line) => (
+          <div>
+            <dt class="text-nuit-muted">{line.days}</dt>
+            <dd>{line.hours}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+
+    <div class="lg:border-l lg:border-white/15 lg:pl-8">
+      <h2 class="font-sans text-base font-bold">Accès rapides</h2>
+      <ul class="mt-3 space-y-1.5 text-sm">
+        <li>
+          <a class="text-nuit-text no-underline hover:underline" href="/plan-du-site/">
+            Plan du site
+          </a>
+        </li>
+        <li>
+          <a class="text-nuit-text no-underline hover:underline" href="/mentions-legales/">
+            Mentions légales
+          </a>
+        </li>
+        <li>
+          <a class="text-nuit-text no-underline hover:underline" href="/donnees-personnelles/">
+            Données personnelles
+          </a>
+        </li>
+        <li>
+          <a class="text-nuit-text no-underline hover:underline" href="/accessibilite/">
+            Accessibilité : non conforme
+          </a>
+        </li>
+        <li>
+          <a class="text-nuit-text no-underline hover:underline" href="/contact/">
+            Contact
+          </a>
+        </li>
+      </ul>
+      {settings.facebook && (
+        <a
+          href={settings.facebook}
+          class="mt-5 inline-flex items-center gap-2 rounded-lg bg-white/10 px-3 py-2 text-sm font-bold text-nuit-text no-underline hover:bg-white/20"
+          rel="noopener noreferrer"
+        >
+          <Icon name="facebook" class="icon size-5" />
+          Page Facebook de la commune
+        </a>
+      )}
+    </div>
+
+    <div class="flex flex-col items-start justify-center lg:items-end lg:border-l lg:border-white/15 lg:pl-8">
+      <Logo class="h-20 w-40 text-nuit-muted" />
+      <p class="mt-1 -rotate-3 font-script text-4xl leading-tight text-nuit-text lg:text-right">
+        Une commune grande
+        <br />
+        par ses liens
+      </p>
+    </div>
+  </div>
+  <div class="border-t border-white/15">
+    <div class="container-site flex flex-wrap justify-between gap-2 py-4 text-xs text-nuit-muted">
+      <span>© {year} Commune de Saint-Amand-Longpré</span>
+      <span>Site officiel de la commune de Saint-Amand-Longpré (Loir-et-Cher)</span>
+    </div>
+  </div>
+</footer>

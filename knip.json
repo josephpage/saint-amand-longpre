@@ -1,0 +1,20 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "workspaces": {
+    ".": {},
+    "apps/web": {
+      "entry": ["src/pages/**/*.{astro,ts}", "integrations/*.ts", "scripts/*.ts", "tests/**/*.ts"],
+      "project": ["src/**/*.{astro,ts,tsx}", "integrations/*.ts", "scripts/*.ts", "tests/**/*.ts"],
+      "ignoreDependencies": [
+        "@fontsource-variable/source-serif-4",
+        "@fontsource/allura",
+        "@fontsource/atkinson-hyperlegible-next",
+        "tailwindcss",
+        "cloudflare"
+      ]
+    },
+    "tools/scraper": {},
+    "tools/importer": {},
+    "packages/model": {}
+  }
+}

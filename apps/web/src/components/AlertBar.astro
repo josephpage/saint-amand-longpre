@@ -1,0 +1,40 @@
+---
+import type { Alert } from '~/lib/content/types.ts';
+import Icon from './Icon.astro';
+
+interface Props {
+  alerts: Alert[];
+}
+const { alerts } = Astro.props;
+const styles = {
+  info: 'bg-sauge text-encre',
+  vigilance: 'bg-vigilance-soft text-encre',
+  urgence: 'bg-urgence text-white',
+} as const;
+---
+
+{alerts.length > 0 && (
+  <div role="region" aria-label="Informations importantes">
+    {alerts.map((alert) => (
+      <div class={styles[alert.level]}>
+        <div class="container-site grid grid-cols-[auto_1fr] items-start gap-x-3 gap-y-1 py-2.5 text-[0.95rem] sm:flex sm:items-center">
+          <Icon name={alert.level === 'info' ? 'info' : 'alert'} class="icon size-5" />
+          <p>
+            <strong>{alert.title}</strong> : {alert.message}
+          </p>
+          {alert.link && (
+            <a
+              href={alert.link}
+              class:list={[
+                'col-start-2 font-bold whitespace-nowrap sm:ml-auto',
+                alert.level === 'urgence' ? 'text-white' : 'text-encre',
+              ]}
+            >
+              En savoir plus<span class="sr-only"> : {alert.title}</span>
+            </a>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+)}

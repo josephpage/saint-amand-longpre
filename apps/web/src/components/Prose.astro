@@ -1,0 +1,13 @@
+---
+import { enhanceHtml } from '~/lib/content/html.ts';
+
+/** Contenu éditorial (HTML venant de WordPress ou du jeu de données). */
+interface Props {
+  html: string;
+  class?: string;
+}
+const { html, class: className } = Astro.props;
+const host = Astro.site?.hostname ?? 'www.saintamandlongpre.fr';
+---
+
+<div class:list={['prose-sal', className]} set:html={enhanceHtml(html, host)} />

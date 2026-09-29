@@ -1,0 +1,84 @@
+---
+import EventCard from '~/components/EventCard.astro';
+import Icon from '~/components/Icon.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getContent, pastEvents, upcomingEvents } from '~/lib/content/index.ts';
+import { todayInParis } from '~/lib/dates.ts';
+
+const content = await getContent();
+const today = todayInParis();
+const upcoming = upcomingEvents(content.events, today);
+const past = pastEvents(content.events, today).slice(0, 12);
+
+// Regroupe les évènements à venir par mois : « octobre 2026 ».
+const byMonth = new Map<string, typeof upcoming>();
+for (const event of upcoming) {
+  const month = new Intl.DateTimeFormat('fr-FR', {
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(`${event.start.slice(0, 7)}-01T00:00:00Z`));
+  byMonth.set(month, [...(byMonth.get(month) ?? []), event]);
+}
+---
+
+<BaseLayout
+  title="Agenda"
+  description="Les prochains rendez-vous à Saint-Amand-Longpré : conseil municipal, fêtes, associations."
+>
+  <PageHeader
+    title="Agenda"
+    crumbs={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Agenda', href: '/agenda/' },
+    ]}
+    intro="Les rendez-vous de la commune et des associations."
+  >
+    <p class="mt-4">
+      <a href="/agenda.ics" class="link-more">
+        <Icon name="calendar" class="icon size-4" /> S’abonner à l’agenda (calendrier iCal)
+      </a>
+    </p>
+  </PageHeader>
+  <div class="container-site grid gap-12 py-10">
+    <section aria-labelledby="titre-a-venir">
+      <h2 id="titre-a-venir" class="sr-only">
+        À venir
+      </h2>
+      {upcoming.length === 0 ? (
+        <p class="card p-6 text-muted">
+          Aucun rendez-vous n’est annoncé pour le moment. Les évènements publiés par la mairie
+          apparaîtront ici.
+        </p>
+      ) : (
+        [...byMonth.entries()].map(([month, events]) => (
+          <div class="mb-10">
+            <h3 class="mb-4 text-2xl first-letter:uppercase">{month}</h3>
+            <ul class="grid gap-3.5 md:grid-cols-2">
+              {events.map((event) => (
+                <li>
+                  <EventCard event={event} headingLevel="h3" />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      )}
+    </section>
+    {past.length > 0 && (
+      <section aria-labelledby="titre-passes">
+        <h2 id="titre-passes" class="mb-4 text-2xl">
+          Évènements passés
+        </h2>
+        <ul class="grid gap-3.5 md:grid-cols-2">
+          {past.map((event) => (
+            <li>
+              <EventCard event={event} headingLevel="h3" />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </div>
+</BaseLayout>

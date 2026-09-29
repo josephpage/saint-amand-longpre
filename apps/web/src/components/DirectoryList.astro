@@ -1,0 +1,87 @@
+---
+import { slugify } from '@sal/model';
+import { groupByCategory } from '~/lib/content/select.ts';
+import type { DirectoryEntry } from '~/lib/content/types.ts';
+import Icon from './Icon.astro';
+import Prose from './Prose.astro';
+
+/** Fiches d'annuaire regroupées par catégorie, avec coordonnées. */
+interface Props {
+  entries: DirectoryEntry[];
+  /** Préfixe des pages de détail ; sans préfixe, la fiche est affichée en entier. */
+  detailBase?: string;
+}
+const { entries, detailBase } = Astro.props;
+const groups = groupByCategory(entries);
+const slugOf = (category: string) => `categorie-${slugify(category)}`;
+---
+
+{groups.length > 1 && (
+  <nav aria-label="Catégories" class="mb-8">
+    <ul class="flex flex-wrap gap-2">
+      {groups.map(([category, list]) => (
+        <li>
+          <a
+            href={`#${slugOf(category)}`}
+            class="inline-block rounded-full border border-trait bg-white px-3 py-1 text-sm text-encre no-underline hover:border-terracotta"
+          >
+            {category} <span class="text-muted">({list.length})</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+<div class="grid gap-10" data-pagefind-body>
+  {groups.map(([category, list]) => (
+    <section id={slugOf(category)} aria-labelledby={`titre-${slugOf(category)}`}>
+      <h2 id={`titre-${slugOf(category)}`} class="mb-4 text-2xl">
+        {category}
+      </h2>
+      <ul class="grid gap-4 md:grid-cols-2">
+        {list.map((entry) => (
+          <li class="card grid content-start gap-2 p-5">
+            <h3 class="text-lg leading-snug">
+              {detailBase ? (
+                <a href={`${detailBase}${entry.slug}/`} class="text-encre">
+                  {entry.title}
+                </a>
+              ) : (
+                entry.title
+              )}
+            </h3>
+            {entry.address && (
+              <p class="flex gap-2 text-sm">
+                <Icon name="pin" class="icon size-5 text-terracotta-text" />
+                {entry.address}
+              </p>
+            )}
+            {entry.phone && (
+              <p class="flex gap-2 text-sm">
+                <Icon name="phone" class="icon size-5 text-terracotta-text" />
+                <a href={`tel:${entry.phone.replace(/[^\d+]/g, '')}`} class="text-encre">
+                  {entry.phone}
+                </a>
+              </p>
+            )}
+            {entry.email && (
+              <p class="flex gap-2 text-sm">
+                <Icon name="mail" class="icon size-5 text-terracotta-text" />
+                <a href={`mailto:${entry.email}`}>{entry.email}</a>
+              </p>
+            )}
+            {entry.website && (
+              <p class="flex gap-2 text-sm">
+                <Icon name="globe" class="icon size-5 text-terracotta-text" />
+                <a href={entry.website} rel="noopener noreferrer">
+                  {entry.website.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
+                </a>
+              </p>
+            )}
+            {!detailBase && entry.html && <Prose html={entry.html} class="text-sm text-muted" />}
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</div>

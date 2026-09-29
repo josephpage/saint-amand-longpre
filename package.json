@@ -1,0 +1,44 @@
+{
+  "name": "saint-amand-longpre",
+  "private": true,
+  "description": "Site de la mairie de Saint-Amand-Longpré : Astro (Cloudflare Workers) + WordPress headless",
+  "type": "module",
+  "packageManager": "pnpm@10.34.4",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @sal/web dev",
+    "build": "pnpm --filter @sal/web build",
+    "preview": "pnpm --filter @sal/web preview",
+    "test": "pnpm -r --if-present test",
+    "test:e2e": "pnpm --filter @sal/web test:e2e",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "knip": "knip",
+    "check": "pnpm lint && pnpm typecheck && pnpm knip && pnpm test",
+    "scrape": "node tools/scraper/src/scrape.ts",
+    "fixtures": "node tools/scraper/src/fixtures.ts",
+    "cms:up": "docker compose -f apps/cms/compose.yaml up -d --wait",
+    "cms:down": "docker compose -f apps/cms/compose.yaml down",
+    "cms:setup": "docker compose -f apps/cms/compose.yaml run --rm wpcli sh /scripts/setup.sh && node scripts/dev-vars.ts",
+    "cms:import": "node tools/importer/src/import.ts",
+    "cms:reset": "docker compose -f apps/cms/compose.yaml down -v && pnpm cms:up && pnpm cms:setup"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.19.0",
+    "eslint": "^10.11.0",
+    "eslint-plugin-astro": "^3.2.1",
+    "eslint-plugin-jsx-a11y-x": "^0.2.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.12.0",
+    "knip": "^6.38.0",
+    "prettier": "^3.9.9",
+    "prettier-plugin-astro": "^1.1.0",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "^8.71.0"
+  }
+}

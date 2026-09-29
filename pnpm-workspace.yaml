@@ -1,0 +1,10 @@
+packages:
+  - apps/*
+  - tools/*
+  - packages/*
+
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+  - workerd
+  - pagefind

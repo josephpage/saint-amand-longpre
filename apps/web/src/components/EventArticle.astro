@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import type { Event } from '~/lib/content/types.ts';
+import { formatEventDate, formatEventTime } from '~/lib/dates.ts';
+import Icon from './Icon.astro';
+import PageHeader from './PageHeader.astro';
+import Prose from './Prose.astro';
+
+interface Props {
+  event: Event;
+}
+const { event } = Astro.props;
+const where = [event.location, event.address].filter(Boolean).join(', ');
+---
+
+<PageHeader
+  title={event.title}
+  eyebrow="Agenda"
+  crumbs={[
+    { label: 'Accueil', href: '/' },
+    { label: 'Agenda', href: '/agenda/' },
+    { label: event.title, href: `/agenda/${event.slug}/` },
+  ]}
+/>
+<article class="container-site grid gap-8 py-10 lg:grid-cols-[1fr_20rem]" data-pagefind-body>
+  <div class="min-w-0">
+    {event.image && (
+      <Image
+        src={event.image.src}
+        alt={event.image.alt}
+        width={event.image.width ?? 1200}
+        height={event.image.height ?? 800}
+        widths={[600, 1000]}
+        sizes="(min-width: 1024px) 44rem, 100vw"
+        class="mb-8 max-h-[28rem] w-full rounded-card object-cover"
+      />
+    )}
+    <Prose html={event.html} />
+  </div>
+  <aside class="card grid content-start gap-4 p-5">
+    <h2 class="text-xl">Informations pratiques</h2>
+    <p class="flex gap-3">
+      <Icon name="calendar" class="icon text-terracotta-text" />
+      <span>
+        <time datetime={event.start}>{formatEventDate(event.start, event.end)}</time>
+      </span>
+    </p>
+    <p class="flex gap-3">
+      <Icon name="clock" class="icon text-terracotta-text" />
+      <span>{formatEventTime(event.start, event.end, event.allDay)}</span>
+    </p>
+    {where && (
+      <p class="flex gap-3">
+        <Icon name="pin" class="icon text-terracotta-text" />
+        <span>{where}</span>
+      </p>
+    )}
+    <a href="/agenda.ics" class="link-more">
+      Ajouter l’agenda à mon calendrier
+    </a>
+  </aside>
+</article>

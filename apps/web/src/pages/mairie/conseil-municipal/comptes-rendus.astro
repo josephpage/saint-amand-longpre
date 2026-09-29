@@ -1,0 +1,71 @@
+---
+import Icon from '~/components/Icon.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import Prose from '~/components/Prose.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { breadcrumb, getContent } from '~/lib/content/index.ts';
+import { formatDate } from '~/lib/dates.ts';
+import { SECTION_LABELS } from '~/lib/navigation.ts';
+
+const content = await getContent();
+const meetings = [...content.meetings].sort((a, b) => b.date.localeCompare(a.date));
+const years = [...new Set(meetings.map((m) => m.date.slice(0, 4)))];
+const path = '/mairie/conseil-municipal/comptes-rendus/';
+---
+
+<BaseLayout
+  title="Comptes rendus du conseil municipal"
+  description="Les comptes rendus des séances du conseil municipal de Saint-Amand-Longpré."
+>
+  <PageHeader
+    title="Comptes rendus du conseil municipal"
+    crumbs={breadcrumb(content.pages, path, SECTION_LABELS)}
+    intro="Le compte rendu de chaque séance est publié après son approbation. Les délibérations et arrêtés sont consultables dans la rubrique dédiée."
+  />
+  <div class="container-site grid gap-10 py-10 lg:grid-cols-[12rem_1fr]" data-pagefind-body>
+    {years.length > 1 && (
+      <nav aria-label="Années" class="lg:sticky lg:top-24 lg:self-start">
+        <ul class="flex flex-wrap gap-2 lg:flex-col">
+          {years.map((year) => (
+            <li>
+              <a href={`#annee-${year}`} class="btn-ghost">
+                {year}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )}
+    <div class="grid gap-10">
+      {meetings.length === 0 && <p class="text-muted">Aucun compte rendu publié pour le moment.</p>}
+      {years.map((year) => (
+        <section id={`annee-${year}`} aria-labelledby={`titre-${year}`}>
+          <h2 id={`titre-${year}`} class="mb-4 text-2xl">
+            {year}
+          </h2>
+          <ul class="card divide-y divide-trait">
+            {meetings
+              .filter((m) => m.date.startsWith(year))
+              .map((meeting) => (
+                <li class="flex flex-wrap items-center gap-x-4 gap-y-2 p-4">
+                  <Icon name="file" class="icon text-terracotta-text" />
+                  <div class="min-w-0 flex-1">
+                    <p class="font-semibold">Séance du {formatDate(meeting.date)}</p>
+                    {meeting.html && <Prose html={meeting.html} class="mt-1 text-sm text-muted" />}
+                  </div>
+                  {meeting.report ? (
+                    <a href={meeting.report.url} class="link-more">
+                      <Icon name="download" class="icon size-4" /> Compte rendu (PDF)
+                      <span class="sr-only"> de la séance du {formatDate(meeting.date)}</span>
+                    </a>
+                  ) : (
+                    <span class="text-sm text-muted">Compte rendu à venir</span>
+                  )}
+                </li>
+              ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

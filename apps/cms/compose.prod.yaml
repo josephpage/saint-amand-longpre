@@ -1,0 +1,152 @@
+# WordPress headless en production (serveur dédié).
+#
+# Aucun port n'est ouvert sur le serveur : Cloudflare Tunnel (cloudflared) relie
+# cms.saintamandlongpre.fr au conteneur WordPress. L'administration (/wp-admin,
+# /wp-login.php) est protégée par Cloudflare Access (voir docs/runbook.md).
+#
+#   cp .env.prod.example .env.prod   # puis renseigner les valeurs
+#   docker compose -f compose.prod.yaml --env-file .env.prod up -d
+#   docker compose -f compose.prod.yaml --env-file .env.prod run --rm wpcli sh /scripts/setup.sh
+name: sal-cms
+
+x-db-env: &db-env
+  WORDPRESS_DB_HOST: db
+  WORDPRESS_DB_NAME: wordpress
+  WORDPRESS_DB_USER: wordpress
+  WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD manquant}
+
+services:
+  db:
+    image: mariadb:11.8
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?DB_ROOT_PASSWORD manquant}
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'healthcheck.sh', '--connect', '--innodb_initialized']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    labels:
+      # Sauvegarde cohérente : export SQL avant l'archivage des volumes.
+      docker-volume-backup.archive-pre: /bin/sh -c 'mariadb-dump --single-transaction -uroot -p"$$MARIADB_ROOT_PASSWORD" wordpress > /var/lib/mysql/sauvegarde.sql'
+
+  wordpress:
+    image: wordpress:7.1.2-php8.3-apache
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      <<: *db-env
+      SAL_SITE_URL: https://www.saintamandlongpre.fr
+      SAL_PREVIEW_SECRET: ${PREVIEW_SECRET:?PREVIEW_SECRET manquant}
+      SAL_GITHUB_REPO: ${GITHUB_REPO:-}
+      SAL_GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+      WORDPRESS_AUTH_KEY: ${WP_AUTH_KEY:?}
+      WORDPRESS_SECURE_AUTH_KEY: ${WP_SECURE_AUTH_KEY:?}
+      WORDPRESS_LOGGED_IN_KEY: ${WP_LOGGED_IN_KEY:?}
+      WORDPRESS_NONCE_KEY: ${WP_NONCE_KEY:?}
+      WORDPRESS_AUTH_SALT: ${WP_AUTH_SALT:?}
+      WORDPRESS_SECURE_AUTH_SALT: ${WP_SECURE_AUTH_SALT:?}
+      WORDPRESS_LOGGED_IN_SALT: ${WP_LOGGED_IN_SALT:?}
+      WORDPRESS_NONCE_SALT: ${WP_NONCE_SALT:?}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_ENVIRONMENT_TYPE', 'production');
+        define('WP_HOME', 'https://cms.saintamandlongpre.fr');
+        define('WP_SITEURL', 'https://cms.saintamandlongpre.fr');
+        // Le tunnel Cloudflare termine le HTTPS.
+        if (($$_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https') { $$_SERVER['HTTPS'] = 'on'; }
+        define('FORCE_SSL_ADMIN', true);
+        define('DISALLOW_FILE_EDIT', true);
+        define('WP_AUTO_UPDATE_CORE', 'minor');
+        define('WP_POST_REVISIONS', 20);
+        define('SAL_SITE_URL', getenv('SAL_SITE_URL'));
+        define('SAL_PREVIEW_SECRET', getenv('SAL_PREVIEW_SECRET'));
+        define('SAL_GITHUB_REPO', getenv('SAL_GITHUB_REPO'));
+        define('SAL_GITHUB_TOKEN', getenv('SAL_GITHUB_TOKEN'));
+    volumes:
+      - wp:/var/www/html
+      - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+      - ./wordpress/php.ini:/usr/local/etc/php/conf.d/sal.ini:ro
+    healthcheck:
+      test:
+        ['CMD', 'curl', '-fsS', '-o', '/dev/null', 'http://localhost/wp-includes/images/blank.gif']
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+  # Tâches planifiées de WordPress (reconstruction du site après publication) :
+  # déclenchées toutes les minutes, indépendamment des visites.
+  cron:
+    image: wordpress:cli-2.12.0-php8.3
+    restart: unless-stopped
+    user: '33:33'
+    depends_on:
+      wordpress:
+        condition: service_healthy
+    environment:
+      <<: *db-env
+    volumes:
+      - wp:/var/www/html
+      - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+    entrypoint:
+      [
+        'sh',
+        '-c',
+        'while true; do wp cron event run --due-now --path=/var/www/html >/dev/null 2>&1; sleep 60; done',
+      ]
+
+  cloudflared:
+    image: cloudflare/cloudflared:2026.9.3
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${CLOUDFLARE_TUNNEL_TOKEN:?CLOUDFLARE_TUNNEL_TOKEN manquant}
+    depends_on:
+      - wordpress
+
+  # Sauvegarde quotidienne (base + médias) vers Cloudflare R2, 30 jours de rétention.
+  backup:
+    image: offen/docker-volume-backup:v2.49.1
+    restart: unless-stopped
+    environment:
+      BACKUP_CRON_EXPRESSION: '30 3 * * *'
+      BACKUP_FILENAME: sal-cms-%Y-%m-%dT%H-%M-%S.tar.gz
+      BACKUP_RETENTION_DAYS: '30'
+      BACKUP_PRUNING_PREFIX: sal-cms-
+      AWS_ENDPOINT: ${BACKUP_S3_ENDPOINT:?BACKUP_S3_ENDPOINT manquant}
+      AWS_S3_BUCKET_NAME: ${BACKUP_S3_BUCKET:?}
+      AWS_ACCESS_KEY_ID: ${BACKUP_S3_ACCESS_KEY:?}
+      AWS_SECRET_ACCESS_KEY: ${BACKUP_S3_SECRET_KEY:?}
+      GPG_PASSPHRASE: ${BACKUP_PASSPHRASE:?BACKUP_PASSPHRASE manquant}
+    volumes:
+      - db:/backup/db:ro
+      - wp:/backup/wordpress:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  wpcli:
+    image: wordpress:cli-2.12.0-php8.3
+    profiles: ['tools']
+    user: '33:33'
+    environment:
+      <<: *db-env
+      WP_URL: https://cms.saintamandlongpre.fr
+      WP_ADMIN_USER: ${WP_ADMIN_USER:-secretariat}
+      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD:?WP_ADMIN_PASSWORD manquant}
+      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL:?WP_ADMIN_EMAIL manquant}
+      WP_ENV: production
+      WP_CLI_CACHE_DIR: /tmp/wp-cli-cache
+    volumes:
+      - wp:/var/www/html
+      - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+      - ./scripts:/scripts:ro
+      - ./.data:/output
+
+volumes:
+  db:
+  wp:

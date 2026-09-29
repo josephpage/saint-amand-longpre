@@ -1,0 +1,76 @@
+---
+import PageHeader from '~/components/PageHeader.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { childrenOf, getContent, type Page } from '~/lib/content/index.ts';
+import { buildNavigation } from '~/lib/navigation.ts';
+
+const content = await getContent();
+const sections = buildNavigation(content.pages);
+const tree = (path: string): Page[] => childrenOf(content.pages, path);
+---
+
+<BaseLayout title="Plan du site">
+  <PageHeader
+    title="Plan du site"
+    crumbs={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Plan du site', href: '/plan-du-site/' },
+    ]}
+  />
+  <div class="container-site grid gap-10 py-10 md:grid-cols-2">
+    {sections.map((section) => (
+      <section>
+        <h2 class="text-2xl">
+          <a href={section.href} class="text-encre">
+            {section.label}
+          </a>
+        </h2>
+        <ul class="mt-3 grid gap-1.5 pl-1">
+          {section.items.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+              {tree(item.href).length > 0 && (
+                <ul class="mt-1 mb-2 grid gap-1 border-l border-trait pl-4 text-[0.95rem]">
+                  {tree(item.href).map((child) => (
+                    <li>
+                      <a href={child.path}>{child.title}</a>
+                      {tree(child.path).length > 0 && (
+                        <ul class="mt-1 grid gap-1 border-l border-trait pl-4 text-sm">
+                          {tree(child.path).map((c) => (
+                            <li>
+                              <a href={c.path}>{c.title}</a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+    <section>
+      <h2 class="text-2xl">Informations</h2>
+      <ul class="mt-3 grid gap-1.5">
+        <li>
+          <a href="/contact/">Contacter la mairie</a>
+        </li>
+        <li>
+          <a href="/recherche/">Rechercher</a>
+        </li>
+        <li>
+          <a href="/mentions-legales/">Mentions légales</a>
+        </li>
+        <li>
+          <a href="/donnees-personnelles/">Données personnelles</a>
+        </li>
+        <li>
+          <a href="/accessibilite/">Déclaration d’accessibilité</a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>

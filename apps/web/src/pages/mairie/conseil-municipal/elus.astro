@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import PageHeader from '~/components/PageHeader.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { breadcrumb, getContent, sortElected } from '~/lib/content/index.ts';
+import { SECTION_LABELS } from '~/lib/navigation.ts';
+
+const content = await getContent();
+const elected = sortElected(content.elected);
+const groups = [
+  { title: 'Le maire', list: elected.filter((e) => e.role === 'maire') },
+  { title: 'Les adjoints', list: elected.filter((e) => e.role === 'adjoint') },
+  { title: 'Les conseillers municipaux', list: elected.filter((e) => e.role === 'conseiller') },
+].filter((g) => g.list.length > 0);
+const path = '/mairie/conseil-municipal/elus/';
+---
+
+<BaseLayout
+  title="Les élus"
+  description="Le maire, les adjoints et les conseillers municipaux de Saint-Amand-Longpré."
+>
+  <PageHeader
+    title="Les élus"
+    crumbs={breadcrumb(content.pages, path, SECTION_LABELS)}
+    intro="Le conseil municipal de Saint-Amand-Longpré, avec les délégations de chacun."
+  />
+  <div class="container-site grid gap-12 py-10" data-pagefind-body>
+    {groups.map((group) => (
+      <section>
+        <h2 class="mb-5 text-2xl">{group.title}</h2>
+        <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {group.list.map((person) => (
+            <li class="card flex items-start gap-4 p-4">
+              {person.photo ? (
+                <Image
+                  src={person.photo.src}
+                  alt=""
+                  width={person.photo.width ?? 400}
+                  height={person.photo.height ?? 400}
+                  widths={[96, 192]}
+                  sizes="6rem"
+                  class="size-20 shrink-0 rounded-full object-cover"
+                />
+              ) : (
+                <span
+                  class="grid size-20 shrink-0 place-items-center rounded-full bg-sauge font-serif text-2xl font-semibold text-bocage"
+                  aria-hidden="true"
+                >
+                  {person.name
+                    .split(/[\s-]+/)
+                    .map((w) => w[0])
+                    .slice(0, 2)
+                    .join('')}
+                </span>
+              )}
+              <div>
+                <h3 class="text-lg leading-snug">{person.name}</h3>
+                <p class="text-sm font-bold text-terracotta-text">{person.title}</p>
+                {person.delegations && <p class="mt-1 text-sm text-muted">{person.delegations}</p>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+    <p>
+      <a href="/mairie/conseil-municipal/comptes-rendus/" class="link-more">
+        Consulter les comptes rendus du conseil municipal
+      </a>
+    </p>
+  </div>
+</BaseLayout>

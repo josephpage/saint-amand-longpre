@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+import type { News } from '~/lib/content/types.ts';
+import { formatDate } from '~/lib/dates.ts';
+import Icon from './Icon.astro';
+import PageHeader from './PageHeader.astro';
+import Prose from './Prose.astro';
+
+interface Props {
+  news: News;
+}
+const { news } = Astro.props;
+---
+
+<PageHeader
+  title={news.title}
+  eyebrow={news.category}
+  crumbs={[
+    { label: 'Accueil', href: '/' },
+    { label: 'Actualités', href: '/actualites/' },
+    { label: news.title, href: `/actualites/${news.slug}/` },
+  ]}
+>
+  <p class="mt-3 inline-flex items-center gap-2 text-muted">
+    <Icon name="calendar" class="icon size-5" />
+    Publiée le <time datetime={news.date}>{formatDate(news.date)}</time>
+  </p>
+</PageHeader>
+<article class="container-site grid gap-8 py-10 lg:grid-cols-[1fr_20rem]" data-pagefind-body>
+  <div class="min-w-0">
+    {news.image && (
+      <Image
+        src={news.image.src}
+        alt={news.image.alt}
+        width={news.image.width ?? 1200}
+        height={news.image.height ?? 800}
+        widths={[600, 1000, 1400]}
+        sizes="(min-width: 1024px) 44rem, 100vw"
+        loading="eager"
+        class="mb-8 max-h-[28rem] w-full rounded-card object-cover"
+      />
+    )}
+    <Prose html={news.html} />
+  </div>
+  <aside class="grid content-start gap-4" data-pagefind-ignore>
+    <a href="/actualites/" class="link-more">
+      <Icon name="arrow-right" class="icon size-4 rotate-180" /> Toutes les actualités
+    </a>
+  </aside>
+</article>

@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import type { News } from '~/lib/content/types.ts';
+import { formatDate } from '~/lib/dates.ts';
+import Icon from './Icon.astro';
+
+interface Props {
+  news: News;
+  headingLevel?: 'h2' | 'h3';
+  /** Charge l'image sans attendre (cartes visibles dès l'ouverture). */
+  eager?: boolean;
+}
+const { news, headingLevel: Heading = 'h3', eager = false } = Astro.props;
+---
+
+<article class="card group relative grid grid-cols-[7rem_1fr] overflow-hidden transition-transform hover:-translate-y-0.5 sm:flex sm:flex-col">
+  {news.image ? (
+    <Image
+      src={news.image.src}
+      alt=""
+      width={news.image.width ?? 800}
+      height={news.image.height ?? 600}
+      widths={[400, 800]}
+      sizes="(min-width: 1024px) 22rem, (min-width: 640px) 50vw, 100vw"
+      class="size-full object-cover sm:aspect-[4/3] sm:h-auto"
+      loading={eager ? 'eager' : 'lazy'}
+    />
+  ) : (
+    <div
+      class="grid size-full place-items-center bg-sauge text-bocage sm:aspect-[4/3]"
+      aria-hidden="true"
+    >
+      <Icon name="megaphone" class="icon size-8 stroke-[1.4] sm:size-12" />
+    </div>
+  )}
+  <div class="flex flex-1 flex-col gap-2 p-4">
+    <p class="eyebrow text-encre">{news.category}</p>
+    <Heading class="text-lg leading-snug">
+      <a
+        href={`/actualites/${news.slug}/`}
+        class="text-encre no-underline after:absolute after:inset-0 group-hover:underline"
+      >
+        {news.title}
+      </a>
+    </Heading>
+    {news.excerpt && <p class="line-clamp-3 hidden text-sm text-muted sm:block">{news.excerpt}</p>}
+    <p class="mt-auto inline-flex items-center gap-1.5 pt-1 text-sm text-muted">
+      <Icon name="calendar" class="icon size-4" />
+      <time datetime={news.date}>{formatDate(news.date)}</time>
+    </p>
+  </div>
+</article>

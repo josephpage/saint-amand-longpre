@@ -1,0 +1,62 @@
+---
+import type { GetStaticPaths, Page as Paginated } from 'astro';
+import Icon from '~/components/Icon.astro';
+import NewsCard from '~/components/NewsCard.astro';
+import PageHeader from '~/components/PageHeader.astro';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { getContent, latestNews, type News } from '~/lib/content/index.ts';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const content = await getContent();
+  return paginate(latestNews(content.news, content.news.length), { pageSize: 12 });
+}) satisfies GetStaticPaths;
+
+interface Props {
+  page: Paginated<News>;
+}
+const { page } = Astro.props;
+const title = page.currentPage === 1 ? 'Actualités' : `Actualités, page ${page.currentPage}`;
+---
+
+<BaseLayout
+  title={title}
+  description="Les dernières nouvelles de la commune de Saint-Amand-Longpré."
+>
+  <PageHeader
+    title="Actualités"
+    crumbs={[
+      { label: 'Accueil', href: '/' },
+      { label: 'Actualités', href: '/actualites/' },
+    ]}
+    intro="Les nouvelles de la mairie, des associations et de la vie locale."
+  />
+  <div class="container-site py-10">
+    <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {page.data.map((news, index) => (
+        <li class="flex">
+          <NewsCard news={news} headingLevel="h2" eager={index < 3} />
+        </li>
+      ))}
+    </ul>
+    {page.lastPage > 1 && (
+      <nav
+        aria-label="Pages des actualités"
+        class="mt-10 flex flex-wrap items-center justify-center gap-2"
+      >
+        {page.url.prev && (
+          <a href={page.url.prev} class="btn-ghost" rel="prev">
+            <Icon name="arrow-right" class="icon size-4 rotate-180" /> Plus récentes
+          </a>
+        )}
+        <p class="px-3 text-sm text-muted">
+          Page {page.currentPage} sur {page.lastPage}
+        </p>
+        {page.url.next && (
+          <a href={page.url.next} class="btn-ghost" rel="next">
+            Plus anciennes <Icon name="arrow-right" class="icon size-4" />
+          </a>
+        )}
+      </nav>
+    )}
+  </div>
+</BaseLayout>
