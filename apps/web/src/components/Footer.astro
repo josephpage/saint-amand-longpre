@@ -2,6 +2,7 @@
 import type { Settings } from '~/lib/content/types.ts';
 import { summarizeHours } from '~/lib/hours.ts';
 import Icon from './Icon.astro';
+import Blason from './Blason.astro';
 import Logo from './Logo.astro';
 
 interface Props {
@@ -15,7 +16,7 @@ const year = new Date().getFullYear();
 <footer class="mt-16 bg-nuit text-nuit-text">
   <div class="container-site grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.3fr]">
     <div>
-      <Logo class="h-14 w-28 text-nuit-text" />
+      <Blason class="h-20 w-auto" />
       <p class="mt-3 font-serif text-2xl font-semibold">Saint-Amand-Longpré</p>
       <p class="text-xs tracking-[0.2em] text-nuit-muted uppercase">Loir-et-Cher</p>
       <address class="mt-5 text-sm leading-relaxed not-italic">

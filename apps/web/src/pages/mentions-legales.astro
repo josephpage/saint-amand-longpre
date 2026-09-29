@@ -2,7 +2,7 @@
 import PageHeader from '~/components/PageHeader.astro';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { getContent } from '~/lib/content/index.ts';
-import { LEGAL } from '~/site.config.ts';
+import { BLASON, LEGAL } from '~/site.config.ts';
 
 const { settings, elected } = await getContent();
 const mayor = elected.find((e) => e.role === 'maire');
@@ -49,6 +49,18 @@ const mayor = elected.find((e) => e.role === 'maire');
     <p>
       Fonds de carte : © contributeurs{' '}
       <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, sous licence ODbL.
+    </p>
+    <h2>Crédits</h2>
+    <p>
+      {`Blason de Saint-Amand-Longpré (${BLASON.blazon}) : fichier « `}
+      <a href={BLASON.sourceUrl}>{BLASON.title}</a>
+      {' » par '}
+      <a href={BLASON.authorUrl}>{BLASON.author}</a>
+      {', publié sur Wikimedia Commons sous licence '}
+      <a href={BLASON.licenseUrl}>
+        {`Creative Commons Attribution – Partage dans les mêmes conditions 3.0 (${BLASON.license})`}
+      </a>
+      {'. Le fichier est utilisé sans modification.'}
     </p>
     <h2>Données personnelles et cookies</h2>
     <p>

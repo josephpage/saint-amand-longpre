@@ -1,0 +1,17 @@
+---
+/**
+ * Blason officiel de la commune (« foliolé d'or et de gueules »).
+ * Fichier de Spedona, Wikimedia Commons, licence CC BY-SA 3.0, utilisé sans
+ * modification : le crédit figure dans les mentions légales (voir BLASON).
+ */
+import { BLASON } from '~/site.config.ts';
+
+interface Props {
+  class?: string;
+  /** Texte alternatif ; vide quand le nom de la commune est écrit à côté. */
+  alt?: string;
+}
+const { class: className = 'h-11 w-auto', alt = '' } = Astro.props;
+---
+
+<img src={BLASON.src} alt={alt} width="600" height="660" decoding="async" class={className} />

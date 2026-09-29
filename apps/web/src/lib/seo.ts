@@ -1,4 +1,4 @@
-import { LEGAL } from '../site.config.ts';
+import { BLASON, LEGAL } from '../site.config.ts';
 import type { Event, News, Settings } from './content/types.ts';
 
 const DAY_URIS = ['', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -12,6 +12,7 @@ export function governmentOffice(settings: Settings, site: URL) {
     url: site.toString(),
     telephone: settings.phone,
     email: LEGAL.email,
+    logo: new URL(BLASON.src, site).toString(),
     address: {
       '@type': 'PostalAddress',
       streetAddress: settings.street,

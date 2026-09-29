@@ -61,3 +61,27 @@ test.describe('Référencement', () => {
     );
   });
 });
+
+test.describe('Blason', () => {
+  test('figure dans l’en-tête et le pied de page', async ({ page }) => {
+    await page.goto('/');
+    const src = '/images/blason-saint-amand-longpre.svg';
+    await expect(page.locator(`header img[src="${src}"]`)).toBeVisible();
+    await expect(page.locator(`footer img[src="${src}"]`)).toBeVisible();
+    await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', src);
+  });
+
+  test('est crédité conformément à sa licence', async ({ page }) => {
+    await page.goto('/mentions-legales/');
+    const credits = page.locator('p', { hasText: 'Blason de Saint-Amand-Longpré' });
+    await expect(credits.getByRole('link', { name: 'Spedona' })).toHaveAttribute(
+      'href',
+      /User:Spedona/,
+    );
+    await expect(credits.getByRole('link', { name: /CC BY-SA 3\.0/ })).toHaveAttribute(
+      'href',
+      /licenses\/by-sa\/3\.0/,
+    );
+    await expect(credits).toContainText('sans modification');
+  });
+});

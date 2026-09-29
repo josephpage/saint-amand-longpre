@@ -66,5 +66,8 @@ flowchart LR
 - **Pas de lettre d'information** au lancement (décision de périmètre).
 - **Pas de cookie** : Cloudflare Web Analytics et Turnstile n'en déposent pas ; aucun bandeau de
   consentement n'est nécessaire.
+- **Blason** : fichier officiel de Wikimedia Commons (Spedona, CC BY-SA 3.0), utilisé sans
+  modification comme logo et favicon ; crédit dans les mentions légales et
+  `apps/web/public/images/CREDITS.md`. Toute version modifiée doit rester sous CC BY-SA.
 - **Typographie** : Source Serif 4, Atkinson Hyperlegible Next (conçue pour la malvoyance) et Allura
   (devise), auto-hébergées via Fontsource.

@@ -1,7 +1,7 @@
 ---
 import type { NavSection } from '~/lib/navigation.ts';
 import Icon from './Icon.astro';
-import Logo from './Logo.astro';
+import Blason from './Blason.astro';
 
 interface Props {
   sections: NavSection[];
@@ -17,15 +17,15 @@ const isCurrent = (s: NavSection) =>
 ---
 
 <header class="sticky top-0 z-40 border-b border-trait bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85">
-  <div class="container-site flex items-center gap-3 py-3 lg:gap-5">
+  <div class="container-site flex items-center gap-2 py-3 min-[400px]:gap-3 lg:gap-5">
     <a
       href="/"
-      class="flex shrink-0 items-center gap-3 text-encre no-underline"
+      class="flex min-w-0 shrink-0 items-center gap-2 text-encre no-underline min-[400px]:gap-3"
       aria-label="Saint-Amand-Longpré, retour à l’accueil"
     >
-      <Logo class="hidden h-8 w-16 text-encre min-[400px]:block sm:h-9 sm:w-[72px]" />
+      <Blason class="h-9 w-auto shrink-0 min-[400px]:h-10 sm:h-11" />
       <span class="leading-none">
-        <span class="block font-serif text-base font-semibold whitespace-nowrap min-[400px]:text-lg sm:text-xl">
+        <span class="block font-serif text-[0.95rem] font-semibold whitespace-nowrap min-[400px]:text-lg sm:text-xl">
           Saint-Amand-Longpré
         </span>
         <span class="mt-1 block text-[0.7rem] tracking-[0.2em] text-muted uppercase">
