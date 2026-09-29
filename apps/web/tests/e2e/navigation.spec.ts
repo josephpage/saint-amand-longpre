@@ -15,6 +15,23 @@ test.describe('Navigation', () => {
     await expect(toggle).toBeFocused();
   });
 
+  test('ouvre un sous-menu au survol de la rubrique', async ({ page, isMobile }) => {
+    test.skip(isMobile, 'Menu déroulant réservé aux grands écrans');
+    await page.goto('/');
+    const toggle = page.getByRole('button', { name: 'Afficher le sous-menu Démarches' });
+    const menu = page.locator('#sous-menu-demarches');
+    await page
+      .getByRole('navigation', { name: 'Menu principal' })
+      .getByRole('link', { name: 'Démarches', exact: true })
+      .hover();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await menu.getByRole('link', { name: /[ÉE]tat civil/ }).hover();
+    await expect(menu).toBeVisible();
+    await page.mouse.move(5, 500);
+    await expect(menu).toBeHidden();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  });
+
   test('ouvre le menu mobile', async ({ page, isMobile }) => {
     test.skip(!isMobile, 'Menu mobile');
     await page.goto('/');

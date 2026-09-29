@@ -162,24 +162,39 @@ const isCurrent = (s: NavSection) =>
 
 <script>
   // Sous-menus du menu principal (motif « disclosure ») et menu mobile.
+  // Souris : le survol de la rubrique ouvre son sous-menu. Clavier et tactile : le bouton chevron.
   const toggles = document.querySelectorAll<HTMLButtonElement>('[data-menu-toggle]');
+  const setOpen = (btn: HTMLButtonElement, open: boolean) => {
+    btn.setAttribute('aria-expanded', String(open));
+    document.getElementById(btn.getAttribute('aria-controls')!)?.classList.toggle('hidden', !open);
+    btn.querySelector('svg')?.classList.toggle('rotate-180', open);
+    if (!open) delete btn.dataset.hover;
+  };
   const closeAll = (except?: HTMLButtonElement) => {
-    toggles.forEach((btn) => {
-      if (btn === except) return;
-      btn.setAttribute('aria-expanded', 'false');
-      document.getElementById(btn.getAttribute('aria-controls')!)?.classList.add('hidden');
-      btn.querySelector('svg')?.classList.remove('rotate-180');
-    });
+    toggles.forEach((btn) => btn !== except && setOpen(btn, false));
   };
   toggles.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const open = btn.getAttribute('aria-expanded') !== 'true';
+      // Un clic sur un sous-menu ouvert au survol le garde ouvert au lieu de le refermer.
+      const open = btn.dataset.hover === 'true' || btn.getAttribute('aria-expanded') !== 'true';
       closeAll(btn);
-      btn.setAttribute('aria-expanded', String(open));
-      document
-        .getElementById(btn.getAttribute('aria-controls')!)
-        ?.classList.toggle('hidden', !open);
-      btn.querySelector('svg')?.classList.toggle('rotate-180', open);
+      setOpen(btn, open);
+    });
+
+    const item = btn.closest<HTMLElement>('[data-menu]');
+    let closeTimer: ReturnType<typeof setTimeout> | undefined;
+    item?.addEventListener('pointerenter', (event) => {
+      if (event.pointerType !== 'mouse') return;
+      clearTimeout(closeTimer);
+      if (btn.getAttribute('aria-expanded') === 'true') return;
+      closeAll(btn);
+      setOpen(btn, true);
+      btn.dataset.hover = 'true';
+    });
+    item?.addEventListener('pointerleave', (event) => {
+      if (event.pointerType !== 'mouse' || btn.dataset.hover !== 'true') return;
+      // Court délai : le temps de rejoindre le sous-menu, séparé de la rubrique par une marge.
+      closeTimer = setTimeout(() => setOpen(btn, false), 250);
     });
   });
   document.addEventListener('keydown', (event) => {
