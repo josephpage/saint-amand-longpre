@@ -91,7 +91,9 @@ l'administration le nombre d'actualités (≈ 135), de séances (≈ 195) et d'�
 2. GitHub → Settings → Environments → créer **production** :
    - secrets `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` ;
    - variables `TURNSTILE_SITE_KEY`, `CF_BEACON_TOKEN`.
-3. Actions → **Déploiement** → « Run workflow ». Le premier déploiement crée le Worker et attache
+3. Settings → Secrets and variables → Actions → Variables : créer `DEPLOY_ENABLED` = `true`
+   (tant qu'elle est absente, le workflow de déploiement ne s'exécute pas).
+   Puis Actions → **Déploiement** → « Run workflow ». Le premier déploiement crée le Worker et attache
    les domaines `www.saintamandlongpre.fr` et `saintamandlongpre.fr` (déclarés dans
    `wrangler.jsonc`) avec certificats HTTPS.
 4. Jeton GitHub pour WordPress : fine-grained token limité au dépôt, permission

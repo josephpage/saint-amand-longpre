@@ -22,6 +22,8 @@ permissions:
 jobs:
   deploy:
     name: Build et publication
+    # Activé une fois la production prête (variable de dépôt DEPLOY_ENABLED = true, voir docs/runbook.md).
+    if: vars.DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
     environment: production
     env:
